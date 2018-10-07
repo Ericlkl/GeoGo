@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" automaticSigning="False" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/DataListPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/DataListPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/DataListPage.xaml.cs" Line="26" Column="9" />
-      <File FileName="GeoGo/DataListPage.xaml" Line="22" Column="33" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml" Line="4" Column="14" />
+      <File FileName="GeoGo/ViewModel/DataListPage.xaml.cs" Line="27" Column="10" />
+      <File FileName="GeoGo/ViewModel/DataListPage.xaml" Line="6" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
