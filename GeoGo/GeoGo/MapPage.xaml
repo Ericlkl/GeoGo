@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              xmlns:local="clr-namespace:GeoGo"
-             x:Class="GeoGo.MapPage">
+             x:Class="GeoGo.MapPage"
+             NavigationPage.HasNavigationBar="false"
+             >
     <ContentPage.Content>
         <StackLayout>
-         <maps:Map WidthRequest="500" 
-                 HeightRequest="500"
-                 x:Name="myMap"
-                 IsShowingUser="true"
-                 MapType="Street"
-                 />
+         <maps:Map x:Name="myMap"
+                   IsShowingUser="true"
+                   MapType="Street" />
         <Button Clicked="Handle_Clicked" Text="Redirect"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -15,4 +15,8 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="3.2.0.871581" />
     <PackageReference Include="Xamarin.Essentials" Version="0.10.0-preview" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="View\" />
+  </ItemGroup>
 </Project>

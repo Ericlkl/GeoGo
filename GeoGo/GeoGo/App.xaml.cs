@@ -11,7 +11,7 @@ namespace GeoGo
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MapPage());
+            MainPage = new NavigationPage(new DataListPage());
         }
 
         protected override void OnStart()
