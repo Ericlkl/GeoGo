@@ -1,17 +1,12 @@
-﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default">
-  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/MainPage.xaml.cs">
-    <Files>
-      <File FileName="GeoGo/MainPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="GeoGo/MainPage.xaml" Line="12" Column="15" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" automaticSigning="False" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GeoGo.UITests FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.GeoGo.UITests PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
   <MultiItemStartupConfigurations />
 </Properties>

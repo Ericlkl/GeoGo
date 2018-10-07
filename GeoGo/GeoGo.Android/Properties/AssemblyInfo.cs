@@ -16,6 +16,13 @@ using Android.App;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 
+// If we wanna use Xamarin Forms Map , we need to add these info, but you can't find it in the document
+[assembly: UsesPermission(Android.Manifest.Permission.AccessCoarseLocation)]
+[assembly: UsesPermission(Android.Manifest.Permission.AccessFineLocation)]
+[assembly: UsesFeature("android.hardware.location", Required = true)]
+[assembly: UsesFeature("android.hardware.location.gps", Required = true)]
+[assembly: UsesFeature("android.hardware.location.network", Required = true)]
+
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
