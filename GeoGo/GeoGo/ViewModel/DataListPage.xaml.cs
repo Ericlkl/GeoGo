@@ -34,6 +34,7 @@ namespace GeoGo
         {
             // Send the selected Item information to description page
             Navigation.PushAsync(new InformationPage( (GeoData)e.Item ));
+
             // Deactive the selected effect on the list
             ((ListView)sender).SelectedItem = null;
         }

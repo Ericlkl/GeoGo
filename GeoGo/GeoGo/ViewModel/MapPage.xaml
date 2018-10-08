@@ -11,8 +11,12 @@
          <maps:Map x:Name="myMap"
                    IsShowingUser="true"
                    MapType="Street" />
-        <Button Clicked="Test_Redirect" Text="Redirect"/>
-        <Button Clicked="Test_DropPin" Text="Drop Pin"/>
+            
+        <Button Clicked="Test_Redirect" 
+                Text="Redirect"/>
+            
+        <Button Clicked="Test_DropPin" 
+                Text="Drop Pin"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
