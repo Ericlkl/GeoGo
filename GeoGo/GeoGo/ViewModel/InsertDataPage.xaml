@@ -4,57 +4,61 @@
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.ViewModel.InsertDataPage">
     <ContentPage.Content>
-
-     <StackLayout>
-            <Label Text="Object Name : "/>
-            
-            <Entry Keyboard="Text" 
-                   Placeholder="e.g. Pinetree" 
-                   x:Name="name_Entry"/>
-            
-            <Label Text="Type :"/>
-            <Entry Keyboard="Text" 
-                   Placeholder="e.g. Plant " 
-                   x:Name="type_Entry"/>
-            
-            <Label Text="Provider :"/>
-            
-            <Entry Keyboard="Text"
-                   Placeholder="e.g. John Doe "
-                   x:Name="provider_Entry"/>
-            
-            <StackLayout x:Name="CoordinateStack">
+    <ScrollView>
+       <StackLayout>
+                <Label Text="Object Name : "/>
                 
-                <Label Text="Coordinate :"/>
+                <Entry Keyboard="Text" 
+                       Placeholder="e.g. Pinetree" 
+                       x:Name="name_Entry"/>
                 
-                <Entry Keyboard="Numeric"
-                       Placeholder="latitude "
-                       x:Name="latitude_Entry"/>
-                    
-                <Entry Keyboard="Numeric"
-                       Placeholder="longitude"
-                       x:Name="longitude_Entry"/>
+                <Label Text="Type :"/>
+                <Entry Keyboard="Text" 
+                       Placeholder="e.g. Plant " 
+                       x:Name="type_Entry"/>
                 
-                <Button Text="Autofill my Coordinate"
-                        Clicked="AutoFillBtn_Clicked"
-                        />
-            
-            </StackLayout>
-            
-            <StackLayout x:Name="DescriptionStack">
-                <Label Text="Description :"/>
+                <Label Text="Provider :"/>
+                
                 <Entry Keyboard="Text"
-                       Placeholder="Description Label Name"
-                       x:Name="description_Name_Entry"/>
+                       Placeholder="e.g. John Doe "
+                       x:Name="provider_Entry"/>
+                
+                <StackLayout x:Name="CoordinateStack">
                     
-                <Entry Keyboard="Text"
-                       Placeholder="Description Value"
-                       x:Name="description_Value_Entry"/>    
+                    <Label Text="Coordinate :"/>
+                    
+                    <Entry Keyboard="Numeric"
+                           Placeholder="latitude "
+                           MaxLength="20"
+                           x:Name="latitude_Entry"/>
+                        
+                    <Entry Keyboard="Numeric"
+                           Placeholder="longitude"
+                           MaxLength="20"
+                           x:Name="longitude_Entry"/>
+                    
+                    <Button Text="Autofill my Coordinate"
+                            Clicked="AutoFillBtn_Clicked"
+                            />
+                
+                </StackLayout>
+                
+                <StackLayout x:Name="DescriptionStack">
+                    <Label Text="Description :"/>
+                    <Entry Keyboard="Text"
+                           Placeholder="Description Label Name"
+                           x:Name="description_Name_Entry"/>
+                        
+                    <Entry Keyboard="Text"
+                           Placeholder="Description Value"
+                           x:Name="description_Value_Entry"/>    
+                </StackLayout>
+                
+               <Button Text="Submit"
+                       Clicked="SubmitBtn_Clicked"/>
+                
             </StackLayout>
-            
-           <Button Text="Submit"
-                   Clicked="SubmitBtn_Clicked"/>
-            
-        </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

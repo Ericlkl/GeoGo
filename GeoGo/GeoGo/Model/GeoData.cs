@@ -9,6 +9,7 @@ namespace GeoGo.Model
         public string type { get; set; }
         public string provider { get; set; }
         public List<Coordinate> coordinates;
+        public Dictionary<String, String> description;
 
         // Need to fix it to detect the coordinates datatype to set it to Point/ Polygon / Line
         public string geometryShape;
@@ -26,6 +27,11 @@ namespace GeoGo.Model
                 this.geometryShape = "Line";
             else
                 this.geometryShape = "Polygon";
+        }
+
+        public void AddDescription(Dictionary<String,String> description)
+        {
+            this.description = description;
         }
 
     }

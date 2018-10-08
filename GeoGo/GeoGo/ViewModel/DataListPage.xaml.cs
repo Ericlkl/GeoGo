@@ -20,13 +20,11 @@ namespace GeoGo
         async void AddBtn_Clicked(object sender, System.EventArgs e)
         {
             //DisplayAlert("Success","You clicked the btn","OK");
-            var action = await DisplayActionSheet("Please Select geometry type", "Cancel", null, "Point", "Line", "Polygon");
-
-            // Display Selected Action
-            await DisplayAlert("You Selected", action, "Ok");
+            var geometryType = await DisplayActionSheet("Please Select geometry type", "Cancel", null, "Point", "Line", "Polygon");
 
             // Direct to Insert Data Page
-            await Navigation.PushAsync(new InsertDataPage());
+            if (geometryType != "Cancel")
+                await Navigation.PushAsync(new InsertDataPage(geometryType));
         }
 
         // When user clicked the GeoData Item on the list
@@ -45,6 +43,11 @@ namespace GeoGo
             // Point Test
             List<Coordinate> point = new List<Coordinate> {
                 new Coordinate(255.5 , -140.2)
+            };
+            Dictionary<String, String > desc1 = new Dictionary<String, String>
+            {
+                {"Height","14"},
+                {"Width","20"}
             };
 
             // Line Test
