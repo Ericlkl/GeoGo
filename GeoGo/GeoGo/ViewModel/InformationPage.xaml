@@ -1,5 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeoGo.ViewModel.InformationPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:GeoGo"
+             x:Class="GeoGo.ViewModel.InformationPage">
     <ContentPage.Content>
+        <StackLayout x:Name="stack" VerticalOptions="CenterAndExpand">
+            <Label x:Name="namelbl" Text="Name : "/>
+            <Label x:Name="typelbl" Text="Type : "/>
+            <Label x:Name="providerlbl" Text="Provider : "/>
+            <Label x:Name="shapelbl" Text="Geometry Shape :" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <ListView x:Name="listView" ItemTapped="Item_Tapped">
+        <ListView x:Name="listView" ItemTapped="ListviewItem_Tapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

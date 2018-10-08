@@ -8,14 +8,16 @@ namespace GeoGo
 {
     public partial class MapPage : ContentPage
     {
+        public double latitude;
+        public double longitude;
 
         public MapPage()
         {
             InitializeComponent();
-            RedirectMapToCurrentLocation();
+            UpdateCurrentLocation();
         }
 
-        public async void RedirectMapToCurrentLocation()
+        public async void UpdateCurrentLocation()
         {
             try
             {
@@ -23,7 +25,8 @@ namespace GeoGo
 
                 if (location != null)
                 {
-                    myMap.MoveToRegion(MapSpan.FromCenterAndRadius( new Position(location.Latitude, location.Longitude), Distance.FromMiles(0.3) ) );
+                    latitude = location.Latitude;
+                    longitude = location.Longitude;
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -44,9 +47,29 @@ namespace GeoGo
 
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        void Test_Redirect(object sender, System.EventArgs e)
         {
-            RedirectMapToCurrentLocation();
+            // Update latitude and longitude global value
+            UpdateCurrentLocation();
+            // Redirect the map to user current location
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitude, longitude), Distance.FromMiles(1)));
+        }
+
+
+        void Test_DropPin(object sender, System.EventArgs e)
+        {
+            // This function is a tester for droping pin. might change later
+            for (double index = 0; index < 0.1; index += 0.01){
+                var position = new Position(latitude + index, longitude); // Latitude, Longitude
+                var pin = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = position,
+                    Label = "Data Name",
+                    Address = "Data Description can put here"
+                };
+                myMap.Pins.Add(pin);
+            }
         }
     }
 }
