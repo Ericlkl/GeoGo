@@ -4,7 +4,7 @@
     <Files>
       <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="55" Column="14" />
       <File FileName="GeoGo/ViewModel/DataListPage.xaml.cs" Line="41" Column="1" />
-      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml" Line="52" Column="22" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml" Line="57" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
