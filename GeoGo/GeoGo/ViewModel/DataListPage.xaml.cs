@@ -49,8 +49,8 @@ namespace GeoGo
                 conn.CreateTable<Coordinate>();
 
                 //Delete Database Data
-                conn.Execute("DELETE FROM GeoData");
-                conn.Execute("DELETE FROM Coordinate");
+                //conn.Execute("DELETE FROM GeoData");
+                //conn.Execute("DELETE FROM Coordinate");
 
 
                 var dataSet = conn.GetAllWithChildren<GeoData>();
