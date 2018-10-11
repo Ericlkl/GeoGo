@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using GeoGo.Model;
 using GeoGo.ViewModel;
-
+using SQLite;
 using Xamarin.Forms;
+using SQLiteNetExtensions.Extensions;
 
 namespace GeoGo
 {
@@ -13,7 +14,6 @@ namespace GeoGo
         public DataListPage()
         {
             InitializeComponent();
-            ConnectItemSource();
         }
 
         // activate when the user clicked the
@@ -37,40 +37,26 @@ namespace GeoGo
             ((ListView)sender).SelectedItem = null;
         }
 
-        void ConnectItemSource(){
-            // Simple Data example, might be delete later. after the local storage function is works
 
-            // Point Test
-            List<Coordinate> point = new List<Coordinate> {
-                new Coordinate(255.5 , -140.2)
-            };
-            Dictionary<String, String > desc1 = new Dictionary<String, String>
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
-                {"Height","14"},
-                {"Width","20"}
-            };
 
-            // Line Test
-            List<Coordinate> line = new List<Coordinate> {
-                new Coordinate(255.5 , -140.2),
-                new Coordinate(340.2 , -117.4)
-            };
+                conn.CreateTable<GeoData>();
+                conn.CreateTable<Coordinate>();
 
-            // Polygon Test
-            List<Coordinate> polygon = new List<Coordinate> {
-                new Coordinate(255.5 , -140.2),
-                new Coordinate(340.2 , -117.4),
-                new Coordinate(300.2 , 340.11)
-            };
+                //Delete Database Data
+                //conn.Execute("DELETE FROM GeoData");
+                //conn.Execute("DELETE FROM Coordinate");
 
-            // Data list init
-            List<GeoData> DataList = new List<GeoData> { 
-                new GeoData("PineTree1","Planet","Eric Lee", point),
-                new GeoData("PineTree2","Planet","ZiJun Lu", line),
-                new GeoData("PineTree1","Planet","Jeffrey Lau", polygon)
-            };
-            // Binding the data to datalist
-            listView.ItemsSource = DataList;
+
+                var dataSet = conn.GetAllWithChildren<GeoData>();
+
+                listView.ItemsSource = dataSet;
+            }
         }
     }
 }

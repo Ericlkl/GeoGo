@@ -12,6 +12,7 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="3.2.0.871581" />
     <PackageReference Include="Xamarin.Essentials" Version="0.10.0-preview" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />

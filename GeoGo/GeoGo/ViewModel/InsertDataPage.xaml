@@ -43,17 +43,6 @@
                 
                 </StackLayout>
                 
-                <StackLayout x:Name="DescriptionStack">
-                    <Label Text="Description :"/>
-                    <Entry Keyboard="Text"
-                           Placeholder="Description Label Name"
-                           x:Name="description_Name_Entry"/>
-                        
-                    <Entry Keyboard="Text"
-                           Placeholder="Description Value"
-                           x:Name="description_Value_Entry"/>    
-                </StackLayout>
-                
                <Button Text="Submit"
                        Clicked="SubmitBtn_Clicked"/>
                 
