@@ -15,8 +15,6 @@
         <Button Clicked="Test_Redirect" 
                 Text="Redirect"/>
             
-        <Button Clicked="Test_DropPin" 
-                Text="Drop Pin"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

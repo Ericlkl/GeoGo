@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.ViewModel.InsertDataPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="SubmitBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
+        
     <ScrollView>
        <StackLayout>
                 <Label Text="Object Name : "/>
@@ -42,9 +48,6 @@
                             />
                 
                 </StackLayout>
-                
-               <Button Text="Submit"
-                       Clicked="SubmitBtn_Clicked"/>
                 
             </StackLayout>
         </ScrollView>

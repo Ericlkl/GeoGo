@@ -4,6 +4,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using GeoGo.Model;
 
+using SQLite;
+using SQLiteNetExtensions.Extensions;
+
 namespace GeoGo
 {
     public partial class MapPage : ContentPage
@@ -13,6 +16,12 @@ namespace GeoGo
         {
             InitializeComponent();
             RedirectMapToCurrentLocation();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            DisplayAllTheDataFromDatabase();
         }
 
         // Function for direct the map back to user location
@@ -40,22 +49,29 @@ namespace GeoGo
             myMap.Pins.Add(pin);
         }
 
+
+        void DisplayAllTheDataFromDatabase()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+
+                conn.CreateTable<GeoData>();
+                conn.CreateTable<Coordinate>();
+
+                var dataSet = conn.GetAllWithChildren<GeoData>();
+
+                dataSet.ForEach((GeoData obj) =>
+                {
+                    DropPin(obj.coordinates[0].latitude, obj.coordinates[0].longitude, obj.name, obj.type);
+                });
+            }
+        }
+
         // ReDirect Button clicked
         void Test_Redirect(object sender, System.EventArgs e)
         {
             RedirectMapToCurrentLocation();
         }
 
-        // Test Button Clicked
-        void Test_DropPin(object sender, System.EventArgs e)
-        {
-            // Update Current Location
-            UserLocation.mylocation.UpdateMyCoordinate();
-
-            // This function is a tester for droping pin. might change later
-            for (double index = 0; index < 0.1; index += 0.01){
-                DropPin(UserLocation.mylocation.latitude + index, UserLocation.mylocation.longitude, "Data Name", "Data Description");
-            }
-        }
     }
 }
