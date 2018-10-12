@@ -46,10 +46,11 @@ namespace GeoGo
         }
 
         //Just a Beta function for development
-        void CleanBtn_Clicked(object sender, System.EventArgs e)
+        async void CleanBtn_Clicked(object sender, System.EventArgs e)
         {
-
-            LocalDatabase.CleanAllDataInTable();
+            string deleteDecision = await DisplayActionSheet("Alert !! Are you sure? All the data will be lose. it can not be recover anymore", "Cancel", null, "Confirm");
+            if (deleteDecision == "Confirm")
+                LocalDatabase.CleanAllDataInTable();
             OnAppearing();
         }
     }

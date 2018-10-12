@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using GeoGo.Model;
 
 
@@ -70,9 +71,13 @@ namespace GeoGo.ViewModel
         {
             Navigation.PushAsync(new InsertPropertyPage(geodata));
         }
-        void NavBtn_Clicked(object sender, System.EventArgs e)
+
+        async void NavBtn_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new InsertPropertyPage(geodata));
+            var location = new Location(geodata.Coordinates[0].Latitude , geodata.Coordinates[0].Longitude);
+            var options = new MapsLaunchOptions { Name = geodata.Name, MapDirectionsMode = MapDirectionsMode.Walking };
+
+            await Maps.OpenAsync(location, options);
         }
 
     }
