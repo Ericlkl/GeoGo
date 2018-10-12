@@ -40,23 +40,10 @@ namespace GeoGo
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
-            {
-
-                conn.CreateTable<GeoData>();
-                conn.CreateTable<Coordinate>();
-
-                //Delete Database Data
-                //conn.Execute("DELETE FROM GeoData");
-                //conn.Execute("DELETE FROM Coordinate");
-
-
-                var dataSet = conn.GetAllWithChildren<GeoData>();
-
-                listView.ItemsSource = dataSet;
-            }
+            base.OnAppearing(); 
+            // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database
+            listView.ItemsSource = LocalDatabase.GetAllGeoDataSet();
         }
+
     }
 }

@@ -52,19 +52,13 @@ namespace GeoGo
 
         void DisplayAllTheDataFromDatabase()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            // Get All the Geodata from the database and loop it through one by one
+            LocalDatabase.GetAllGeoDataSet().ForEach((GeoData obj) =>
             {
-
-                conn.CreateTable<GeoData>();
-                conn.CreateTable<Coordinate>();
-
-                var dataSet = conn.GetAllWithChildren<GeoData>();
-
-                dataSet.ForEach((GeoData obj) =>
-                {
-                    DropPin(obj.coordinates[0].latitude, obj.coordinates[0].longitude, obj.name, obj.type);
-                });
-            }
+                // Droping pin allocating to this geodata
+                DropPin(obj.Coordinates[0].Latitude, obj.Coordinates[0].Longitude, obj.Name, obj.Type);
+            });
+           
         }
 
         // ReDirect Button clicked

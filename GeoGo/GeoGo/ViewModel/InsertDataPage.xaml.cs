@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using SQLite;
-
 using Xamarin.Forms;
 using GeoGo.Model;
-using SQLiteNetExtensions.Extensions;
 
 namespace GeoGo.ViewModel
 {
     public partial class InsertDataPage : ContentPage
     {
-        public List<Entry> allInputEntry;
 
         public InsertDataPage(String geometryType)
         {
@@ -37,7 +33,7 @@ namespace GeoGo.ViewModel
         void SubmitBtn_Clicked(object sender, System.EventArgs e)
         {
             // Put all the entry to the list for checking validation
-            allInputEntry = new List<Entry> { name_Entry, type_Entry, provider_Entry, latitude_Entry, longitude_Entry};
+            var allInputEntry = new List<Entry> { name_Entry, type_Entry, provider_Entry, latitude_Entry, longitude_Entry};
 
             var validationChecker = 0;
 
@@ -55,40 +51,22 @@ namespace GeoGo.ViewModel
             }
             else
             {
-            
-                using (SQLiteConnection db = new SQLiteConnection(App.DatabaseLocation))
-                {
-                    db.CreateTable<GeoData>();
-                    db.CreateTable<Coordinate>();
+                // using all the information form entry field to create Coordinate and GeoData Object
+                Coordinate coor = new Coordinate( Convert.ToDouble(latitude_Entry.Text), Convert.ToDouble(longitude_Entry.Text) );
 
-                    // Copy details to create GeoData
-                    Coordinate coor = new Coordinate(Convert.ToDouble(latitude_Entry.Text), Convert.ToDouble(longitude_Entry.Text));
-                    db.Insert(coor);
+                GeoData data = new GeoData( name_Entry.Text, type_Entry.Text, provider_Entry.Text );
 
-                    GeoData data = new GeoData(
-                        name_Entry.Text,
-                        type_Entry.Text,
-                        provider_Entry.Text
-                    );
+                // Insert the Geodata into SQLite database and recieve the message
+                string msg = LocalDatabase.InsertNewGeodataToDB(coor, data);
 
-                    int rows = db.Insert(data);
+                //Display msg to the user
+                DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
 
-                    data.InsertCoordinate(new List<Coordinate> { coor }); 
-
-                    db.UpdateWithChildren(data);
-
-                    if (rows > 0)
-                        DisplayAlert("Success", "GeoData Insert Successfully", "Okay");
-                    else
-                        DisplayAlert("Fail", "GeoData Insert Fail", "Okay");
-
-                }
+            }
                 //Go Back to Previous Page
                 Navigation.PopAsync();
-            }
-
-
         }
 
     }
+
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using SQLite;
-using SQLiteNetExtensions;
 using SQLiteNetExtensions.Attributes;
 
 namespace GeoGo.Model
@@ -10,17 +9,17 @@ namespace GeoGo.Model
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         [NotNull]
-        public double latitude { get; set; }
+        public double Latitude { get; set; }
         [NotNull]
-        public double longitude { get; set; }
+        public double Longitude { get; set; }
 
         [ForeignKey(typeof(GeoData))]
         public int GeoDataID { get; set; }
 
         public Coordinate(double lat, double lon)
         {
-            this.latitude = lat;
-            this.longitude = lon;
+            this.Latitude = lat;
+            this.Longitude = lon;
         }
 
         // Only used for SQLite Can't delete

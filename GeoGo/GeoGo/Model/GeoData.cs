@@ -11,29 +11,30 @@ namespace GeoGo.Model
         public int Id { get; set; }
 
         [MaxLength (50)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [MaxLength(20)]
-        public string type { get; set; }
+        public string Type { get; set; }
 
         [MaxLength(30)]
-        public string provider { get; set; }
+        public string Provider { get; set; }
 
         // Need to fix it to detect the coordinates datatype to set it to Point/ Polygon / Line
         [MaxLength(6)]
-        public string geometryShape { get; set; }
+        public string GeometryShape { get; set; }
 
         [OneToMany]
-        public List<Coordinate> coordinates { get; set; }
+        public List<Coordinate> Coordinates { get; set; }
 
-        //public Dictionary<String, String> description { get; set; }
+        //[OneToMany]
+        //public List<Description> Descriptions { get; set; }
 
 
         public GeoData(string name, string type, string provider)
         {
-            this.name = name;
-            this.type = type;
-            this.provider = provider;
+            this.Name = name;
+            this.Type = type;
+            this.Provider = provider;
         }
 
         // Only used for SQLite Can't delete
@@ -44,18 +45,17 @@ namespace GeoGo.Model
 
         public void InsertCoordinate(List<Coordinate> coordinates)
         {
-            this.coordinates = coordinates;
-            if (this.coordinates.Count == 1)
-                this.geometryShape = "Point";
-            else if (this.coordinates.Count == 2)
-                this.geometryShape = "Line";
+            this.Coordinates = coordinates;
+            if (this.Coordinates.Count == 1)
+                this.GeometryShape = "Point";
+            else if (this.Coordinates.Count == 2)
+                this.GeometryShape = "Line";
             else
-                this.geometryShape = "Polygon";
+                this.GeometryShape = "Polygon";
         }
 
-        //public void AddDescription(Dictionary<String,String> description)
-        //{
-        //    this.description = description;
+        //public void InsertDescription(string desc_name, string desc_value){
+        //    this.Descriptions.Add(new Description(desc_name ,desc_value));
         //}
 
     }
