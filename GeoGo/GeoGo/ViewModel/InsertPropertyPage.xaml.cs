@@ -32,8 +32,8 @@ namespace GeoGo.ViewModel
             var msg = LocalDatabase.InsertPropertyToGeodata( new Property(pname_Entry.Text, pvalue_Entry.Text) ,geodata);
             DisplayAlert($"{msg}", $"insert {msg}", "OKay");
 
-            var dataset = LocalDatabase.GetAllGeoDataSet();
-
+            if (msg == "Success")
+                Navigation.PopAsync();
         }
     }
 }

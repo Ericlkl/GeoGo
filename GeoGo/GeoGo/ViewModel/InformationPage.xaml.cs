@@ -11,6 +11,7 @@ namespace GeoGo.ViewModel
     public partial class InformationPage : ContentPage
     {
         private static GeoData geodata;
+        private StackLayout propertyStack = new StackLayout{};
 
         public InformationPage()
         {
@@ -21,9 +22,29 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             geodata = LocalDatabase.GetGeoDataById(data.Id);
+            displayBasicGeodataInformation();
         }
 
         protected override void OnAppearing()
+        {
+            // Loop Over Properties for this Geodata , and print all the properties as Label
+            geodata.Properties.ForEach((Property prop) =>
+                                   propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
+            );
+
+            DescriptionStack.Children.Add(propertyStack);
+            //Update Content
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            DescriptionStack.Children.Remove(propertyStack);
+            propertyStack = new StackLayout { };
+            base.OnDisappearing();
+        }
+
+        void displayBasicGeodataInformation()
         {
             namelbl.Text = $"Name : {geodata.Name}";
             typelbl.Text = $"Type : {geodata.Type}";
@@ -34,40 +55,25 @@ namespace GeoGo.ViewModel
             var index = 1;
 
             geodata.Coordinates.ForEach((Coordinate coor) => {
-                mainStack.Children.Add(new Label { Text = $"Coordinate {index} : {coor.Latitude} , {coor.Longitude}" });
+                DescriptionStack.Children.Add(new Label { Text = $"Coordinate {index} : {coor.Latitude} , {coor.Longitude}" });
                 index++;
             });
-
-            // Loop Over Properties for this Geodata , and print all the properties as Label
-            geodata.Properties.ForEach((Property prop) =>
-                                   mainStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
-            );
-
-            mainStack.Children.Add(AddButtonSet());
-
-            //Update Content
-            this.Content = mainStack;
-            base.OnAppearing();
         }
 
 
-        StackLayout AddButtonSet()
+        void AddPropBtn_Clicked(object sender, System.EventArgs e)
         {
-            Button addPropBtn = new Button { Text = "Add Properties", WidthRequest=120 };
-            addPropBtn.Clicked += (object sender, EventArgs e) => Navigation.PushAsync(new InsertPropertyPage(geodata));
-
-            Button EmailBtn = new Button { Text = "Send Email", WidthRequest = 120 };
-            EmailBtn.Clicked += (object sender, EventArgs e) => { };
-
-            Button NavigationBtn = new Button { Text = "Navigation", WidthRequest = 120 };
-            NavigationBtn.Clicked += (object sender, EventArgs e) => { };
-
-            StackLayout btnSetStack = new StackLayout { Orientation = StackOrientation.Horizontal };
-
-            btnSetStack.Children.Add(addPropBtn);
-            btnSetStack.Children.Add(EmailBtn);
-            btnSetStack.Children.Add(NavigationBtn);
-            return btnSetStack;
+            Navigation.PushAsync(new InsertPropertyPage(geodata));
         }
+
+        void EmailBtn_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new InsertPropertyPage(geodata));
+        }
+        void NavBtn_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new InsertPropertyPage(geodata));
+        }
+
     }
 }

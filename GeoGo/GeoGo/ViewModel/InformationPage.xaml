@@ -5,23 +5,36 @@
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.ViewModel.InformationPage">
     <ContentPage.Content>
-      <StackLayout Orientation="Vertical">
-            
-            <StackLayout x:Name="mainStack" 
+        <ScrollView>
+         <StackLayout Orientation="Vertical">
+            <StackLayout x:Name="DescriptionStack" 
                          Padding="20"
                          HorizontalOptions="Center" >
-                                
-                <Label x:Name="namelbl" Text="Name : "/>
+                                    
+                    <Label x:Name="namelbl" Text="Name : "/>
+                    
+                    <Label x:Name="typelbl" Text="Type : " />
+                    
+                    <Label x:Name="providerlbl" Text="Provider"/>
+                    
+                   <Label x:Name="shapelbl" Text="Geometry Shape :"/>
+            </StackLayout>
                 
-                <Label x:Name="typelbl" Text="Type : " />
+            <StackLayout Orientation="Horizontal">
+                <Button WidthRequest="120"
+                        Text="Add Properties" 
+                        Clicked="AddPropBtn_Clicked"/>
                 
-                <Label x:Name="providerlbl" Text="Provider"/>
+                <Button WidthRequest="120"
+                        Text="Send Email" 
+                        Clicked="EmailBtn_Clicked"/>
                 
-               <Label x:Name="shapelbl" Text="Geometry Shape :"/>
+                <Button WidthRequest="120"
+                        Text="Navigation" 
+                        Clicked="NavBtn_Clicked"/>
+            </StackLayout>
                 
             </StackLayout>
-            
-        </StackLayout>
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
