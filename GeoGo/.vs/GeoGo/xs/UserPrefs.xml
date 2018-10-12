@@ -1,6 +1,11 @@
 ﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" automaticSigning="False" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/InformationPage.xaml">
+    <Files>
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="25" Column="1" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="18" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

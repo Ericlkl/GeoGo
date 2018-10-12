@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:GeoGo"
+             x:Class="GeoGo.ViewModel.InsertPropertyPage">
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" 
+                     HorizontalOptions="Center">
+            <Label Text="Property Name : "/>
+            <Entry x:Name="pname_Entry" Placeholder="e.g. Height"/>
+            <Label Text="Property Value : " />
+            <Entry x:Name="pvalue_Entry" Placeholder=" e.g. 50" WidthRequest="300" />
+            <Button Text="Save" Clicked="SaveBtn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

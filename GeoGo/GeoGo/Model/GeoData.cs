@@ -26,15 +26,15 @@ namespace GeoGo.Model
         [OneToMany]
         public List<Coordinate> Coordinates { get; set; }
 
-        //[OneToMany]
-        //public List<Description> Descriptions { get; set; }
+        [OneToMany]
+        public List<Property> Properties { get; set; }
 
 
         public GeoData(string name, string type, string provider)
         {
-            this.Name = name;
-            this.Type = type;
-            this.Provider = provider;
+            Name = name;
+            Type = type;
+            Provider = provider;
         }
 
         // Only used for SQLite Can't delete
@@ -45,18 +45,18 @@ namespace GeoGo.Model
 
         public void InsertCoordinate(List<Coordinate> coordinates)
         {
-            this.Coordinates = coordinates;
-            if (this.Coordinates.Count == 1)
-                this.GeometryShape = "Point";
-            else if (this.Coordinates.Count == 2)
-                this.GeometryShape = "Line";
+            Coordinates = coordinates;
+            if (Coordinates.Count == 1)
+                GeometryShape = "Point";
+            else if (Coordinates.Count == 2)
+                GeometryShape = "Line";
             else
-                this.GeometryShape = "Polygon";
+                GeometryShape = "Polygon";
         }
 
-        //public void InsertDescription(string desc_name, string desc_value){
-        //    this.Descriptions.Add(new Description(desc_name ,desc_value));
-        //}
+        public void InsertDescription(string prop_name, string prop_value){
+            Properties.Add(new Property(prop_name ,prop_value));
+        }
 
     }
 }

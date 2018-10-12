@@ -3,18 +3,12 @@ using Xamarin.Essentials;
 
 namespace GeoGo.Model
 {
-    public class UserLocation
+    public static class UserLocation
     {
-        public double latitude;
-        public double longitude;
-        public static UserLocation mylocation = new UserLocation();
+        public static double Latitude;
+        public static double Longitude;
 
-        public UserLocation()
-        {
-            this.UpdateMyCoordinate();
-        } 
-
-        public async void UpdateMyCoordinate()
+        public static async void UpdateMyCoordinate()
         {
             try
             {
@@ -22,8 +16,8 @@ namespace GeoGo.Model
 
                 if (location != null)
                 {
-                    this.latitude = location.Latitude;
-                    this.longitude = location.Longitude;
+                    Latitude = location.Latitude;
+                    Longitude = location.Longitude;
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -42,7 +36,6 @@ namespace GeoGo.Model
                 Console.WriteLine(ex);
             }
         }
-
 
     }
 }

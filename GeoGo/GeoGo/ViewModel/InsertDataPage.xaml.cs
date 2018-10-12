@@ -7,7 +7,7 @@ namespace GeoGo.ViewModel
 {
     public partial class InsertDataPage : ContentPage
     {
-
+    
         public InsertDataPage(String geometryType)
         {
             InitializeComponent();
@@ -25,8 +25,9 @@ namespace GeoGo.ViewModel
 
         void AutoFillBtn_Clicked(object sender, System.EventArgs e)
         {
-            latitude_Entry.Text = $"{UserLocation.mylocation.latitude}";
-            longitude_Entry.Text = $"{UserLocation.mylocation.longitude}";
+            UserLocation.UpdateMyCoordinate();
+            latitude_Entry.Text = $"{UserLocation.Latitude}";
+            longitude_Entry.Text = $"{UserLocation.Longitude}";
         }
 
 

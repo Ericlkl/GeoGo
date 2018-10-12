@@ -46,7 +46,7 @@
                     <Button Text="Autofill my Coordinate"
                             Clicked="AutoFillBtn_Clicked"
                             />
-                
+
                 </StackLayout>
                 
             </StackLayout>

@@ -28,9 +28,9 @@ namespace GeoGo
         void RedirectMapToCurrentLocation()
         {
             // Update Current Location
-            UserLocation.mylocation.UpdateMyCoordinate();
+            UserLocation.UpdateMyCoordinate();
             // Redirect the map to user current location
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.mylocation.latitude, UserLocation.mylocation.longitude), Distance.FromMiles(1)));
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
         }
 
         //Function for Drop pin on the map 

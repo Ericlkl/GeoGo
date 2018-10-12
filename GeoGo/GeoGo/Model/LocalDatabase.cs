@@ -13,7 +13,7 @@ namespace GeoGo.Model
         {
             db.CreateTable<GeoData>();
             db.CreateTable<Coordinate>();
-            db.CreateTable<Description>();
+            db.CreateTable<Property>();
         }
 
         //Get ALL the Geodata from the database

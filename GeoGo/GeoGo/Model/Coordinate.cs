@@ -18,14 +18,11 @@ namespace GeoGo.Model
 
         public Coordinate(double lat, double lon)
         {
-            this.Latitude = lat;
-            this.Longitude = lon;
+            Latitude = lat;
+            Longitude = lon;
         }
 
         // Only used for SQLite Can't delete
-        public Coordinate()
-        {
-
-        }
+        public Coordinate(){}
     }
 }
