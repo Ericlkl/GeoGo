@@ -22,7 +22,18 @@ namespace GeoGo.ViewModel
 
         void SaveBtn_Clicked(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            // If one of the Entry Field is empty
+            if (string.IsNullOrWhiteSpace(pname_Entry.Text) || string.IsNullOrWhiteSpace(pvalue_Entry.Text))
+            {
+                DisplayAlert("Entry field Empty", "Entry field can not be empty", "Okay");
+                return;
+            }
+            
+            var msg = LocalDatabase.InsertPropertyToGeodata( new Property(pname_Entry.Text, pvalue_Entry.Text) ,geodata);
+            DisplayAlert($"{msg}", $"insert {msg}", "OKay");
+
+            var dataset = LocalDatabase.GetAllGeoDataSet();
+
         }
     }
 }

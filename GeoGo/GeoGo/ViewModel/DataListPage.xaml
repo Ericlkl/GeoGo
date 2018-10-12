@@ -9,6 +9,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"
                      Clicked="AddBtn_Clicked"/>
+        <ToolbarItem Text="Clean"
+                     Clicked="CleanBtn_Clicked" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

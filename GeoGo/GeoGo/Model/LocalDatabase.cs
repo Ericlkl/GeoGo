@@ -62,5 +62,31 @@ namespace GeoGo.Model
             }
         }
 
+        // Save the property information which related to the geoddata to the database
+        public static string InsertPropertyToGeodata(Property prop, GeoData data)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.DatabaseLocation))
+            {
+                CreateTables(db);
+                int rows = db.Insert(prop);
+
+                data.InsertProperty(prop);
+
+                db.UpdateWithChildren(data);
+
+                return rows > 0 ? "Success" : "Fail";
+
+            }
+        }
+
+        // Return the Geodata searching it by index
+        public static GeoData GetGeoDataById(int Id)
+        {
+            using (SQLiteConnection db = new SQLiteConnection(App.DatabaseLocation))
+            {
+                return db.GetWithChildren<GeoData>(Id);
+            }
+        }
+
     }
 }

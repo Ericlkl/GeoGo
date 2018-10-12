@@ -8,8 +8,10 @@ namespace GeoGo.Model
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+
         [MaxLength(20),NotNull]
         public string PropertyName { get; set; }
+
         [MaxLength(50), NotNull]
         public string PropertyValue { get; set; }
 
@@ -21,5 +23,7 @@ namespace GeoGo.Model
             PropertyName = propertyName;
             PropertyValue = propertyValue;
         }
+
+        public Property(){}
     }
 }

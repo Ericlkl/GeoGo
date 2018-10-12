@@ -38,11 +38,9 @@ namespace GeoGo.Model
         }
 
         // Only used for SQLite Can't delete
-        public GeoData()
-        {
+        public GeoData(){}
 
-        }
-
+        // Might need to change, something bad will happens here i guess
         public void InsertCoordinate(List<Coordinate> coordinates)
         {
             Coordinates = coordinates;
@@ -54,8 +52,8 @@ namespace GeoGo.Model
                 GeometryShape = "Polygon";
         }
 
-        public void InsertDescription(string prop_name, string prop_value){
-            Properties.Add(new Property(prop_name ,prop_value));
+        public void InsertProperty(Property prop){
+            Properties.Add(prop);
         }
 
     }

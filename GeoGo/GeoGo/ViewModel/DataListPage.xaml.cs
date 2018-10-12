@@ -41,9 +41,16 @@ namespace GeoGo
         protected override void OnAppearing()
         {
             base.OnAppearing(); 
-            // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database
+            // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database'
             listView.ItemsSource = LocalDatabase.GetAllGeoDataSet();
         }
 
+        //Just a Beta function for development
+        void CleanBtn_Clicked(object sender, System.EventArgs e)
+        {
+
+            LocalDatabase.CleanAllDataInTable();
+            OnAppearing();
+        }
     }
 }
