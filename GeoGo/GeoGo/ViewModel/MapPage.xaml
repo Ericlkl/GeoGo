@@ -8,13 +8,13 @@
              >
     <ContentPage.Content>
         <StackLayout>
-         <maps:Map x:Name="myMap"
+            <maps:Map x:Name="myMap"
                    IsShowingUser="true"
                    MapType="Street" />
-            
-        <Button Clicked="Test_Redirect" 
+
+            <Button Clicked="Test_Redirect" 
                 Text="Redirect"/>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

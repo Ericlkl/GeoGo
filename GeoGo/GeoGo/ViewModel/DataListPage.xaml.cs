@@ -31,7 +31,7 @@ namespace GeoGo
         void ListviewItem_Tapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             // Send the selected Item information to description page
-            Navigation.PushAsync(new InformationPage( (GeoData)e.Item ));
+            Navigation.PushAsync(new InformationPage((GeoData)e.Item));
 
             // Deactive the selected effect on the list
             ((ListView)sender).SelectedItem = null;
@@ -40,7 +40,7 @@ namespace GeoGo
 
         protected override void OnAppearing()
         {
-            base.OnAppearing(); 
+            base.OnAppearing();
             // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database'
             listView.ItemsSource = LocalDatabase.GetAllGeoDataSet();
         }

@@ -6,34 +6,34 @@
              x:Class="GeoGo.ViewModel.InformationPage">
     <ContentPage.Content>
         <ScrollView>
-         <StackLayout Orientation="Vertical">
-            <StackLayout x:Name="DescriptionStack" 
+            <StackLayout Orientation="Vertical">
+                <StackLayout x:Name="DescriptionStack" 
                          Padding="20"
                          HorizontalOptions="Center" >
-                                    
+
                     <Label x:Name="namelbl" Text="Name : "/>
-                    
+
                     <Label x:Name="typelbl" Text="Type : " />
-                    
+
                     <Label x:Name="providerlbl" Text="Provider"/>
-                    
-                   <Label x:Name="shapelbl" Text="Geometry Shape :"/>
-            </StackLayout>
-                
-            <StackLayout Orientation="Horizontal">
-                <Button WidthRequest="120"
+
+                    <Label x:Name="shapelbl" Text="Geometry Shape :"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Button WidthRequest="120"
                         Text="Add Properties" 
                         Clicked="AddPropBtn_Clicked"/>
-                
-                <Button WidthRequest="120"
+
+                    <Button WidthRequest="120"
                         Text="Send Email" 
                         Clicked="EmailBtn_Clicked"/>
-                
-                <Button WidthRequest="120"
+
+                    <Button WidthRequest="120"
                         Text="Navigation" 
                         Clicked="NavBtn_Clicked"/>
-            </StackLayout>
-                
+                </StackLayout>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

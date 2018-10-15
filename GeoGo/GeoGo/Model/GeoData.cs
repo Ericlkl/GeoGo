@@ -10,7 +10,7 @@ namespace GeoGo.Model
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        [MaxLength (50)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         [MaxLength(20)]
@@ -38,7 +38,7 @@ namespace GeoGo.Model
         }
 
         // Only used for SQLite Can't delete
-        public GeoData(){}
+        public GeoData() { }
 
         // Might need to change, something bad will happens here i guess
         public void InsertCoordinate(List<Coordinate> coordinates)
@@ -52,7 +52,8 @@ namespace GeoGo.Model
                 GeometryShape = "Polygon";
         }
 
-        public void InsertProperty(Property prop){
+        public void InsertProperty(Property prop)
+        {
             Properties.Add(prop);
         }
 

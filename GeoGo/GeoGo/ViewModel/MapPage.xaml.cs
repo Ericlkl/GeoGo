@@ -11,7 +11,7 @@ namespace GeoGo
 {
     public partial class MapPage : ContentPage
     {
-    
+
         public MapPage()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace GeoGo
                 // Droping pin allocating to this geodata
                 DropPin(obj.Coordinates[0].Latitude, obj.Coordinates[0].Longitude, obj.Name, obj.Type);
             });
-           
+
         }
 
         // ReDirect Button clicked

@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.MainPage"
              >
-    
-    <local:DataListPage Title="DataList"/>
-    <local:MapPage Title="Map"/>
+    <local:LoginPage Title="login22"/>
+
+   
 </TabbedPage>

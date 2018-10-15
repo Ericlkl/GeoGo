@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" automaticSigning="False" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/DataListPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/DataListPage.xaml.cs" Line="23" Column="132" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml" Line="53" Column="59" />
+      <File FileName="GeoGo/ViewModel/DataListPage.xaml.cs" Line="66" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

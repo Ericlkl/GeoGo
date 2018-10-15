@@ -7,7 +7,7 @@ namespace GeoGo.ViewModel
 {
     public partial class InsertDataPage : ContentPage
     {
-    
+
         public InsertDataPage(String geometryType)
         {
             InitializeComponent();
@@ -34,12 +34,12 @@ namespace GeoGo.ViewModel
         void SubmitBtn_Clicked(object sender, System.EventArgs e)
         {
             // Put all the entry to the list for checking validation
-            var allInputEntry = new List<Entry> { name_Entry, type_Entry, provider_Entry, latitude_Entry, longitude_Entry};
+            var allInputEntry = new List<Entry> { name_Entry, type_Entry, provider_Entry, latitude_Entry, longitude_Entry };
 
             var validationChecker = 0;
 
             // Check all the entry field is not empty. If Yes display the alert msg to user and end the function
-            allInputEntry.ForEach((Entry entry) => 
+            allInputEntry.ForEach((Entry entry) =>
             {
                 if (string.IsNullOrWhiteSpace(entry.Text))
                     validationChecker++;
@@ -53,9 +53,9 @@ namespace GeoGo.ViewModel
             else
             {
                 // using all the information form entry field to create Coordinate and GeoData Object
-                Coordinate coor = new Coordinate( Convert.ToDouble(latitude_Entry.Text), Convert.ToDouble(longitude_Entry.Text) );
+                Coordinate coor = new Coordinate(Convert.ToDouble(latitude_Entry.Text), Convert.ToDouble(longitude_Entry.Text));
 
-                GeoData data = new GeoData( name_Entry.Text, type_Entry.Text, provider_Entry.Text );
+                GeoData data = new GeoData(name_Entry.Text, type_Entry.Text, provider_Entry.Text);
 
                 // Insert the Geodata into SQLite database and recieve the message
                 string msg = LocalDatabase.InsertNewGeodataToDB(coor, data);
@@ -64,8 +64,8 @@ namespace GeoGo.ViewModel
                 DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
 
             }
-                //Go Back to Previous Page
-                Navigation.PopAsync();
+            //Go Back to Previous Page
+            Navigation.PopAsync();
         }
 
     }

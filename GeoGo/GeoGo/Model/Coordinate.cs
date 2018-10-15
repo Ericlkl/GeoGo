@@ -23,6 +23,6 @@ namespace GeoGo.Model
         }
 
         // Only used for SQLite Can't delete
-        public Coordinate(){}
+        public Coordinate() { }
     }
 }

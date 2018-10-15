@@ -9,8 +9,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"
                      Clicked="AddBtn_Clicked"/>
-        <ToolbarItem Text="Clean"
-                     Clicked="CleanBtn_Clicked" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
@@ -22,14 +20,14 @@
                             <StackLayout VerticalOptions="StartAndExpand"
                                          HorizontalOptions="StartAndExpand">
                                 
-                                <Label Text="{Binding Name}"
+                                <Label Text="{Binding name}"
                                        FontSize="18"/>
-                                <Label Text="{Binding Type}"
+                                <Label Text="{Binding type}"
                                        FontSize="Small"
                                        TextColor="Red"/>
                             </StackLayout>
                             
-                            <Label Text="{Binding Provider}"
+                            <Label Text="{Binding provider}"
                                    VerticalOptions="Center"
                                    FontSize="Large"/>
                         </StackLayout>

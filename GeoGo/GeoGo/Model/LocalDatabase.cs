@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using SQLite;
 using SQLiteNetExtensions;
 using SQLiteNetExtensions.Extensions;
-
+using Auth0.OidcClient;
 namespace GeoGo.Model
 {
     public static class LocalDatabase
     {
+
         // Initialize the SQLite database Table
         private static void CreateTables(SQLiteConnection db)
         {

@@ -12,7 +12,7 @@ namespace GeoGo.ViewModel
     public partial class InformationPage : ContentPage
     {
         private static GeoData geodata;
-        private StackLayout propertyStack = new StackLayout{};
+        private StackLayout propertyStack = new StackLayout { };
 
         public InformationPage()
         {
@@ -74,7 +74,7 @@ namespace GeoGo.ViewModel
 
         async void NavBtn_Clicked(object sender, System.EventArgs e)
         {
-            var location = new Location(geodata.Coordinates[0].Latitude , geodata.Coordinates[0].Longitude);
+            var location = new Location(geodata.Coordinates[0].Latitude, geodata.Coordinates[0].Longitude);
             var options = new MapsLaunchOptions { Name = geodata.Name, MapDirectionsMode = MapDirectionsMode.Walking };
 
             await Maps.OpenAsync(location, options);

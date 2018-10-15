@@ -3,54 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.ViewModel.InsertDataPage">
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="SubmitBtn_Clicked"/>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
-        
-    <ScrollView>
-       <StackLayout>
+
+        <ScrollView>
+            <StackLayout>
                 <Label Text="Object Name : "/>
-                
+
                 <Entry Keyboard="Text" 
                        Placeholder="e.g. Pinetree" 
                        x:Name="name_Entry"/>
-                
+
                 <Label Text="Type :"/>
                 <Entry Keyboard="Text" 
                        Placeholder="e.g. Plant " 
                        x:Name="type_Entry"/>
-                
+
                 <Label Text="Provider :"/>
-                
+
                 <Entry Keyboard="Text"
                        Placeholder="e.g. John Doe "
                        x:Name="provider_Entry"/>
-                
+
                 <StackLayout x:Name="CoordinateStack">
-                    
+
                     <Label Text="Coordinate :"/>
-                    
+
                     <Entry Keyboard="Numeric"
                            Placeholder="latitude "
                            MaxLength="20"
                            x:Name="latitude_Entry"/>
-                        
+
                     <Entry Keyboard="Numeric"
                            Placeholder="longitude"
                            MaxLength="20"
                            x:Name="longitude_Entry"/>
-                    
+
                     <Button Text="Autofill my Coordinate"
                             Clicked="AutoFillBtn_Clicked"
                             />
 
                 </StackLayout>
-                
+
             </StackLayout>
         </ScrollView>
-        
+
     </ContentPage.Content>
 </ContentPage>
