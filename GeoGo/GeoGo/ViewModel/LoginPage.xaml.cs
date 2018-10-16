@@ -47,11 +47,11 @@ namespace GeoGo
                 
                 if (Device.OS == TargetPlatform.Android)
                 {
-                    Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                    Application.Current.MainPage = new MasterDetail();
                 }
                 else if (Device.OS == TargetPlatform.iOS)
                 {
-                    await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
+                    await Navigation.PushModalAsync(new MasterDetail());
                 }
             }
 

@@ -32,8 +32,8 @@ namespace GeoGo.ViewModel
         void SetItems()
         {
             items = new List<MasterMenuItem>();            
-            items.Add(new MasterMenuItem("Home", "ic_home.png", Color.White, typeof(DashboardPage)));
-            items.Add(new MasterMenuItem("Offline Info", "ic_cloud.png", Color.White, typeof(DashboardPage)));
+            items.Add(new MasterMenuItem("Home", "ic_home.png", Color.White, typeof(MapPage)));
+            items.Add(new MasterMenuItem("Offline Info", "ic_cloud.png", Color.White, typeof(DataListPage)));
             ListView.ItemsSource = items;
         }
 
@@ -43,11 +43,11 @@ namespace GeoGo.ViewModel
             await authenticationService.LogoutRequest();
             if (Device.OS == TargetPlatform.Android)
             {
-                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                Application.Current.MainPage = new LoginPage();
             }
             else if (Device.OS == TargetPlatform.iOS)
             {
-                await Navigation.PushModalAsync(new NavigationPage(new LoginPage()));
+                await Navigation.PushModalAsync(new LoginPage());
             }
         }
     }

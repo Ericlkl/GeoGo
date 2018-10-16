@@ -25,5 +25,9 @@ namespace GeoGo.Model.iOS
         {
             return _auth0Client.LoginAsync();
         }
+        public Task LogoutRequest()
+        {
+            return _auth0Client.LogoutAsync();
+        }
     }
 }

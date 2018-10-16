@@ -19,9 +19,6 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="ViewModel\DashboardPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="ViewModel\InsertPropertyPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

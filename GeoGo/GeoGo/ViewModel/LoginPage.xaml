@@ -5,7 +5,7 @@
              x:Class="GeoGo.LoginPage">
     <StackLayout x:Name="MasterLayout">
         <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
-            <Image x:Name="LoginIcon" Source="icon.png" Margin="0,80,0,0"/>
+            <Image x:Name="LoginIcon" Source="ic_cloud.png" Margin="0,80,0,0"/>
         </StackLayout>
 
         <ActivityIndicator x:Name="ActivitiySpinner" Color="Red" IsRunning="true"/>
