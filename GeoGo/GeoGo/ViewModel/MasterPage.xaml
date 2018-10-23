@@ -17,9 +17,8 @@
                 <Label x:Name="nickname" StyleClass="h4,t-white"/>
                 <Label x:Name="name" StyleClass="h5" TextColor="#adb7be" />
             </StackLayout>
-            <StackLayout x:Name="MidStack" >
+            <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand" >
                 <ListView x:Name="listview" SeparatorVisibility="None">
-                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -36,14 +35,14 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <StackLayout x:Name="BottomStack" VerticalOptions="End">
+            <StackLayout x:Name="BottomStack" HeightRequest="100">
                 <Grid BackgroundColor="{Binding BackgroundColor}" Padding="24,0" ColumnSpacing="16">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Source="ic_logout" HeightRequest="36" WidthRequest="36" VerticalOptions="Center" />
-                    <Label x:Name="btnLogout" Grid.Column="1" HorizontalOptions="Start" Text="Log out" FontSize="18" StyleClass="t-1" VerticalOptions="Center"/>
+                    <Label x:Name="btnLogout" Grid.Column="1" HeightRequest="36" HorizontalOptions="Start" Text="Log out" FontSize="18" StyleClass="t-1" VerticalOptions="Center"/>
                 </Grid>
             </StackLayout>
         </StackLayout>

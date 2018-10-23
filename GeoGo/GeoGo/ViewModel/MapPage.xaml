@@ -31,12 +31,12 @@
                         <ColumnDefinition Width="1"/>
                         <ColumnDefinition Width="48"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Clicked="OnMenuClicked" BackgroundColor="Transparent" Image="icons_menu.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                    <Button Grid.Column="0" Clicked="OnMenuClicked" BackgroundColor="White" Image="icons_menu.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
                     <Label Grid.Column="1" BackgroundColor="#F4F4F6" WidthRequest="1"></Label>
-                    <Button Grid.Column="2" BackgroundColor="Transparent"  Text="Has Image" Image="icons_Dark_search.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                    <Button Grid.Column="2" BackgroundColor="White"  Text="Has Image" Image="icons_Dark_search.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
                     <Label Grid.Column="3" HorizontalOptions="Start" Text="What target" FontSize="12" StyleClass="t-1" VerticalOptions="Center" />
                     <Label Grid.Column="4" BackgroundColor="#F4F4F6" WidthRequest="1"></Label>
-                    <Button Grid.Column="5" Clicked="OnAddClicked"  BackgroundColor="Transparent"  Image="icon_add.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                    <Button Grid.Column="5" Clicked="OnAddClicked"  BackgroundColor="White"  Image="icon_add.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
                 </Grid>
             </Frame>
             <Frame CornerRadius="8"  
@@ -87,18 +87,29 @@
             </Frame>
             <StackLayout
                 VerticalOptions="End"
-                Margin="0,0,0,81"
+                Margin="0,0,16,81"
                 >
+                
                 <Button 
                         Image="if_icon_finger_tap.png"
                         VerticalOptions="End"
                         HorizontalOptions="End"
-                        Clicked="OnDrawFilterClicked" />
+                        Clicked="OnDrawFilterClicked"  
+                        WidthRequest="52"
+                        HeightRequest="52"
+                        CornerRadius="8"
+                        BackgroundColor="White"
+                        Opacity="0.9"/>
                 <Button 
                         Image="icons_gps.png"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="End"
-                        Clicked="OncurrentLocationClicked" />
+                        Clicked="OncurrentLocationClicked" 
+                        WidthRequest="52"
+                        HeightRequest="52"                    
+                        CornerRadius="8"
+                        BackgroundColor="White"
+                        Opacity="0.9"/>
             </StackLayout>
             
             

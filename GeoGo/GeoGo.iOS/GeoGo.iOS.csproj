@@ -240,4 +240,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\if_icon_finger_tap%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg_login%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg_login%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg_login.png" />
+  </ItemGroup>
 </Project>
