@@ -5,6 +5,8 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using Auth0.OidcClient;
+
 namespace GeoGo.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -28,6 +30,14 @@ namespace GeoGo.iOS
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            ActivityMediator.Instance.Send(url.AbsoluteString);
+
+            return true;
         }
     }
 }

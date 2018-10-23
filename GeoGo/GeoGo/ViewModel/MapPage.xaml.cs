@@ -66,6 +66,8 @@ namespace GeoGo
         {
             RedirectMapToCurrentLocation();
         }
+
+
         
         private void OnMenuClicked(object sender, EventArgs e)
         {
