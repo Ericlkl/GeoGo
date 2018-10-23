@@ -19,12 +19,7 @@ namespace GeoGo
         // activate when the user clicked the
         async void AddBtn_Clicked(object sender, System.EventArgs e)
         {
-            //DisplayAlert("Success","You clicked the btn","OK");
-            var geometryType = await DisplayActionSheet("Please Select geometry type", "Cancel", null, "Point", "Line", "Polygon");
-
-            // Direct to Insert Data Page
-            if (geometryType != "Cancel")
-                await Navigation.PushAsync(new InsertDataPage(geometryType));
+            await Navigation.PushAsync(new InsertDataPage());
         }
 
         // When user clicked the GeoData Item on the list
@@ -43,11 +38,13 @@ namespace GeoGo
             base.OnAppearing();
             // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database'
             listView.ItemsSource = LocalDatabase.GetAllGeoDataSet();
+
         }
         
 
-        async void SendListBtn_Clicked(object sender, System.EventArgs e)
+        void SendListBtn_Clicked(object sender, System.EventArgs e)
         {
+
         }
 
         //Just a Beta function for development

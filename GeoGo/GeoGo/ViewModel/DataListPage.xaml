@@ -20,14 +20,14 @@
                             <StackLayout VerticalOptions="StartAndExpand"
                                          HorizontalOptions="StartAndExpand">
                                 
-                                <Label Text="{Binding name}"
+                                <Label Text="{Binding Name}"
                                        FontSize="18"/>
-                                <Label Text="{Binding type}"
+                                <Label Text="{Binding Type}"
                                        FontSize="Small"
                                        TextColor="Red"/>
                             </StackLayout>
                             
-                            <Label Text="{Binding provider}"
+                            <Label Text="{Binding Provider}"
                                    VerticalOptions="Center"
                                    FontSize="Large"/>
                         </StackLayout>

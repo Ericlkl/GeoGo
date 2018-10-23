@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using GeoGo.Model;
 
 namespace GeoGo
 {
@@ -12,6 +13,7 @@ namespace GeoGo
         public MainPage()
         {
             InitializeComponent();
+            UserLocation.UpdateMyCoordinate();
         }
     }
 }

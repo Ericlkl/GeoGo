@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 using Foundation;
 using UIKit;
+
+using Auth0.OidcClient;
 
 namespace GeoGo.iOS
 {
@@ -20,14 +23,30 @@ namespace GeoGo.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+
+
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Calabash.Start();
+            Xamarin.FormsGoogleMaps.Init("AIzaSyDaeurrZExaOrUGhn5Q9_g447PSC7DOfHM");
             global::Xamarin.Forms.Forms.Init();
-            Xamarin.FormsMaps.Init();
-            LoadApplication(new App());
+
+            // SQLite location
+            string dbName = "GeoGo_db.sqlite";
+            string folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string fullPath = Path.Combine(folderPath, dbName);
+
+            LoadApplication(new App(fullPath));
 
             return base.FinishedLaunching(app, options);
+        }
+
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            ActivityMediator.Instance.Send(url.AbsoluteString);
+
+            return true;
         }
     }
 }

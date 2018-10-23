@@ -40,5 +40,19 @@
 	<string>This Application required to use location sevice to display the current location on the map. Please accept it to allow GeoGo displaying the map! </string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>This Application required to use location sevice to display the current location on the map. Please accept it to allow GeoGo displaying the map! </string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Auth0</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.companyname.GeoGo</string>
+			</array>
+		</dict>
+		<dict/>
+	</array>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

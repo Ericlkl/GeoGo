@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
+using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
+
+using GeoGo.ViewModel;
 
 using SQLite;
 using SQLiteNetExtensions.Extensions;
@@ -21,6 +23,7 @@ namespace GeoGo
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            RedirectMapToCurrentLocation();
             DisplayAllTheDataFromDatabase();
         }
 
@@ -38,15 +41,17 @@ namespace GeoGo
         {
             var position = new Position(lat, lon); // Latitude, Longitude
 
-            var pin = new Pin
+            var pin = new Pin()
             {
-                Type = PinType.Place,
-                Position = position,
+                Type = PinType.Generic,
                 Label = lblName,
-                Address = description
+                Address = String.Format("latitude : {0:F3}, longitude : {1:F3}",
+                         lat, lon),
+                Position = new Position(lat, lon)
             };
 
             myMap.Pins.Add(pin);
+
         }
 
 
@@ -61,29 +66,24 @@ namespace GeoGo
 
         }
 
-        // ReDirect Button clicked
-        void Test_Redirect(object sender, System.EventArgs e)
-        {
-            RedirectMapToCurrentLocation();
-        }
-        
+               
         private void OnMenuClicked(object sender, EventArgs e)
         {
-            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+            (Application.Current.MainPage as MasterDetail ).IsPresented = true;
         }
         
         private void OnAddClicked(object sender, EventArgs e)
         {
-            //System.Diagnostics.Debug.WriteLine("i am here add");
+            Navigation.PushAsync(new InsertDataPage());
         }
         private void OnDrawFilterClicked(object sender, EventArgs e)
         {
-            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+            (Application.Current.MainPage as MasterDetail).IsPresented = true;
         }
 
         private void OncurrentLocationClicked(object sender, EventArgs e)
         {
-            //System.Diagnostics.Debug.WriteLine("i am here add");
+            RedirectMapToCurrentLocation();
         }
     }
 }

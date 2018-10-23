@@ -1,69 +1,107 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
 
 namespace GeoGo.ViewModel
 {
     public partial class InsertDataPage : ContentPage
     {
+        public List<Coordinate> coorList = new List<Coordinate>();
+        public List<Pin> pinList = new List<Pin>();
 
-        public InsertDataPage(String geometryType)
+        public InsertDataPage()
         {
             InitializeComponent();
+            myMap.UiSettings.MyLocationButtonEnabled = true;
+            myMap.UiSettings.CompassEnabled = true;
 
-            if (geometryType == "Polygon" || geometryType == "Line")
-            {
-                Label coorLbl = new Label { Text = "Coordinate 2 : " };
-                Entry latEntry = new Entry { Placeholder = "latitude : " };
-                Entry longEntry = new Entry { Placeholder = "longitude : " };
-
-                List<View> viewSet = new List<View> { coorLbl, latEntry, longEntry };
-                viewSet.ForEach((View obj) => CoordinateStack.Children.Add(obj));
-            }
+            Providerlbl.Text = $"Provider : {User.nickname}";
+            RedirectMapToCurrentLocation();
         }
 
-        void AutoFillBtn_Clicked(object sender, System.EventArgs e)
+        // Function for direct the map back to user location
+        void RedirectMapToCurrentLocation()
         {
+            // Update Current Location
             UserLocation.UpdateMyCoordinate();
-            latitude_Entry.Text = $"{UserLocation.Latitude}";
-            longitude_Entry.Text = $"{UserLocation.Longitude}";
+            // Redirect the map to user current location
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
         }
+
+
+        void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
+        {
+            RedirectMapToCurrentLocation();
+        }
+
+        void CleanPinBtnClicked(object sender, System.EventArgs e)
+        {
+            pinList.ForEach((Pin obj) => myMap.Pins.Remove(obj));
+
+            coorList.Clear();
+            pinList.Clear();
+        }
+
+        void MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
+        {
+            var lat = e.Point.Latitude;
+            var lng = e.Point.Longitude;
+
+            DropPin(lat,lng);
+            coorList.Add(new Coordinate(lat, lng) );
+        }
+
+        //Function for Drop pin on the map 
+        void DropPin(double lat, double lon)
+        {
+            var position = new Position(lat, lon); // Latitude, Longitude
+
+            var pin = new Pin()
+            {
+                Label = String.Format("latitude : {0:F3}, longitude : {1:F3}",
+                         lat, lon),
+                Type = PinType.Generic,
+                Position = new Position(lat, lon)
+            };
+
+            pinList.Add(pin);
+
+            myMap.Pins.Add(pin);
+
+        }
+
 
 
         void SubmitBtn_Clicked(object sender, System.EventArgs e)
         {
-            // Put all the entry to the list for checking validation
-            var allInputEntry = new List<Entry> { name_Entry, type_Entry, provider_Entry, latitude_Entry, longitude_Entry };
 
-            var validationChecker = 0;
-
-            // Check all the entry field is not empty. If Yes display the alert msg to user and end the function
-            allInputEntry.ForEach((Entry entry) =>
+            if (string.IsNullOrWhiteSpace(name_Entry.Text) )
             {
-                if (string.IsNullOrWhiteSpace(entry.Text))
-                    validationChecker++;
-            });
-
-            if (validationChecker > 0)
-            {
-                DisplayAlert("Input Field is empty !", $"{validationChecker} Input fields are empty. Please insert the information", "Okay");
+                DisplayAlert("Name Entry Field is empty !", " Please insert the name of the object ", "Okay");
                 return;
             }
-            else
+
+            if (string.IsNullOrWhiteSpace(type_Entry.Text))
             {
-                // using all the information form entry field to create Coordinate and GeoData Object
-                Coordinate coor = new Coordinate(Convert.ToDouble(latitude_Entry.Text), Convert.ToDouble(longitude_Entry.Text));
-
-                GeoData data = new GeoData(name_Entry.Text, type_Entry.Text, provider_Entry.Text);
-
-                // Insert the Geodata into SQLite database and recieve the message
-                string msg = LocalDatabase.InsertNewGeodataToDB(coor, data);
-
-                //Display msg to the user
-                DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
-
+                DisplayAlert("Type Entry Field is empty !", "Please insert the type of the object", "Okay");
+                return;
             }
+
+            if (pinList.Count == 0){
+                DisplayAlert("Object coordinate undefine!", "Please point out the object coordinate on the map ", "Okay");
+                return;
+            }
+
+            GeoData data = new GeoData(name_Entry.Text, type_Entry.Text, User.nickname );
+
+            // Insert the Geodata into SQLite database and recieve the message
+            string msg = LocalDatabase.InsertNewGeodataToDB(coorList, data);
+
+            //Display msg to the user
+            DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
+
             //Go Back to Previous Page
             Navigation.PopAsync();
         }
