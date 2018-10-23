@@ -76,35 +76,32 @@ namespace GeoGo.ViewModel
 
         void SubmitBtn_Clicked(object sender, System.EventArgs e)
         {
-            // Put all the entry to the list for checking validation
-            var allInputEntry = new List<Entry> { name_Entry, type_Entry };
 
-            var validationChecker = 0;
-
-            // Check all the entry field is not empty. If Yes display the alert msg to user and end the function
-            allInputEntry.ForEach((Entry entry) =>
+            if (string.IsNullOrWhiteSpace(name_Entry.Text) )
             {
-                if (string.IsNullOrWhiteSpace(entry.Text))
-                    validationChecker++;
-            });
-
-            if (validationChecker > 0)
-            {
-                DisplayAlert("Input Field is empty !", $"{validationChecker} Input fields are empty. Please insert the information", "Okay");
+                DisplayAlert("Name Entry Field is empty !", " Please insert the name of the object ", "Okay");
                 return;
             }
-            else
+
+            if (string.IsNullOrWhiteSpace(type_Entry.Text))
             {
-
-                GeoData data = new GeoData(name_Entry.Text, type_Entry.Text, User.nickname );
-
-                // Insert the Geodata into SQLite database and recieve the message
-                string msg = LocalDatabase.InsertNewGeodataToDB(coorList, data);
-
-                //Display msg to the user
-                DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
-
+                DisplayAlert("Type Entry Field is empty !", "Please insert the type of the object", "Okay");
+                return;
             }
+
+            if (pinList.Count == 0){
+                DisplayAlert("Object coordinate undefine!", "Please point out the object coordinate on the map ", "Okay");
+                return;
+            }
+
+            GeoData data = new GeoData(name_Entry.Text, type_Entry.Text, User.nickname );
+
+            // Insert the Geodata into SQLite database and recieve the message
+            string msg = LocalDatabase.InsertNewGeodataToDB(coorList, data);
+
+            //Display msg to the user
+            DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
+
             //Go Back to Previous Page
             Navigation.PopAsync();
         }
