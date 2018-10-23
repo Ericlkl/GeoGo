@@ -149,12 +149,17 @@ namespace GeoGo.styles
                 new ColorItem() { Color = Color.ForestGreen, Name = "ForestGreen" } ,
             };
 
-        public static Color GetRandomColor(){
+        public static Color GetRandomColor()
+        {
             Random rnd = new Random();
-            return fullColorList[ rnd.Next(0, (fullColorList.Count - 1 ) )  ].Color;
+            var ranNum = rnd.Next(0, (fullColorList.Count - 1));
+            rnd = null;
+
+            return fullColorList[ranNum].Color;
         }
-            
     }
+
+
 
     public class ColorItem
     {

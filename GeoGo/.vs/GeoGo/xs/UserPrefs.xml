@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="80" Column="67" />
+      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="64" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

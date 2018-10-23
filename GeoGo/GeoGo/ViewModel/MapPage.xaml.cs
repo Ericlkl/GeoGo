@@ -45,8 +45,7 @@ namespace GeoGo
                 {
                     Type = PinType.Generic,
                     Label = lblName,
-                    Address = String.Format("latitude : {0:F3}, longitude : {1:F3}",
-                         lat, lon),
+                    Address = String.Format("latitude : {0:F3}, longitude : {1:F3}", lat, lon),
                     Position = new Position(lat, lon)
                 }
             );
@@ -59,8 +58,9 @@ namespace GeoGo
             Polyline myLine = new Polyline();
 
             coorList.ForEach((Coordinate obj) => myLine.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
-
             myLine.IsClickable = true;
+
+            // Change to anyColor you like, if you think it is not good
             myLine.StrokeColor = UIColor_list.GetRandomColor();
 
             myLine.StrokeWidth = 5f;
@@ -77,11 +77,11 @@ namespace GeoGo
             coorList.ForEach((Coordinate obj) => myPolygon.Positions.Add( new Position(obj.Latitude, obj.Longitude) ));
 
             myPolygon.IsClickable = true;
+            // Change to anyColor you like, if you think it is not good
             myPolygon.StrokeColor = UIColor_list.GetRandomColor();
             myPolygon.StrokeWidth = 3f;
             myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
             myPolygon.Tag = "POLYGON"; // Can set any object
-
             myMap.Polygons.Add(myPolygon);
 
         }

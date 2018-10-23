@@ -24,9 +24,14 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             geodata = LocalDatabase.GetGeoDataById(data.Id);
+
+            // Map Set Up function
             myMap.UiSettings.ZoomControlsEnabled = false;
             myMap.UiSettings.CompassEnabled = false;
             myMap.UiSettings.MyLocationButtonEnabled = true;
+
+
+
             displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();
         }
@@ -75,6 +80,37 @@ namespace GeoGo.ViewModel
 
         }
 
+        void DrawLine(List<Coordinate> coorList)
+        {
+
+            Polyline myLine = new Polyline();
+
+            coorList.ForEach((Coordinate obj) => myLine.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
+            myLine.IsClickable = true;
+            myLine.StrokeColor = Color.Accent;
+
+            myLine.StrokeWidth = 5f;
+            myLine.Tag = "POLYLINE"; // Can set any object
+
+            myMap.Polylines.Add(myLine);
+
+        }
+
+        void DrawPolygon(List<Coordinate> coorList)
+        {
+
+            Polygon myPolygon = new Polygon();
+            coorList.ForEach((Coordinate obj) => myPolygon.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
+
+            myPolygon.IsClickable = true;
+            myPolygon.StrokeColor = Color.Accent;
+            myPolygon.StrokeWidth = 3f;
+            myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
+            myPolygon.Tag = "POLYGON"; // Can set any object
+            myMap.Polygons.Add(myPolygon);
+
+        }
+
         protected override void OnDisappearing()
         {
             DescriptionStack.Children.Remove(propertyStack);
@@ -92,6 +128,14 @@ namespace GeoGo.ViewModel
             geodata.Coordinates.ForEach((Coordinate coor) => {
                 DropPin(coor.Latitude, coor.Longitude);
             });
+
+            if(geodata.GeometryShape == "Line"){
+                DrawLine(geodata.Coordinates);
+            }
+            else if (geodata.GeometryShape == "Polygon"){
+                DrawPolygon(geodata.Coordinates);
+            }
+
         }
 
 
