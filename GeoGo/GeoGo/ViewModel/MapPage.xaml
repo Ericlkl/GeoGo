@@ -82,6 +82,23 @@
                 </StackLayout>
               
             </Frame>
+            <StackLayout
+                VerticalOptions="End"
+                Margin="0,0,0,81"
+                >
+                <Button 
+                        Image="if_icon_finger_tap.png"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        Clicked="OnDrawFilterClicked" />
+                <Button 
+                        Image="icons_gps.png"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="End"
+                        Clicked="OncurrentLocationClicked" />
+            </StackLayout>
+            
+            
             <Label BackgroundColor="#2A2E43" Text="" HeightRequest="20" VerticalOptions="End"/>
 
         </Grid>

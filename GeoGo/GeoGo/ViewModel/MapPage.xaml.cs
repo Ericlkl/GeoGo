@@ -76,5 +76,14 @@ namespace GeoGo
         {
             //System.Diagnostics.Debug.WriteLine("i am here add");
         }
+        private void OnDrawFilterClicked(object sender, EventArgs e)
+        {
+            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+        }
+
+        private void OncurrentLocationClicked(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Debug.WriteLine("i am here add");
+        }
     }
 }

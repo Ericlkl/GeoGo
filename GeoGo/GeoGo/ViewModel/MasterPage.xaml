@@ -17,7 +17,7 @@
                 <Label x:Name="nickname" StyleClass="h4,t-white"/>
                 <Label x:Name="name" StyleClass="h5" TextColor="#adb7be" />
             </StackLayout>
-            <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand" >
+            <StackLayout x:Name="MidStack" >
                 <ListView x:Name="listview" SeparatorVisibility="None">
                     
                     <ListView.ItemTemplate>
@@ -36,7 +36,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <StackLayout x:Name="BottomStack" VerticalOptions="EndAndExpand">
+            <StackLayout x:Name="BottomStack" VerticalOptions="End">
                 <Grid BackgroundColor="{Binding BackgroundColor}" Padding="24,0" ColumnSpacing="16">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
