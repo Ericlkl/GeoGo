@@ -34,16 +34,16 @@ namespace GeoGo.Model
 
 
         // Insert New Geodata into Geodata Table
-        public static string InsertNewGeodataToDB(Coordinate coor, GeoData data)
+        public static string InsertNewGeodataToDB( List <Coordinate> coorList, GeoData data)
         {
             using (SQLiteConnection db = new SQLiteConnection(App.DatabaseLocation))
             {
                 CreateTables(db);
-                db.Insert(coor);
+                coorList.ForEach((Coordinate coor) => db.Insert(coor));
 
                 int rows = db.Insert(data);
 
-                data.InsertCoordinate(new List<Coordinate> { coor });
+                data.InsertCoordinate(coorList);
 
                 db.UpdateWithChildren(data);
 

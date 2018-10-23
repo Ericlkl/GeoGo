@@ -45,7 +45,7 @@ namespace GeoGo
             {
                 Type = PinType.Generic,
                 Label = lblName,
-                Address = String.Format("latitude : {0:F2}, longitude : {1:F2}",
+                Address = String.Format("latitude : {0:F3}, longitude : {1:F3}",
                          lat, lon),
                 Position = new Position(lat, lon)
             };

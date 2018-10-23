@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GeoGo.Model;
 using GeoGo.ViewModel;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -10,20 +11,16 @@ namespace GeoGo
     {
         public static string DatabaseLocation = String.Empty;
 
-        //public App()
-        //{
-        //    InitializeComponent();
-
-        //    MainPage = new LoginPage();
-        //}
+        public App()
+        {
+            InitializeComponent();
+            MainPage = new LoginPage();
+        }
 
         public App(string databaseLocation)
         {
             InitializeComponent();
-
-            //MainPage = new NavigationPage(new LoginPage());
             MainPage = new LoginPage();
-
             DatabaseLocation = databaseLocation;
         }
 

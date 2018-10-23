@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" automaticSigning="False" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/Model/GeoData.cs">
     <Files>
-      <File FileName="GeoGo/Model/LocalDatabase.cs" Line="52" Column="14" />
-      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="26" Column="31" />
-      <File FileName="GeoGo/ViewModel/MapPage.xaml" Line="15" Column="39" />
-      <File FileName="GeoGo.iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="63" Column="76" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml" Line="30" Column="52" />
+      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="48" Column="27" />
+      <File FileName="GeoGo/Model/LocalDatabase.cs" Line="42" Column="69" />
+      <File FileName="GeoGo/Model/GeoData.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

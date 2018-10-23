@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:GeoGo"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="GeoGo.ViewModel.InsertDataPage">
 
     <ContentPage.ToolbarItems>
@@ -23,31 +24,18 @@
                        Placeholder="e.g. Plant " 
                        x:Name="type_Entry"/>
 
-                <Label Text="Provider :"/>
-
-                <Entry Keyboard="Text"
-                       Placeholder="e.g. John Doe "
-                       x:Name="provider_Entry"/>
-
-                <StackLayout x:Name="CoordinateStack">
-
-                    <Label Text="Coordinate :"/>
-
-                    <Entry Keyboard="Numeric"
-                           Placeholder="latitude "
-                           MaxLength="20"
-                           x:Name="latitude_Entry"/>
-
-                    <Entry Keyboard="Numeric"
-                           Placeholder="longitude"
-                           MaxLength="20"
-                           x:Name="longitude_Entry"/>
-
-                    <Button Text="Autofill my Coordinate"
-                            Clicked="AutoFillBtn_Clicked"
-                            />
-
-                </StackLayout>
+                <Label x:Name="Providerlbl" Text="Provider :"/>
+                
+                <Button Text="Reset Pins"
+                        Clicked="CleanPinBtnClicked"/>
+                
+                <maps:Map x:Name="myMap"
+                          MapType="Street"
+                          MyLocationEnabled="true"
+                          MyLocationButtonClicked="MyLocationButtonClicked"
+                          MapClicked="MapClicked"
+                          VerticalOptions="FillAndExpand"
+                          />
 
             </StackLayout>
         </ScrollView>
