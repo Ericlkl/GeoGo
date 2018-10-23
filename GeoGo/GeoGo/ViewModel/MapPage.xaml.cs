@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using GeoGo.Model;
 
+using GeoGo.ViewModel;
+
 using SQLite;
 using SQLiteNetExtensions.Extensions;
 
@@ -67,20 +69,19 @@ namespace GeoGo
             RedirectMapToCurrentLocation();
         }
 
-
         
         private void OnMenuClicked(object sender, EventArgs e)
         {
-            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+            (Application.Current.MainPage as MasterDetail ).IsPresented = true;
         }
         
         private void OnAddClicked(object sender, EventArgs e)
         {
-            //System.Diagnostics.Debug.WriteLine("i am here add");
+            Navigation.PushAsync(new InsertDataPage());
         }
         private void OnDrawFilterClicked(object sender, EventArgs e)
         {
-            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+            (Application.Current.MainPage as MasterDetail).IsPresented = true;
         }
 
         private void OncurrentLocationClicked(object sender, EventArgs e)

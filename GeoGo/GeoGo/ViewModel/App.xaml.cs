@@ -10,12 +10,12 @@ namespace GeoGo
     {
         public static string DatabaseLocation = String.Empty;
 
-        public App()
-        {
-            InitializeComponent();
+        //public App()
+        //{
+        //    InitializeComponent();
 
-            MainPage = new LoginPage();
-        }
+        //    MainPage = new LoginPage();
+        //}
 
         public App(string databaseLocation)
         {

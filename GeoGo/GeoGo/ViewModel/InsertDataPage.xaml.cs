@@ -8,19 +8,9 @@ namespace GeoGo.ViewModel
     public partial class InsertDataPage : ContentPage
     {
 
-        public InsertDataPage(String geometryType)
+        public InsertDataPage()
         {
             InitializeComponent();
-
-            if (geometryType == "Polygon" || geometryType == "Line")
-            {
-                Label coorLbl = new Label { Text = "Coordinate 2 : " };
-                Entry latEntry = new Entry { Placeholder = "latitude : " };
-                Entry longEntry = new Entry { Placeholder = "longitude : " };
-
-                List<View> viewSet = new List<View> { coorLbl, latEntry, longEntry };
-                viewSet.ForEach((View obj) => CoordinateStack.Children.Add(obj));
-            }
         }
 
         void AutoFillBtn_Clicked(object sender, System.EventArgs e)

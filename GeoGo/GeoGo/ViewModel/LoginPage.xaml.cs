@@ -16,16 +16,12 @@ namespace GeoGo
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        private readonly IAuth0Client _auth0Client;
 
         public LoginPage()
         {
             InitializeComponent();
             LoginButton.Clicked += LoginButton_Clicked;
-
         }
-
-
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
@@ -46,15 +42,8 @@ namespace GeoGo
                 ResultLabel.Text = $"Welcome {loginResult.User.Identity.Name}";
                 User.SetLoginResult(loginResult);
                 User.DebugResult();
-                
-                if (Device.OS == TargetPlatform.Android)
-                {
-                    Application.Current.MainPage = new MasterDetail();
-                }
-                else if (Device.OS == TargetPlatform.iOS)
-                {
-                    await Navigation.PushModalAsync(new MasterDetail());
-                }
+
+                Application.Current.MainPage = new MasterDetail();
             }
 
             System.Diagnostics.Debug.WriteLine(sb.ToString());

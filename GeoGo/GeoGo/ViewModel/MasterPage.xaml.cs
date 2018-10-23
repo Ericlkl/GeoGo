@@ -33,11 +33,11 @@ namespace GeoGo.ViewModel
         {
             var authenticationService = DependencyService.Get<IAuthenticationService>();
             await authenticationService.LogoutRequest();
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
             {
                 Application.Current.MainPage = new LoginPage();
             }
-            else if (Device.OS == TargetPlatform.iOS)
+            else if (Device.RuntimePlatform == Device.iOS)
             {
                 await Navigation.PushModalAsync(new LoginPage());
             }
@@ -55,11 +55,11 @@ namespace GeoGo.ViewModel
         {
             var authenticationService = DependencyService.Get<IAuthenticationService>();
             await authenticationService.LogoutRequest();
-            if (Device.OS == TargetPlatform.Android)
+            if (Device.RuntimePlatform == Device.Android)
             {
                 Application.Current.MainPage = new LoginPage();
             }
-            else if (Device.OS == TargetPlatform.iOS)
+            else if (Device.RuntimePlatform == Device.iOS)
             {
                 await Navigation.PushModalAsync(new LoginPage());
             }
