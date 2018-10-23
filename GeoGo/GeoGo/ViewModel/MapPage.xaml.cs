@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
 
 using GeoGo.ViewModel;
-
-using SQLite;
-using SQLiteNetExtensions.Extensions;
 
 namespace GeoGo
 {
