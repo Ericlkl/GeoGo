@@ -2,18 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:GeoGo"
-             x:Class="GeoGo.LoginPage">
-    <StackLayout x:Name="MasterLayout">
-        <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
-            <Image x:Name="LoginIcon" Source="ic_cloud.png" Margin="0,80,0,0"/>
-        </StackLayout>
+             x:Class="GeoGo.LoginPage"      
+             BackgroundImage="bg_login.png"
+             BackgroundColor="#2A2E43"
+             >
+    <ContentPage.Resources>
+        <StyleSheet Source="/styles/style.css" />
+    </ContentPage.Resources>
 
-        <ActivityIndicator x:Name="ActivitiySpinner" Color="Red" IsRunning="true"/>
+    
+    <ContentView VerticalOptions="Center" HorizontalOptions="Center" >
+                  <StackLayout x:Name="MasterLayout" StyleClass="text-center">
+                <StackLayout x:Name="LogoStack" VerticalOptions="StartAndExpand" Margin="24,0">
+                    <Label StyleClass="t-white" 
+                   Text="Welcome to GeoGo" 
+                   LineBreakMode="WordWrap"
+                   MaxLines="2"
+                   Font="52">
 
-        <StackLayout x:Name="LoginEntriesStack" VerticalOptions="StartAndExpand">
-            <Button Text="Login" x:Name="LoginButton" />
-            <Label x:Name="ResultLabel" LineBreakMode="WordWrap" />
-        </StackLayout>
+                    </Label>
 
-    </StackLayout>
+                    <Label StyleClass="h5,t-white" 
+                   Text="The best way to record your world and discover the world changes Let's get started!"
+                   Margin="0,0,0,56"/>
+                    <Label StyleClass="h5,t-white" Text="CONTINUE WITH:"/>
+                    <Button Text="Login" x:Name="LoginButton" StyleClass="c-s-b,t-white">
+                        <Button.BorderRadius>
+                            <OnPlatform x:TypeArguments="x:Int32"
+                              iOS     ="12"
+                              Android ="12"
+                              />
+                        </Button.BorderRadius>
+                    </Button>
+
+                    <Label x:Name="ResultLabel" LineBreakMode="WordWrap" />
+
+                </StackLayout>
+
+
+
+
+
+
+            </StackLayout>
+
+            
+            </ContentView>
 </ContentPage>

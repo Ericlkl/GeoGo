@@ -1,0 +1,64 @@
+﻿
+
+
+.h6{
+	 font-size: 8;
+}
+
+.h5{
+	 font-size: 14;
+}
+
+.h4{
+	 font-size: 16;
+}
+
+.h3{
+	 font-size: 24;
+}
+
+.h2{
+	 font-size: 40;
+}
+.h1{
+	 font-size: 52;
+}
+
+.c-s-b{
+	background-color:#3ACCE1;
+}
+.c-s-y{
+	background-color:#FFB900;
+}
+
+.t-white{
+	color:white;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.pro-pic{
+	height:53;
+	width:53;
+}
+
+.t-1{
+	color:#454F63;
+}
+
+navigationpage {
+    -xf-bar-background-color: lightgray;
+}
+
+.detailPageTitle {
+    font-style: bold;
+    font-size: medium;
+    text-align: center;
+}
+
+.detailPageSubtitle {
+    text-align: center;
+    font-style: italic;
+}

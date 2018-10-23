@@ -18,6 +18,7 @@ namespace GeoGo.Model
         public static Color FontColor1 = Color.FromHex("#78849E");
         public static Color BackgroundColor = Color.FromHex("#F7F7FA");
         public static Color White = Color.White;
+
     }
 
 }

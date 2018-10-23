@@ -14,7 +14,7 @@ namespace GeoGo
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new LoginPage();
         }
 
         public App(string databaseLocation)
@@ -22,7 +22,7 @@ namespace GeoGo
             InitializeComponent();
 
             //MainPage = new NavigationPage(new LoginPage());
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new LoginPage();
 
             DatabaseLocation = databaseLocation;
         }

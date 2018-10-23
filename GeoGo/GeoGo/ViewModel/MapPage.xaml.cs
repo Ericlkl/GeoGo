@@ -66,6 +66,15 @@ namespace GeoGo
         {
             RedirectMapToCurrentLocation();
         }
-
+        
+        private void OnMenuClicked(object sender, EventArgs e)
+        {
+            (App.Current.MainPage as MasterDetailPage).IsPresented = true;
+        }
+        
+        private void OnAddClicked(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Debug.WriteLine("i am here add");
+        }
     }
 }

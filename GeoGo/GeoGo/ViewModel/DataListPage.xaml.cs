@@ -44,6 +44,11 @@ namespace GeoGo
             // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database'
             listView.ItemsSource = LocalDatabase.GetAllGeoDataSet();
         }
+        
+
+        async void SendListBtn_Clicked(object sender, System.EventArgs e)
+        {
+        }
 
         //Just a Beta function for development
         async void CleanBtn_Clicked(object sender, System.EventArgs e)

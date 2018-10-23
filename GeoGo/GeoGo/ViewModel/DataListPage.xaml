@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="GeoGo"
+<ContentPage Title="Offline Info"
              Padding="20"
              xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.DataListPage">
-    
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"
-                     Clicked="AddBtn_Clicked"/>
-        <ToolbarItem Text="clean"
-                     Clicked="CleanBtn_Clicked"/>
+        <ToolbarItem Text="Send List"
+                     Clicked="SendListBtn_Clicked"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

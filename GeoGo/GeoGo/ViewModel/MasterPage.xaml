@@ -3,24 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GeoGo.ViewModel.MasterPage"
              Title="MasterPage">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/styles/style.css" />
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout x:Name="MasterStack" VerticalOptions="FillAndExpand">
-            <StackLayout x:Name="TopStack">
+            <StackLayout x:Name="TopStack" BackgroundColor="#2A2E43"  Padding="24,36">
 
-                <Image  x:Name="picture"   Margin="0,10,0,10"/>
-                <Label x:Name="nickname"  HorizontalOptions="Center" FontSize="Medium"/>
-                <Label x:Name="name" HorizontalOptions="Center" FontSize="Small"/>
+                <Image  x:Name="picture" StyleClass="pro-pic" HorizontalOptions="Start"/>
+
+                <Label x:Name="nickname" StyleClass="h4,t-white"/>
+                <Label x:Name="name" StyleClass="h5" TextColor="#adb7be" />
             </StackLayout>
-            <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="MidStack" VerticalOptions="FillAndExpand" >
                 <ListView x:Name="listview" SeparatorVisibility="None">
                     
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid BackgroundColor="{Binding BackgroundColor}">
-                                    <Image  Source="{Binding IconSource}"  Margin="0,10,0,10"/>
-                                    <Label Grid.Column="1" Text="{Binding Title}" TextColor="Black" FontSize="Medium"/>
-                                    
+                                <Grid  Padding="24,8" ColumnSpacing="16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Source="{Binding IconSource}" HeightRequest="36" WidthRequest="36" VerticalOptions="Center" />
+                                    <Label Grid.Column="1" HorizontalOptions="Start" Text="{Binding Title}" FontSize="18" StyleClass="t-1" VerticalOptions="Center" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
@@ -28,9 +37,14 @@
                 </ListView>
             </StackLayout>
             <StackLayout x:Name="BottomStack" VerticalOptions="EndAndExpand">
-
-                <Button Text="Logout" 
-                        Clicked="OnLogoutClicked" />
+                <Grid BackgroundColor="{Binding BackgroundColor}" Padding="24,0" ColumnSpacing="16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="ic_logout" HeightRequest="36" WidthRequest="36" VerticalOptions="Center" />
+                    <Label x:Name="btnLogout" Grid.Column="1" HorizontalOptions="Start" Text="Log out" FontSize="18" StyleClass="t-1" VerticalOptions="Center"/>
+                </Grid>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

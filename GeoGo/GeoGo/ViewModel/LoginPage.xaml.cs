@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GeoGo.Model;
 using GeoGo.ViewModel;
+using Xamarin.Forms.StyleSheets;
+using System.Reflection;
 
 namespace GeoGo
 {

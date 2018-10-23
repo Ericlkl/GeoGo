@@ -4,18 +4,86 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.MapPage"
-             NavigationPage.HasNavigationBar="true"
+             NavigationPage.HasNavigationBar="false"        
+             
              >
 
     <ContentPage.Content>
-        <StackLayout>
+        <Grid>
             <maps:Map x:Name="myMap"
                    IsShowingUser="true"
                    MapType="Street" />
+            <Frame CornerRadius="8"  
+                   Padding="0"
+                   VerticalOptions="Start" HeightRequest="52" Margin="16"
+                   HasShadow="True"
+                   >
+                <Grid  BackgroundColor="White"   ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="48"/>
 
-            <Button Clicked="Test_Redirect" 
-                Text="Redirect"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Clicked="OnMenuClicked" BackgroundColor="Transparent" Image="icons_menu.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                    <Label Grid.Column="1" BackgroundColor="#F4F4F6" WidthRequest="1"></Label>
+                    <Button Grid.Column="2" BackgroundColor="Transparent"  Text="Has Image" Image="icons_Dark_search.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                    <Label Grid.Column="3" HorizontalOptions="Start" Text="What target" FontSize="12" StyleClass="t-1" VerticalOptions="Center" />
+                    <Label Grid.Column="4" BackgroundColor="#F4F4F6" WidthRequest="1"></Label>
+                    <Button Grid.Column="5" Clicked="OnAddClicked"  BackgroundColor="Transparent"  Image="icon_add.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            <Frame CornerRadius="8"  
+                   Padding="0"
+                   VerticalOptions="End" HeightRequest="65"
+                   HasShadow="True"
+                   >
 
-        </StackLayout>
+                <StackLayout Orientation="Vertical" Spacing="0"  BackgroundColor="#2A2E43" Margin="0" Padding="0">
+                    <Grid ColumnSpacing="0" BackgroundColor="Blue">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <BoxView  Grid.Column="0" Color="#2A2E43" HeightRequest="6" HorizontalOptions="FillAndExpand" />
+                        <BoxView  Grid.Column="1" Color="#5773FF" HeightRequest="6" HorizontalOptions="FillAndExpand" />
+                        <BoxView  Grid.Column="2" Color="#3497FD" HeightRequest="6" HorizontalOptions="FillAndExpand" />
+                        <BoxView  Grid.Column="3" Color="#3ACCE1" HeightRequest="6" HorizontalOptions="FillAndExpand" />
+
+                    </Grid>
+                    <Grid  ColumnSpacing="0"  RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="48"/>
+                            <ColumnDefinition Width="1"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Clicked="OnMenuClicked" BackgroundColor="Transparent" Image="icons_arr.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
+                        <StackLayout Grid.Column="1" Orientation="Vertical">
+                            <Label Text="Near by"
+                                TextColor="white"
+                               FontSize="16"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="LED"
+                                TextColor="white"
+                               FontSize="16"/>
+                                <Label Text="Solar"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                   
+                </StackLayout>
+              
+            </Frame>
+            <Label BackgroundColor="#2A2E43" Text="" HeightRequest="20" VerticalOptions="End"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
