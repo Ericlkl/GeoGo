@@ -12,7 +12,7 @@ namespace GeoGo.Model
 
 
         private static IdentityModel.OidcClient.LoginResult loginResult;
-        public static async void SetLoginResult(IdentityModel.OidcClient.LoginResult loginResult2)
+        public static void SetLoginResult(IdentityModel.OidcClient.LoginResult loginResult2)
         {
             loginResult = loginResult2;
             var e = loginResult.User.Claims;

@@ -1,0 +1,9 @@
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/bin/Debug/GeoGo.UITests.dll
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/bin/Debug/GeoGo.UITests.pdb
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/bin/Debug/nunit.framework.dll
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/bin/Debug/Xamarin.UITest.dll
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/C:/Users/JEFFRE~1/AppData/Local/Temp/vs6546.tmp/Debug/GeoGo.UITests.csprojAssemblyReference.cache
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/C:/Users/JEFFRE~1/AppData/Local/Temp/vs6546.tmp/Debug/GeoGo.UITests.csproj.CoreCompileInputs.cache
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/C:/Users/JEFFRE~1/AppData/Local/Temp/vs6546.tmp/Debug/GeoGo.UITests.csproj.CopyComplete
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/C:/Users/JEFFRE~1/AppData/Local/Temp/vs6546.tmp/Debug/GeoGo.UITests.dll
+/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo.UITests/C:/Users/JEFFRE~1/AppData/Local/Temp/vs6546.tmp/Debug/GeoGo.UITests.pdb
