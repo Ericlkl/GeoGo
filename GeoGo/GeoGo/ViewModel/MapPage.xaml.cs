@@ -17,6 +17,8 @@ namespace GeoGo
         public MapPage()
         {
             InitializeComponent();
+            myMap.UiSettings.ZoomControlsEnabled = false;
+            myMap.UiSettings.CompassEnabled = false;
             RedirectMapToCurrentLocation();
         }
 

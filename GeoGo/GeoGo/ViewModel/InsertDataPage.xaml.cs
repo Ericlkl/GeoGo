@@ -15,7 +15,6 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
-            myMap.UiSettings.CompassEnabled = true;
 
             Providerlbl.Text = $"Provider : {User.nickname}";
             RedirectMapToCurrentLocation();

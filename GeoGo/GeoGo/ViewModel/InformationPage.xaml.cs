@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Xamarin.Forms;
+using Xamarin.Forms.GoogleMaps;
 using Xamarin.Essentials;
 using GeoGo.Model;
 
@@ -23,7 +24,11 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             geodata = LocalDatabase.GetGeoDataById(data.Id);
+            myMap.UiSettings.ZoomControlsEnabled = false;
+            myMap.UiSettings.CompassEnabled = false;
+            myMap.UiSettings.MyLocationButtonEnabled = true;
             displayBasicGeodataInformation();
+            RedirectMapToCurrentLocation();
         }
 
         protected override void OnAppearing()
@@ -36,6 +41,38 @@ namespace GeoGo.ViewModel
             DescriptionStack.Children.Add(propertyStack);
             //Update Content
             base.OnAppearing();
+        }
+
+        void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
+        {
+            RedirectMapToCurrentLocation();
+        }
+
+        // Function for direct the map back to user location
+        void RedirectMapToCurrentLocation()
+        {
+            // Update Current Location
+            UserLocation.UpdateMyCoordinate();
+            // Redirect the map to user current location
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+        }
+
+        //Function for Drop pin on the map 
+        void DropPin(double lat, double lon)
+        {
+            var position = new Position(lat, lon); // Latitude, Longitude
+
+            var pin = new Pin()
+            {
+                Label = "",
+                Address = String.Format("latitude : {0:F3}, longitude : {1:F3}",
+                         lat, lon),
+                Type = PinType.Generic,
+                Position = new Position(lat, lon)
+            };
+
+            myMap.Pins.Add(pin);
+
         }
 
         protected override void OnDisappearing()
@@ -52,12 +89,8 @@ namespace GeoGo.ViewModel
             providerlbl.Text = $"Provider : {geodata.Provider}";
             shapelbl.Text = $"Shape : {geodata.GeometryShape}";
 
-            //// Loop over the Coordinates List , and generate it to label. finally, put it in the stackLayout
-            var index = 1;
-
             geodata.Coordinates.ForEach((Coordinate coor) => {
-                DescriptionStack.Children.Add(new Label { Text = $"Coordinate {index} : {coor.Latitude} , {coor.Longitude}" });
-                index++;
+                DropPin(coor.Latitude, coor.Longitude);
             });
         }
 
