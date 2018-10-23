@@ -29,9 +29,8 @@ namespace GeoGo.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            Xamarin.FormsMaps.Init(this, savedInstanceState);
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState); // add this line to your code
-            //Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
 
             // SQLite location
             string dbName = "GeoGo_db.sqlite";

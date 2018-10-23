@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
+using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
 
 using GeoGo.ViewModel;
@@ -23,6 +23,7 @@ namespace GeoGo
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            RedirectMapToCurrentLocation();
             DisplayAllTheDataFromDatabase();
         }
 
@@ -40,15 +41,17 @@ namespace GeoGo
         {
             var position = new Position(lat, lon); // Latitude, Longitude
 
-            var pin = new Pin
+            var pin = new Pin()
             {
-                Type = PinType.Place,
-                Position = position,
+                Type = PinType.Generic,
                 Label = lblName,
-                Address = description
+                Address = String.Format("latitude : {0:F2}, longitude : {1:F2}",
+                         lat, lon),
+                Position = new Position(lat, lon)
             };
 
             myMap.Pins.Add(pin);
+
         }
 
 
@@ -63,13 +66,7 @@ namespace GeoGo
 
         }
 
-        // ReDirect Button clicked
-        void Test_Redirect(object sender, System.EventArgs e)
-        {
-            RedirectMapToCurrentLocation();
-        }
-
-        
+               
         private void OnMenuClicked(object sender, EventArgs e)
         {
             (Application.Current.MainPage as MasterDetail ).IsPresented = true;
@@ -86,7 +83,7 @@ namespace GeoGo
 
         private void OncurrentLocationClicked(object sender, EventArgs e)
         {
-            //System.Diagnostics.Debug.WriteLine("i am here add");
+            RedirectMapToCurrentLocation();
         }
     }
 }

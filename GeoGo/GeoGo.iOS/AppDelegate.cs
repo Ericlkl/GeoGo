@@ -28,7 +28,7 @@ namespace GeoGo.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Calabash.Start();
-            Xamarin.FormsMaps.Init();
+            Xamarin.FormsGoogleMaps.Init("AIzaSyDaeurrZExaOrUGhn5Q9_g447PSC7DOfHM");
             global::Xamarin.Forms.Forms.Init();
 
             // SQLite location
