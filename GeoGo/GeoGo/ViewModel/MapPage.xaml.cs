@@ -18,6 +18,15 @@ namespace GeoGo
             myMap.UiSettings.ZoomControlsEnabled = false;
             myMap.UiSettings.CompassEnabled = false;
             RedirectMapToCurrentLocation();
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                customNav.Margin = new Thickness(16, 36, 16, 0);
+            }
+            else
+            {
+                customNav.Margin = new Thickness(16, 16, 16, 0);
+            }
+            
         }
 
         protected override void OnAppearing()

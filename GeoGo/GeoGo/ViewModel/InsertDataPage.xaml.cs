@@ -20,7 +20,7 @@ namespace GeoGo.ViewModel
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
 
-            Providerlbl.Text = $"Provider : {User.nickname}";
+            //Providerlbl.Text = $"Provider : {User.nickname}";
             RedirectMapToCurrentLocation();
         }
 

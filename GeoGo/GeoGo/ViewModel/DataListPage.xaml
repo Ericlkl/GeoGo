@@ -11,10 +11,14 @@
         <ToolbarItem Text="Send List"
                      Clicked="SendListBtn_Clicked"
                      />
+        <ToolbarItem Text="Clean List"
+                     Clicked="CleanBtn_Clicked"
+                     />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <StackLayout>
+
             <ListView x:Name="listView" ItemTapped="ListviewItem_Tapped" RowHeight="73">
                 <ListView.ItemTemplate>
                     <DataTemplate >
@@ -28,18 +32,19 @@
 
                                     <Label Text="{Binding Name}"
                                        FontSize="16"
-                                       Margin="0,0,0,2"/>
+                                       Margin="0,0,0,2"
+                                       TextColor="#454F63"/>
                                     <Label Text="{Binding Type}"
                                        FontSize="12"
-                                       TextColor="#959DAD" 
+                                       TextColor="#90454F63" 
                                        Margin="0,0,0,0"/>
                                     <Label Text="Last Update: 22/8/2018"
                                        FontSize="12"
-                                       TextColor="#64959DAD"
+                                       TextColor="#68454F63"
                                        />
                                 </StackLayout>
 
-                                <Button  BackgroundColor="#00F7F7FA"  Image="ic_locate.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
+                                <Button Clicked="NavBtn_Clicked" BackgroundColor="#00F7F7FA"  Image="ic_locate.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
 
                             </StackLayout>
                         </ViewCell>

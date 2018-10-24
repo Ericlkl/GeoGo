@@ -5,15 +5,18 @@ using GeoGo.Model;
 using GeoGo.ViewModel;
 using SQLite;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using SQLiteNetExtensions.Extensions;
 
 namespace GeoGo
 {
     public partial class DataListPage : ContentPage
     {
+        private static GeoData geodata;
         public DataListPage()
         {
             InitializeComponent();
+            
 
 
         }
@@ -56,6 +59,10 @@ namespace GeoGo
             if (deleteDecision == "Confirm")
                 LocalDatabase.CleanAllDataInTable();
             OnAppearing();
+        }
+        async void NavBtn_Clicked(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

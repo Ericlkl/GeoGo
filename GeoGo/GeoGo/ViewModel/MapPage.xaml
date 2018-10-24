@@ -17,9 +17,10 @@
                       MyLocationEnabled="true"
                       VerticalOptions="FillAndExpand" />
            
-            <Frame CornerRadius="8"  
+            <Frame x:Name="customNav"
+                   CornerRadius="8"  
                    Padding="0"
-                   VerticalOptions="Start" HeightRequest="52" Margin="16,36,16,0"
+                   VerticalOptions="Start" HeightRequest="52"
                    HasShadow="True"
                    >
                 <Grid  BackgroundColor="White"   ColumnSpacing="0">

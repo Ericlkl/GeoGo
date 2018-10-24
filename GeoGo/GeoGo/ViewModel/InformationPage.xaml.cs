@@ -122,7 +122,7 @@ namespace GeoGo.ViewModel
         {
             namelbl.Text = $"{geodata.Name}";
             providerlbl.Text = $"Update author: {geodata.Provider}";
-
+            typelbl.Text = $"Type of Data: {geodata.Type}";
             geodata.Coordinates.ForEach((Coordinate coor) => {
                 DropPin(coor.Latitude, coor.Longitude);
             });
