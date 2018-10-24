@@ -24,23 +24,15 @@ namespace GeoGo.ViewModel
             picture.Source = ImageSource.FromUri(new Uri(User.picture));
             nickname.Text = User.nickname;
             name.Text = User.name;
-            btnLogout.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked()));
-
-
+            btnLogout.GestureRecognizers.Add(new TapGestureRecognizer { Command = new Command(() => OnLabelClicked()) });
         }
 
         async void OnLabelClicked()
         {
             var authenticationService = DependencyService.Get<IAuthenticationService>();
             await authenticationService.LogoutRequest();
-            if (Device.RuntimePlatform == Device.Android)
-            {
-                Application.Current.MainPage = new LoginPage();
-            }
-            else if (Device.RuntimePlatform == Device.iOS)
-            {
-                await Navigation.PushModalAsync(new LoginPage());
-            }
+
+            Application.Current.MainPage = new LoginPage();
         }
 
         void SetItems()

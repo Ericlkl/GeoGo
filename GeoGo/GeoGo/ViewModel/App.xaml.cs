@@ -22,7 +22,6 @@ namespace GeoGo
             InitializeComponent();
             MainPage = new LoginPage();
             DatabaseLocation = databaseLocation;
-            LocalDatabase.CleanAllDataInTable();
         }
 
 

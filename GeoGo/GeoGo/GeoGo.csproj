@@ -31,4 +31,8 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="styles\UIColorList.cs" />
+    <Compile Remove="styles\GetSystemColorList.cs" />
+  </ItemGroup>
 </Project>
