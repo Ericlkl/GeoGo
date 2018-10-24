@@ -29,12 +29,17 @@ namespace GeoGo.Model
         [OneToMany]
         public List<Property> Properties { get; set; }
 
+        [MaxLength(20)]
+        public string TypeOfImage { get; set; }
+
 
         public GeoData(string name, string type, string provider)
         {
             Name = name;
             Type = type;
             Provider = provider;
+            TypeOfImage = Types.GetIconByType(Type);
+            System.Diagnostics.Debug.WriteLine(TypeOfImage);
         }
 
         // Only used for SQLite Can't delete

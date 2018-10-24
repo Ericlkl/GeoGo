@@ -13,16 +13,19 @@ namespace GeoGo.ViewModel
     public partial class InformationPage : ContentPage
     {
         private static GeoData geodata;
+        public GeoData datag;
         //private StackLayout propertyStack = new StackLayout { };
 
         public InformationPage()
         {
             InitializeComponent();
+            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked())); 
         }
 
         public InformationPage(GeoData data)
         {
             InitializeComponent();
+            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             geodata = LocalDatabase.GetGeoDataById(data.Id);
 
             // Map Set Up function
@@ -34,6 +37,7 @@ namespace GeoGo.ViewModel
 
             displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();
+            datag = data;
         }
 
         protected override void OnAppearing()
@@ -155,6 +159,11 @@ namespace GeoGo.ViewModel
             var options = new MapsLaunchOptions { Name = geodata.Name, MapDirectionsMode = MapDirectionsMode.Walking };
 
             await Maps.OpenAsync(location, options);
+        }
+
+        async void OnMapZoomClicked()
+        {
+            Navigation.PushAsync(new mapZoom(datag));
         }
 
     }

@@ -24,7 +24,7 @@
                     <DataTemplate >
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Padding="16,0">
-                                <Button  BackgroundColor="#00F7F7FA"  Image="ic_tree.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
+                                <Button  BackgroundColor="#00F7F7FA"  Image="{Binding TypeOfImage}" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
 
                                 <StackLayout VerticalOptions="Center"
                                          HorizontalOptions="StartAndExpand"

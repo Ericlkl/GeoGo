@@ -137,7 +137,7 @@ namespace GeoGo
             (Application.Current.MainPage as MasterDetail).IsPresented = true;
         }
 
-        private void OncurrentLocationClicked(object sender, EventArgs e)
+        async private void OncurrentLocationClicked(object sender, EventArgs e)
         {
             RedirectMapToCurrentLocation();
         }

@@ -10,16 +10,20 @@
             <StackLayout Orientation="Vertical">
                 
                 <Grid HeightRequest="252">
-                    <Image Source="tree_1.jpg" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
-                    <StackLayout VerticalOptions="End"  Margin="16,0,16,8">
-                        <Label x:Name="namelbl" Text=""  FontSize="40" TextColor="#FFFFFF" Margin="0" LineHeight="20"/>
-                        <Label x:Name="typelbl" Text="2m, approved"  VerticalOptions="End" FontSize="12" TextColor="#90FFFFFF" Margin="0,0,0,16"/>
-                    </StackLayout>
+                    <Frame x:Name="customNav"
+                            
+                           Padding="0"
+                           BackgroundColor="#8592AD">
+                        
+                        <Image Source="ic_camera.jpg" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                                     
 
                 </Grid>
                 <StackLayout Padding="16,0,16,0" Margin="0">
-                   
-                    <Label Text="Description" FontSize="20" TextColor="#454F63" Margin="0,0,0,8"/>
+
+                    <Label Text="Description" x:Name="namelbl" FontSize="20" TextColor="#454F63" Margin="0,0,0,0"/>
+                    <Label x:Name="typelbl" Text="2m, approved"  VerticalOptions="End" FontSize="12" TextColor="#80343C65" Margin="0,0,0,2"/>
 
                     <Label Text="Hi, this the desscription about that tree. this the desscription about that tree. this the desscription about that tree. this the desscription about that tree." FontSize="14" TextColor="#80454F63" Margin="0,0,0,8" LineBreakMode="WordWrap" MaxLines="10"/>
                     <StackLayout
@@ -40,7 +44,7 @@
 
                 </StackLayout>
 
-                <Frame CornerRadius="8"  
+                <Frame CornerRadius="12"  
                    
                    VerticalOptions="Start" HeightRequest="252" Margin="16,0,16,0"
                    HasShadow="True"
@@ -54,6 +58,9 @@
                           HeightRequest="252"
                           
                           />
+                        <Frame Padding="0" Margin="0" x:Name="mapZoom" Opacity="0">
+                            
+                        </Frame>
                     </Grid>
                 </Frame>
                 <StackLayout HeightRequest="32">

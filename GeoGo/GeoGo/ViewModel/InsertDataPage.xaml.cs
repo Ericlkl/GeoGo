@@ -147,8 +147,9 @@ namespace GeoGo.ViewModel
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(type_Entry.Text))
+            if (string.IsNullOrWhiteSpace(type_Entry.SelectedItem.ToString()))
             {
+                
                 DisplayAlert("Type Entry Field is empty !", "Please insert the type of the object", "Okay");
                 return;
             }
@@ -165,7 +166,7 @@ namespace GeoGo.ViewModel
             if (PositionsList.Count >= 3)
                 coorList.Add(new Coordinate(PositionsList[0].Latitude, PositionsList[0].Longitude));
 
-            GeoData data = new GeoData(name_Entry.Text, type_Entry.Text, User.nickname );
+            GeoData data = new GeoData(name_Entry.Text, type_Entry.SelectedItem.ToString(), User.nickname );
 
             // Insert the Geodata into SQLite database and recieve the message
             string msg = LocalDatabase.InsertNewGeodataToDB(coorList, data);
