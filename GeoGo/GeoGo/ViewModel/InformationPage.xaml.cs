@@ -13,7 +13,7 @@ namespace GeoGo.ViewModel
     public partial class InformationPage : ContentPage
     {
         private static GeoData geodata;
-        private StackLayout propertyStack = new StackLayout { };
+        //private StackLayout propertyStack = new StackLayout { };
 
         public InformationPage()
         {
@@ -39,11 +39,11 @@ namespace GeoGo.ViewModel
         protected override void OnAppearing()
         {
             // Loop Over Properties for this Geodata , and print all the properties as Label
-            geodata.Properties.ForEach((Property prop) =>
-                                   propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
-            );
+            //geodata.Properties.ForEach((Property prop) =>
+             //                      propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
+            //);
 
-            DescriptionStack.Children.Add(propertyStack);
+           // DescriptionStack.Children.Add(propertyStack);
             //Update Content
             base.OnAppearing();
         }
@@ -113,26 +113,26 @@ namespace GeoGo.ViewModel
 
         protected override void OnDisappearing()
         {
-            DescriptionStack.Children.Remove(propertyStack);
-            propertyStack = new StackLayout { };
+           // DescriptionStack.Children.Remove(propertyStack);
+            //propertyStack = new StackLayout { };
             base.OnDisappearing();
         }
 
         void displayBasicGeodataInformation()
         {
-            namelbl.Text = $"Name : {geodata.Name}";
-            typelbl.Text = $"Type : {geodata.Type}";
-            providerlbl.Text = $"Provider : {geodata.Provider}";
-            shapelbl.Text = $"Shape : {geodata.GeometryShape}";
+            namelbl.Text = $"{geodata.Name}";
+            providerlbl.Text = $"Update author: {geodata.Provider}";
 
             geodata.Coordinates.ForEach((Coordinate coor) => {
                 DropPin(coor.Latitude, coor.Longitude);
             });
 
-            if(geodata.GeometryShape == "Line"){
+            if (geodata.GeometryShape == "Line")
+            {
                 DrawLine(geodata.Coordinates);
             }
-            else if (geodata.GeometryShape == "Polygon"){
+            else if (geodata.GeometryShape == "Polygon")
+            {
                 DrawPolygon(geodata.Coordinates);
             }
 

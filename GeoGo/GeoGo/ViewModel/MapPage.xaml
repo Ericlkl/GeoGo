@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Padding="0,20,0,0"
+<ContentPage 
              xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
@@ -11,14 +11,15 @@
 
     <ContentPage.Content>
         <Grid>
+             
             <maps:Map x:Name="myMap"
                       MapType="Street"
                       MyLocationEnabled="true"
                       VerticalOptions="FillAndExpand" />
-            
+           
             <Frame CornerRadius="8"  
                    Padding="0"
-                   VerticalOptions="Start" HeightRequest="52" Margin="16"
+                   VerticalOptions="Start" HeightRequest="52" Margin="16,36,16,0"
                    HasShadow="True"
                    >
                 <Grid  BackgroundColor="White"   ColumnSpacing="0">
@@ -26,7 +27,6 @@
                         <ColumnDefinition Width="48"/>
                         <ColumnDefinition Width="1"/>
                         <ColumnDefinition Width="48"/>
-
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="1"/>
                         <ColumnDefinition Width="48"/>

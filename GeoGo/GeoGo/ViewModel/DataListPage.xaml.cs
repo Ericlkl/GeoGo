@@ -14,6 +14,8 @@ namespace GeoGo
         public DataListPage()
         {
             InitializeComponent();
+
+
         }
 
         // activate when the user clicked the

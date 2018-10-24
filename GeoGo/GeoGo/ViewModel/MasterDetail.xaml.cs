@@ -25,7 +25,13 @@ namespace GeoGo.ViewModel
             var item = e.SelectedItem as MasterMenuItem;
             if(item != null)
             {
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.targetType));
+                Detail = new NavigationPage((Page)Activator.CreateInstance(item.targetType))
+                {
+                    BarBackgroundColor = Color.FromHex("#454F63"),
+                    BarTextColor = Color.FromHex("#ffffff"),
+
+                };
+
                 masterpage.ListView.SelectedItem = null;
                 IsPresented = false;
             }

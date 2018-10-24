@@ -8,40 +8,66 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical">
-                <StackLayout x:Name="DescriptionStack" 
-                         Padding="20"
-                         HorizontalOptions="Center" >
+                
+                <Grid HeightRequest="252">
+                    <Image Source="tree_1.jpg" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"/>
+                    <StackLayout VerticalOptions="End"  Margin="16,0,16,8">
+                        <Label x:Name="namelbl" Text=""  FontSize="40" TextColor="#FFFFFF" Margin="0" LineHeight="20"/>
+                        <Label  Text="2m, approved" VerticalOptions="End" FontSize="12" TextColor="#80 FFFFFF" Margin="0,0,0,16"/>
+                    </StackLayout>
 
-                    <Label x:Name="namelbl" Text="Name : "/>
+                </Grid>
+                <StackLayout Padding="16,0,16,0" Margin="0">
+                    
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Label Text="Description" FontSize="20" TextColor="#454F63" Margin="0,0,0,8"/>
+                        <BoxView Color="CornflowerBlue"
+                             CornerRadius="10"
+                             WidthRequest="160"
+                             HeightRequest="160"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center" />
 
-                    <Label x:Name="typelbl" Text="Type : " />
+                    </StackLayout>
+                    <Label Text="Hi, this the desscription about that tree. this the desscription about that tree. this the desscription about that tree. this the desscription about that tree." FontSize="14" TextColor="#80454F63" Margin="0,0,0,8" LineBreakMode="WordWrap" MaxLines="10"/>
+                    <StackLayout
+                        VerticalOptions="End"
+                        Orientation="Horizontal">
 
-                    <Label x:Name="providerlbl" Text="Provider"/>
+                        <Label Text="Update author: Jeffrey"  x:Name="providerlbl" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="Last update: 22/8/2018" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
 
-                    <Label x:Name="shapelbl" Text="Geometry Shape :"/>
+                    </StackLayout>
+                </StackLayout>
+                <BoxView Color="#05454F63" HeightRequest="4" HorizontalOptions="StartAndExpand" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,16">
+                    <Button Clicked="AddPropBtn_Clicked"  BackgroundColor="White"  Image="icon_add.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" />
+                    <Button Clicked="EmailBtn_Clicked"  BackgroundColor="White"  Image="ic_email.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" Margin="56,0,56,0"/>
+                    <Button Clicked="NavBtn_Clicked"  BackgroundColor="White"  Image="ic_locate.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" />
+
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
-                    <Button WidthRequest="120"
-                        Text="Add Properties" 
-                        Clicked="AddPropBtn_Clicked"/>
-
-                    <Button WidthRequest="120"
-                        Text="Send Email" 
-                        Clicked="EmailBtn_Clicked"/>
-
-                    <Button WidthRequest="120"
-                        Text="Navigation" 
-                        Clicked="NavBtn_Clicked"/>
-                </StackLayout>
-                
-                
-                <maps:Map x:Name="myMap"
+                <Frame CornerRadius="8"  
+                   
+                   VerticalOptions="Start" HeightRequest="252" Margin="16,0,16,0"
+                   HasShadow="True"
+                       Padding="0"
+                   >
+                    <Grid Padding="0" Margin="0">
+                        <maps:Map x:Name="myMap"
                           MapType="Street"
                           MyLocationEnabled="true"
                           MyLocationButtonClicked="MyLocationButtonClicked"
-                          VerticalOptions="FillAndExpand"
+                          HeightRequest="252"
+                          
                           />
+                    </Grid>
+                </Frame>
+                <StackLayout HeightRequest="32">
+                    
+                </StackLayout>
+
 
             </StackLayout>
         </ScrollView>
