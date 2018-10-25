@@ -20,7 +20,7 @@ namespace GeoGo.ViewModel
             geodata = data;
         }
 
-        void SaveBtn_Clicked(object sender, System.EventArgs e)
+        async void SaveBtn_Clicked(object sender, System.EventArgs e)
         {
             // If one of the Entry Field is empty
             if (string.IsNullOrWhiteSpace(pname_Entry.Text) || string.IsNullOrWhiteSpace(pvalue_Entry.Text))

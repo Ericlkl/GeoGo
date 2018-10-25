@@ -64,9 +64,10 @@
                           MapClicked="MapClicked"
                           HeightRequest="252"
                           />
-                    <Image Source="ic_mappicker.png" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                    <Frame Padding="0" Margin="0" x:Name="mapZoom" Opacity="0">
 
-                   
+                    </Frame>
+
                 </Grid>
                 <Button Text="Confirm"
                         Clicked="SubmitBtn_Clicked"
@@ -75,12 +76,6 @@
                         FontSize="15"
                         TextColor="#FFFFFF"
                         Margin="0,0,0,4"/>
-                <Button Text="Reset Pins"
-                        Clicked="CleanPinBtnClicked"
-                        BackgroundColor="#9D1144"
-                        BorderRadius="12"
-                        FontSize="15"
-                        TextColor="#FFFFFF"/>
             </StackLayout>
         </ScrollView>
 

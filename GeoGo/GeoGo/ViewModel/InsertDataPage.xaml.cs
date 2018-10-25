@@ -11,6 +11,11 @@ namespace GeoGo.ViewModel
 
         public List<Position> PositionsList = new List<Position>();
 
+        public void SetPostionslist(List<Position> a)
+        {
+            PositionsList = a;
+        }
+
         private Pin myPin;
         private Polyline myLine;
         private Polygon myPolygon;
@@ -19,7 +24,17 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
+            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
+            //Providerlbl.Text = $"Provider : {User.nickname}";
+            RedirectMapToCurrentLocation();
+        }
 
+        public InsertDataPage(List<Position> PositionsLit)
+        {
+            PositionsList = PositionsLit;
+            InitializeComponent();
+            myMap.UiSettings.MyLocationButtonEnabled = true;
+            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             //Providerlbl.Text = $"Provider : {User.nickname}";
             RedirectMapToCurrentLocation();
         }
@@ -39,7 +54,7 @@ namespace GeoGo.ViewModel
             RedirectMapToCurrentLocation();
         }
 
-        void CleanPinBtnClicked(object sender, System.EventArgs e)
+        public void CleanPinBtnClicked2()
         {
             // Clean out everything on the map
             myMap.Pins.Clear();
@@ -54,7 +69,21 @@ namespace GeoGo.ViewModel
             myPin = null;
             myPolygon = null;
         }
+        private void CleanPinBtnClicked(object sender, System.EventArgs e)
+        {
+            // Clean out everything on the map
+            myMap.Pins.Clear();
+            myMap.Polygons.Clear();
+            myMap.Polylines.Clear();
 
+            // Clean out all the Position data
+            PositionsList.Clear();
+
+            // Clean Map Object
+            myLine = null;
+            myPin = null;
+            myPolygon = null;
+        }
         void MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
         {
             var lat = e.Point.Latitude;
@@ -66,7 +95,7 @@ namespace GeoGo.ViewModel
             PositionsList.Add(new Position(lat, lng));
         }
 
-        void drawShape(double lat, double lon){
+        public void drawShape(double lat, double lon){
             // If current there is no coordinate on the list
             if ( PositionsList.Count == 0 ){
                 DropPin(lat,lon);
@@ -177,7 +206,10 @@ namespace GeoGo.ViewModel
             //Go Back to Previous Page
             Navigation.PopAsync();
         }
-
+        async void OnMapZoomClicked()
+        {
+            Navigation.PushAsync(new mapZoom(this));
+        }
     }
 
 }

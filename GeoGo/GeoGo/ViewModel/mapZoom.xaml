@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="GeoGo.ViewModel.mapZoom">
+
     <ContentPage.Content>
         <Grid>
             <maps:Map x:Name="myMap"
                       MapType="Street"
-                      MyLocationEnabled="true"
+                      MyLocationButtonClicked="MyLocationButtonClicked"
+                      MapClicked="MapClicked"
                       VerticalOptions="FillAndExpand" />
             <StackLayout
                 VerticalOptions="End"
@@ -15,6 +17,7 @@
                 >
 
                 <Button 
+                        x:Name="btn_locate"
                         Image="ic_locate.png"
                         VerticalOptions="End"
                         HorizontalOptions="End"
