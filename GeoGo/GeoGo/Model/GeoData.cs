@@ -19,6 +19,12 @@ namespace GeoGo.Model
         [MaxLength(30)]
         public string Provider { get; set; }
 
+        [MaxLength(30)]
+        public string Description { get; set; }
+
+        [MaxLength(40)]
+        public string LastUpdate { get; set; }
+
         // Need to fix it to detect the coordinates datatype to set it to Point/ Polygon / Line
         [MaxLength(6)]
         public string GeometryShape { get; set; }
@@ -33,11 +39,14 @@ namespace GeoGo.Model
         public string TypeOfImage { get; set; }
 
 
-        public GeoData(string name, string type, string provider)
+
+        public GeoData(string name, string type, string provider, string description)
         {
             Name = name;
             Type = type;
             Provider = provider;
+            Description = description;
+            LastUpdate = DateTime.Now.ToString();
             TypeOfImage = Types.GetIconByType(Type);
             System.Diagnostics.Debug.WriteLine(TypeOfImage);
         }
