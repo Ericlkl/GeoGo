@@ -15,9 +15,10 @@
                 >
 
                 <Button 
-                        Image="if_icon_finger_tap.png"
+                        Image="ic_locate.png"
                         VerticalOptions="End"
                         HorizontalOptions="End"
+                        Clicked="NavBtn_Clicked"
                         WidthRequest="52"
                         HeightRequest="52"
                         CornerRadius="8"

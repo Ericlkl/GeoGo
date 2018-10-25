@@ -63,7 +63,7 @@ namespace GeoGo.ViewModel
             // Update Current Location
             UserLocation.UpdateMyCoordinate();
             // Redirect the map to user current location
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(Latitude, Longitude), Distance.FromMiles(1)));
         }
 
         //Function for Drop pin on the map 
@@ -122,13 +122,17 @@ namespace GeoGo.ViewModel
             base.OnDisappearing();
         }
 
+        double Latitude;
+        double Longitude;
         void displayBasicGeodataInformation()
         {
             namelbl.Text = $"{geodata.Name}";
             providerlbl.Text = $"Update author: {geodata.Provider}";
             typelbl.Text = $"Type of Data: {geodata.Type}";
             geodata.Coordinates.ForEach((Coordinate coor) => {
-                DropPin(coor.Latitude, coor.Longitude);
+                Latitude = coor.Latitude;
+                Longitude = coor.Longitude;
+                DropPin(Latitude, Longitude);
             });
 
             if (geodata.GeometryShape == "Line")

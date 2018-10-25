@@ -7,6 +7,7 @@ using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
 using GeoGo.ViewModel;
 using GeoGo.styles;
+using Xamarin.Essentials;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -31,6 +32,7 @@ namespace GeoGo.ViewModel
             myMap.UiSettings.ZoomControlsEnabled = false;
             myMap.UiSettings.CompassEnabled = false;
             myMap.UiSettings.MyLocationButtonEnabled = true;
+            displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();
         }
 
@@ -45,8 +47,9 @@ namespace GeoGo.ViewModel
             // Update Current Location
             UserLocation.UpdateMyCoordinate();
             // Redirect the map to user current location
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(Latitude, Longitude), Distance.FromMiles(1)));
         }
+
 
         //Function for Drop pin on the map 
         void DropPin(double lat, double lon)
@@ -80,6 +83,48 @@ namespace GeoGo.ViewModel
 
             myMap.Polylines.Add(myLine);
 
+        }
+        double Latitude;
+        double Longitude;
+        void displayBasicGeodataInformation()
+        {
+          
+            geodata.Coordinates.ForEach((Coordinate coor) => {
+                Latitude = coor.Latitude;
+                Longitude = coor.Longitude;
+                DropPin(Latitude, Longitude);
+            });
+
+            if (geodata.GeometryShape == "Line")
+            {
+                DrawLine(geodata.Coordinates);
+            }
+            else if (geodata.GeometryShape == "Polygon")
+            {
+                DrawPolygon(geodata.Coordinates);
+            }
+
+        }
+        void DrawPolygon(List<Coordinate> coorList)
+        {
+
+            Polygon myPolygon = new Polygon();
+            coorList.ForEach((Coordinate obj) => myPolygon.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
+
+            myPolygon.IsClickable = true;
+            myPolygon.StrokeColor = Color.Accent;
+            myPolygon.StrokeWidth = 3f;
+            myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
+            myPolygon.Tag = "POLYGON"; // Can set any object
+            myMap.Polygons.Add(myPolygon);
+
+        }
+        async void NavBtn_Clicked(object sender, System.EventArgs e)
+        {
+            var location = new Location(geodata.Coordinates[0].Latitude, geodata.Coordinates[0].Longitude);
+            var options = new MapsLaunchOptions { Name = geodata.Name, MapDirectionsMode = MapDirectionsMode.Walking };
+
+            await Maps.OpenAsync(location, options);
         }
 
         async private void OncurrentLocationClicked(object sender, EventArgs e)
