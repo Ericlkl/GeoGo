@@ -26,6 +26,7 @@ namespace GeoGo
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
             var authenticationService = DependencyService.Get<IAuthenticationService>();
+
             var loginResult = await authenticationService.Authenticate();
            
             var sb = new StringBuilder();

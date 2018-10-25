@@ -11,6 +11,8 @@ namespace GeoGo.Model
         public static String picture { get; set; }
 
 
+
+
         private static IdentityModel.OidcClient.LoginResult loginResult;
         public static void SetLoginResult(IdentityModel.OidcClient.LoginResult loginResult2)
         {
@@ -37,8 +39,6 @@ namespace GeoGo.Model
 
         }
 
-
-
         public static void DebugResult()
         {
             var sb = new StringBuilder();
@@ -53,5 +53,7 @@ namespace GeoGo.Model
             }
             System.Diagnostics.Debug.WriteLine(sb.ToString());
         }
+
+
     }
 }

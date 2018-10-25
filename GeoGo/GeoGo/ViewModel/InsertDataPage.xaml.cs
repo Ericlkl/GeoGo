@@ -176,10 +176,17 @@ namespace GeoGo.ViewModel
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(type_Entry.SelectedItem.ToString()))
-            {
+            // Will show bug in IOS version
+            //if (string.IsNullOrWhiteSpace(type_Entry.SelectedItem.ToString()))
+            //{
                 
-                DisplayAlert("Type Entry Field is empty !", "Please insert the type of the object", "Okay");
+            //    DisplayAlert("Type Entry Field is empty !", "Please insert the type of the object", "Okay");
+            //    return;
+            //}
+
+            if (string.IsNullOrWhiteSpace(description_Entry.Text))
+            {
+                DisplayAlert("Description Entry Field is empty !", "Please insert the Description for the object", "Okay");
                 return;
             }
 
@@ -195,7 +202,7 @@ namespace GeoGo.ViewModel
             if (PositionsList.Count >= 3)
                 coorList.Add(new Coordinate(PositionsList[0].Latitude, PositionsList[0].Longitude));
 
-            GeoData data = new GeoData(name_Entry.Text, type_Entry.SelectedItem.ToString(), User.nickname );
+            GeoData data = new GeoData(name_Entry.Text, type_Entry.SelectedItem.ToString(), User.nickname, description_Entry.Text);
 
             // Insert the Geodata into SQLite database and recieve the message
             string msg = LocalDatabase.InsertNewGeodataToDB(coorList, data);
@@ -206,9 +213,10 @@ namespace GeoGo.ViewModel
             //Go Back to Previous Page
             Navigation.PopAsync();
         }
+
         async void OnMapZoomClicked()
         {
-            Navigation.PushAsync(new mapZoom(this));
+           await Navigation.PushAsync(new mapZoom(this));
         }
     }
 

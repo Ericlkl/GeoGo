@@ -6,11 +6,6 @@
              x:Class="GeoGo.ViewModel.InsertDataPage"
              BackgroundColor="#F7F7FA">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="SubmitBtn_Clicked"/>
-        
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
 
         <ScrollView>
@@ -33,9 +28,11 @@
                
                 <Entry Keyboard="Text" 
                        Placeholder="Description" 
+                       x:Name="description_Entry"
                        FontSize="15"
                        TextColor="#5678849E"
                        />
+                
                 <Picker x:Name="type_Entry" Title="Object Type"
                         FontSize="15"
                         TextColor="#5678849E">
@@ -64,7 +61,9 @@
                           MapClicked="MapClicked"
                           HeightRequest="252"
                           />
-                    <Frame Padding="0" Margin="0" x:Name="mapZoom" Opacity="0">
+                    <Frame Padding="0" Margin="0" x:Name="mapZoom" 
+                           BackgroundColor="Transparent"
+                           Opacity="0.1">
 
                     </Frame>
 

@@ -124,11 +124,15 @@ namespace GeoGo.ViewModel
 
         double Latitude;
         double Longitude;
+
         void displayBasicGeodataInformation()
         {
             namelbl.Text = $"{geodata.Name}";
             providerlbl.Text = $"Update author: {geodata.Provider}";
+            Deslbl.Text = geodata.Description;
+            timelbl.Text = $"last update : {geodata.LastUpdate}";
             typelbl.Text = $"Type of Data: {geodata.Type}";
+
             geodata.Coordinates.ForEach((Coordinate coor) => {
                 Latitude = coor.Latitude;
                 Longitude = coor.Longitude;

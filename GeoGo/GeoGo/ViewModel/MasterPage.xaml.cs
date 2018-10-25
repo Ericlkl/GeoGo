@@ -29,9 +29,8 @@ namespace GeoGo.ViewModel
 
         async void OnLabelClicked()
         {
-            var authenticationService = DependencyService.Get<IAuthenticationService>();
+            var authenticationService = DependencyService.Resolve<IAuthenticationService>();
             await authenticationService.LogoutRequest();
-
             Application.Current.MainPage = new LoginPage();
         }
 
@@ -43,18 +42,5 @@ namespace GeoGo.ViewModel
             ListView.ItemsSource = items;
         }
 
-        async void OnLogoutClicked(object sender, EventArgs args)
-        {
-            var authenticationService = DependencyService.Get<IAuthenticationService>();
-            await authenticationService.LogoutRequest();
-            if (Device.RuntimePlatform == Device.Android)
-            {
-                Application.Current.MainPage = new LoginPage();
-            }
-            else if (Device.RuntimePlatform == Device.iOS)
-            {
-                await Navigation.PushModalAsync(new LoginPage());
-            }
-        }
     }
 }
