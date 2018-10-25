@@ -29,16 +29,16 @@
                        Placeholder="Object Name" 
                        x:Name="name_Entry"
                        FontSize="15"
-                       TextColor="#5678849E"/>
+                       TextColor="#78849E"/>
                
                 <Entry Keyboard="Text" 
                        Placeholder="Description" 
                        FontSize="15"
-                       TextColor="#5678849E"
+                       TextColor="#78849E"
                        />
                 <Picker x:Name="type_Entry" Title="Object Type"
                         FontSize="15"
-                        TextColor="#5678849E">
+                        TextColor="#78849E">
                   <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                       <x:String>LED</x:String>
@@ -59,10 +59,10 @@
                     
                     <maps:Map x:Name="myMap"
                           MapType="Street"
-                          MyLocationEnabled="true"
                           MyLocationButtonClicked="MyLocationButtonClicked"
                           MapClicked="MapClicked"
                           HeightRequest="252"
+                          HasZoomEnabled="False"
                           />
                     <Frame Padding="0" Margin="0" x:Name="mapZoom" Opacity="0">
 

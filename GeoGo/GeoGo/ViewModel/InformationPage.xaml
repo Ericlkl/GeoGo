@@ -20,7 +20,7 @@
                                      
 
                 </Grid>
-                <StackLayout Padding="16,0,16,0" Margin="0">
+                <StackLayout Padding="16,0,16,0" Margin="0" x:Name="DescriptionStack">
 
                     <Label Text="Description" x:Name="namelbl" FontSize="20" TextColor="#454F63" Margin="0,0,0,0"/>
                     <Label x:Name="typelbl" Text="2m, approved"  VerticalOptions="End" FontSize="12" TextColor="#80343C65" Margin="0,0,0,2"/>
@@ -32,8 +32,21 @@
 
                         <Label Text="Update author: Jeffrey"  x:Name="providerlbl" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions="StartAndExpand"/>
                         <Label Text="Last update: 22/8/2018" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
+                        
+                    </StackLayout>
+                    <StackLayout
+                        VerticalOptions="End"
+                        Orientation="Horizontal">
+
+                        <Label Text="Update author: Jeffrey"  x:Name="propetynamelbl" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="Last update: 22/8/2018" x:Name="propetyvaluelbl" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
 
                     </StackLayout>
+                    <StackLayout x:Name="Propdetaillbl">
+                        <Label ></Label>
+                    </StackLayout>
+
+
                 </StackLayout>
                
              
@@ -53,7 +66,6 @@
                     <Grid Padding="0" Margin="0">
                         <maps:Map x:Name="myMap"
                           MapType="Street"
-                          MyLocationEnabled="true"
                           MyLocationButtonClicked="MyLocationButtonClicked"
                           HeightRequest="252"
                           

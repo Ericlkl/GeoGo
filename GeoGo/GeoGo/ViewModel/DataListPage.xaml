@@ -8,9 +8,6 @@
              >
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Send List"
-                     Clicked="SendListBtn_Clicked"
-                     />
         <ToolbarItem Text="Clean List"
                      Clicked="CleanBtn_Clicked"
                      />

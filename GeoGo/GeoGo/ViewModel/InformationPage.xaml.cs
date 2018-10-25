@@ -13,6 +13,7 @@ namespace GeoGo.ViewModel
     public partial class InformationPage : ContentPage
     {
         private static GeoData geodata;
+        private StackLayout propertyStack = new StackLayout { };
         public GeoData datag;
         //private StackLayout propertyStack = new StackLayout { };
 
@@ -42,15 +43,22 @@ namespace GeoGo.ViewModel
 
         protected override void OnAppearing()
         {
-            // Loop Over Properties for this Geodata , and print all the properties as Label
-            //geodata.Properties.ForEach((Property prop) =>
-             //                      propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
-            //);
+            //Loop Over Properties for this Geodata , and print all the properties as Label
+            geodata.Properties.ForEach((Property prop) =>
+                                  propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
+            );
 
-           // DescriptionStack.Children.Add(propertyStack);
+            DescriptionStack.Children.Add(propertyStack);
             //Update Content
             base.OnAppearing();
         }
+        protected override void OnDisappearing()
+        {
+            DescriptionStack.Children.Remove(propertyStack);
+            propertyStack = new StackLayout { };
+            base.OnDisappearing();
+        }
+
 
         void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
         {
@@ -115,12 +123,6 @@ namespace GeoGo.ViewModel
 
         }
 
-        protected override void OnDisappearing()
-        {
-           // DescriptionStack.Children.Remove(propertyStack);
-            //propertyStack = new StackLayout { };
-            base.OnDisappearing();
-        }
 
         double Latitude;
         double Longitude;
@@ -135,6 +137,10 @@ namespace GeoGo.ViewModel
                 DropPin(Latitude, Longitude);
             });
 
+            // Loop Over Properties for this Geodata , and print all the properties as Label
+            geodata.Properties.ForEach((Property prop) =>
+                 propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
+           );
             if (geodata.GeometryShape == "Line")
             {
                 DrawLine(geodata.Coordinates);

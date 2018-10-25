@@ -16,7 +16,7 @@
                       MapType="Street"
                       MyLocationEnabled="true"
                       VerticalOptions="FillAndExpand" />
-           
+
             <Frame x:Name="customNav"
                    CornerRadius="8"  
                    Padding="0"
@@ -36,55 +36,9 @@
                     <Label Grid.Column="1" BackgroundColor="#F4F4F6" WidthRequest="1"></Label>
                     <Button Grid.Column="2" BackgroundColor="White"  Text="Has Image" Image="icons_Dark_search.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
                     <Label Grid.Column="3" HorizontalOptions="Start" Text="What target" FontSize="12" StyleClass="t-1" VerticalOptions="Center" />
-                    <Label Grid.Column="4" BackgroundColor="#F4F4F6" WidthRequest="1"></Label>
+                    <Label Grid.Column="4" BackgroundColor="#F4F4F6" WidthRequest="1"></Label> 
                     <Button Grid.Column="5" Clicked="OnAddClicked"  BackgroundColor="White"  Image="icon_add.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
                 </Grid>
-            </Frame>
-            <Frame CornerRadius="8"  
-                   Padding="0"
-                   VerticalOptions="End" HeightRequest="65"
-                   HasShadow="True"
-                   >
-
-                <StackLayout Orientation="Vertical" Spacing="0"  BackgroundColor="#2A2E43" Margin="0" Padding="0">
-                    <Grid ColumnSpacing="0" BackgroundColor="Blue">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-
-                        </Grid.ColumnDefinitions>
-                        <BoxView  Grid.Column="0" Color="#2A2E43" HeightRequest="6" HorizontalOptions="FillAndExpand" />
-                        <BoxView  Grid.Column="1" Color="#5773FF" HeightRequest="6" HorizontalOptions="FillAndExpand" />
-                        <BoxView  Grid.Column="2" Color="#3497FD" HeightRequest="6" HorizontalOptions="FillAndExpand" />
-                        <BoxView  Grid.Column="3" Color="#3ACCE1" HeightRequest="6" HorizontalOptions="FillAndExpand" />
-
-                    </Grid>
-                    <Grid  ColumnSpacing="0"  RowSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48"/>
-                            <ColumnDefinition Width="1"/>
-
-                        </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Clicked="OnMenuClicked" BackgroundColor="Transparent" Image="icons_arr.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" />
-                        <StackLayout Grid.Column="1" Orientation="Vertical">
-                            <Label Text="Near by"
-                                TextColor="white"
-                               FontSize="16"/>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="LED"
-                                TextColor="white"
-                               FontSize="16"/>
-                                <Label Text="Solar"
-                                HorizontalOptions="EndAndExpand"
-                                TextColor="#503026" />
-                            </StackLayout>
-                        </StackLayout>
-                    </Grid>
-                   
-                </StackLayout>
-              
             </Frame>
             <StackLayout
                 VerticalOptions="End"
@@ -114,7 +68,7 @@
             </StackLayout>
             
             
-            <Label BackgroundColor="#2A2E43" Text="" HeightRequest="20" VerticalOptions="End"/>
+           
 
         </Grid>
     </ContentPage.Content>

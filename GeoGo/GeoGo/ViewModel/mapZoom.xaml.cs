@@ -37,14 +37,6 @@ namespace GeoGo.ViewModel
             myMap.UiSettings.CompassEnabled = false;
             myMap.UiSettings.MyLocationButtonEnabled = true;
             btn_locate.IsVisible = false;
-            
-            var confirmToolbar = new ToolbarItem
-            {
-                Name = "Okay",
-
-                Command = new Command(() => CleanPinBtnClicked()),
-            };
-
             var resetToolbar = new ToolbarItem
             {
                 Name = "Reset",
@@ -52,7 +44,6 @@ namespace GeoGo.ViewModel
             };
 
             InsertDataPageInstance = a;
-            this.ToolbarItems.Add(confirmToolbar);
             this.ToolbarItems.Add(resetToolbar);
             PositionsList = InsertDataPageInstance.PositionsList;
             drawAllShape();
