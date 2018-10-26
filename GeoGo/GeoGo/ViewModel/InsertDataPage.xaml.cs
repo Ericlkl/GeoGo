@@ -24,7 +24,7 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
-            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
+            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             //Providerlbl.Text = $"Provider : {User.nickname}";
             RedirectMapToCurrentLocation();
         }
@@ -34,7 +34,7 @@ namespace GeoGo.ViewModel
             PositionsList = PositionsLit;
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
-            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
+            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             //Providerlbl.Text = $"Provider : {User.nickname}";
             RedirectMapToCurrentLocation();
         }
@@ -86,13 +86,21 @@ namespace GeoGo.ViewModel
         }
         void MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
         {
-            var lat = e.Point.Latitude;
-            var lng = e.Point.Longitude;
+           var lat = e.Point.Latitude;
+           var lng = e.Point.Longitude;
 
-            drawShape(lat, lng);
+           drawShape(lat, lng);
 
-            // Save new record to PositionList temporary
-            PositionsList.Add(new Position(lat, lng));
+           //Save new record to PositionList temporary
+           PositionsList.Add(new Position(lat, lng));
+        }
+
+        public void drawAllShape()
+        {
+            foreach (var i in PositionsList)
+            {
+                drawShape(i.Latitude, i.Longitude);
+            }
         }
 
         public void drawShape(double lat, double lon){

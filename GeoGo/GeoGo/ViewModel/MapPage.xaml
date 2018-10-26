@@ -45,16 +45,7 @@
                 Margin="0,0,16,81"
                 >
                 
-                <Button 
-                        Image="if_icon_finger_tap.png"
-                        VerticalOptions="End"
-                        HorizontalOptions="End"
-                        Clicked="OnDrawFilterClicked"  
-                        WidthRequest="52"
-                        HeightRequest="52"
-                        CornerRadius="8"
-                        BackgroundColor="White"
-                        Opacity="0.9"/>
+
                 <Button 
                         Image="icons_gps.png"
                         VerticalOptions="CenterAndExpand"

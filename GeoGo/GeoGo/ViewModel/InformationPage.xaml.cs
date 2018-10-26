@@ -45,17 +45,17 @@ namespace GeoGo.ViewModel
         {
             //Loop Over Properties for this Geodata , and print all the properties as Label
             geodata.Properties.ForEach((Property prop) =>
-                                  propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
+                Propdetaillbl.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " ,FontSize=12, TextColor = Color.FromHex("#68454F63") })
             );
 
-            DescriptionStack.Children.Add(propertyStack);
+            //DescriptionStack.Children.Add(propertyStack);
             //Update Content
             base.OnAppearing();
         }
         protected override void OnDisappearing()
         {
-            DescriptionStack.Children.Remove(propertyStack);
-            propertyStack = new StackLayout { };
+            //DescriptionStack.Children.Remove(propertyStack);
+            //propertyStack = new StackLayout { };
             base.OnDisappearing();
         }
 
@@ -132,7 +132,7 @@ namespace GeoGo.ViewModel
             namelbl.Text = $"{geodata.Name}";
             providerlbl.Text = $"Update author: {geodata.Provider}";
             Deslbl.Text = geodata.Description;
-            timelbl.Text = $"last update : {geodata.LastUpdate}";
+            timelbl.Text = $"Last Update : {geodata.LastUpdate}";
             typelbl.Text = $"Type of Data: {geodata.Type}";
 
             geodata.Coordinates.ForEach((Coordinate coor) => {

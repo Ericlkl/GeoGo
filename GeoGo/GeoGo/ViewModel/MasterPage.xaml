@@ -27,7 +27,7 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="0" Source="{Binding IconSource}" HeightRequest="36" WidthRequest="36" VerticalOptions="Center" />
+                                    <Image Grid.Column="0" Source="{Binding IconSource}" VerticalOptions="Center" />
                                     <Label Grid.Column="1" HorizontalOptions="Start" Text="{Binding Title}" FontSize="18" StyleClass="t-1" VerticalOptions="Center" />
                                 </Grid>
                             </ViewCell>
@@ -41,7 +41,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0" Source="ic_logout" HeightRequest="36" WidthRequest="36" VerticalOptions="Center" />
+                    <Image Grid.Column="0" Source="ic_logout" VerticalOptions="Center" />
                     <Label x:Name="btnLogout" Grid.Column="1" HeightRequest="36" HorizontalOptions="Start" Text="Log out" FontSize="18" StyleClass="t-1" VerticalOptions="Center"/>
                 </Grid>
             </StackLayout>

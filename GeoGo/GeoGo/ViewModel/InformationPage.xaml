@@ -36,12 +36,13 @@
                         VerticalOptions="End"
                         Orientation="Horizontal">
 
-                        <Label Text="Update author: Jeffrey"  x:Name="providerlbl" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions="StartAndExpand"/>
-                        <Label Text="Last update: 22/8/2018" FontSize="12" TextColor="#68454F63" Margin="0,0,0,16" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
+                        <Label Text="Update author: Jeffrey"  x:Name="providerlbl" FontSize="12" TextColor="#68454F63" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="Last update: 22/8/2018" x:Name="timelbl" FontSize="12" TextColor="#68454F63" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
                         
                     </StackLayout>
-                   
-                    <StackLayout x:Name="Propdetaillbl">
+
+
+                    <StackLayout x:Name="Propdetaillbl"  Margin="0,0,0,16" >
                         <Label/>
                     </StackLayout>
 
@@ -49,12 +50,21 @@
                 </StackLayout>
                
              
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,16">
-                    <Button Clicked="AddPropBtn_Clicked"  BackgroundColor="White"  Image="icon_add.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" BorderRadius="12" />
-                    <Button Clicked="EmailBtn_Clicked"  BackgroundColor="White"  Image="ic_email.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" Margin="56,0,56,0"  BorderRadius="12"/>
-                    <Button Clicked="NavBtn_Clicked"  BackgroundColor="White"  Image="ic_locate.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center"  BorderRadius="12" />
+                <Grid Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button  Clicked="AddPropBtn_Clicked"  BackgroundColor="White"  Image="icon_add.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" BorderRadius="12" />
 
-                </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Clicked="NavBtn_Clicked"  BackgroundColor="White"  Image="ic_locate.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center"  BorderRadius="12" />
+
+                    </StackLayout>
+                    
+                </Grid>
 
                 <Frame CornerRadius="12"  
                    

@@ -175,12 +175,6 @@
     <BundleResource Include="Resources\ic_home.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_home%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ic_home%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ic_cloud.png" />
   </ItemGroup>
   <ItemGroup>

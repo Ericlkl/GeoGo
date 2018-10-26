@@ -61,11 +61,6 @@
                           HeightRequest="252"
                           HasZoomEnabled="False"
                           />
-                    <Frame Padding="0" Margin="0" x:Name="mapZoom" 
-                           BackgroundColor="Transparent"
-                           Opacity="0.1">
-
-                    </Frame>
 
                 </Grid>
                 <Button Text="Confirm"

@@ -129,8 +129,9 @@ namespace GeoGo.ViewModel
                 // Save new record to PositionList temporary
                 PositionsList.Add(new Position(lat, lng));
 
-                InsertDataPageInstance.drawShape(lat, lng);
-                InsertDataPageInstance.PositionsList.Add(new Position(lat, lng));
+                //InsertDataPageInstance.drawShape(lat, lng);
+                InsertDataPageInstance.PositionsList = PositionsList;
+                InsertDataPageInstance.drawAllShape();
                 //InsertDataPageInstance.SetPostionslist(PositionsList);
             }
 
