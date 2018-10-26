@@ -31,7 +31,9 @@
                             Margin="0,0,0,8"
                             LineBreakMode="WordWrap" 
                             MaxLines="10"/>
-
+                    
+                     <StackLayout x:Name="Propdetaillbl"  Margin="0,0,0,16" />
+                    
                     <StackLayout
                         VerticalOptions="End"
                         Orientation="Horizontal">
@@ -41,10 +43,7 @@
                         
                     </StackLayout>
 
-
-                    <StackLayout x:Name="Propdetaillbl"  Margin="0,0,0,16" >
-                        <Label/>
-                    </StackLayout>
+                    
 
 
                 </StackLayout>

@@ -70,7 +70,7 @@ namespace GeoGo
             myLine.IsClickable = true;
 
             // Change to anyColor you like, if you think it is not good
-            myLine.StrokeColor = UIColor_list.GetRandomColor();
+            myLine.StrokeColor = Color.Blue;
 
             myLine.StrokeWidth = 5f;
             myLine.Tag = "POLYLINE"; // Can set any object
@@ -87,7 +87,7 @@ namespace GeoGo
 
             myPolygon.IsClickable = true;
             // Change to anyColor you like, if you think it is not good
-            myPolygon.StrokeColor = UIColor_list.GetRandomColor();
+            myPolygon.StrokeColor = Color.Blue;
             myPolygon.StrokeWidth = 3f;
             myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
             myPolygon.Tag = "POLYGON"; // Can set any object

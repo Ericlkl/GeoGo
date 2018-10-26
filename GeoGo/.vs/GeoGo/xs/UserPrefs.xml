@@ -1,11 +1,10 @@
-﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.251AF0A7-2EEF-4364-8F78-6C208A61BE6A" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MasterPage.xaml.cs">
+﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default">
+  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/App.xaml.cs" Line="1" Column="1" />
-      <File FileName="GeoGo/ViewModel/LoginPage.xaml.cs" Line="29" Column="13" />
-      <File FileName="GeoGo/Model/User.cs" Line="13" Column="9" />
-      <File FileName="GeoGo/ViewModel/MasterPage.xaml.cs" Line="36" Column="9" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="142" Column="16" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="34" Column="21" />
+      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="90" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
@@ -14,6 +13,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.GeoGo.UITests PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -45,17 +45,17 @@ namespace GeoGo.ViewModel
         {
             //Loop Over Properties for this Geodata , and print all the properties as Label
             geodata.Properties.ForEach((Property prop) =>
-                Propdetaillbl.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " ,FontSize=12, TextColor = Color.FromHex("#68454F63") })
+                propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " ,FontSize=12, TextColor = Color.FromHex("#68454F63") })
             );
 
-            //DescriptionStack.Children.Add(propertyStack);
+            Propdetaillbl.Children.Add(propertyStack);
             //Update Content
             base.OnAppearing();
         }
         protected override void OnDisappearing()
         {
-            //DescriptionStack.Children.Remove(propertyStack);
-            //propertyStack = new StackLayout { };
+            Propdetaillbl.Children.Remove(propertyStack);
+            propertyStack = new StackLayout { };
             base.OnDisappearing();
         }
 
@@ -141,10 +141,6 @@ namespace GeoGo.ViewModel
                 DropPin(Latitude, Longitude);
             });
 
-            // Loop Over Properties for this Geodata , and print all the properties as Label
-            geodata.Properties.ForEach((Property prop) =>
-                 propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " })
-           );
             if (geodata.GeometryShape == "Line")
             {
                 DrawLine(geodata.Coordinates);
