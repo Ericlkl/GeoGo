@@ -12,9 +12,6 @@ namespace GeoGo.Model
         public static String name { get; set; }
         public static String picture { get; set; }
 
-
-
-
         private static IdentityModel.OidcClient.LoginResult loginResult;
         public static void SetLoginResult(IdentityModel.OidcClient.LoginResult loginResult2)
         {
@@ -35,10 +32,7 @@ namespace GeoGo.Model
                     picture = claim.Value;
                 }
 
-
             }
-
-
         }
 
         public static void DebugResult()

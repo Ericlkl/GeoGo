@@ -55,6 +55,7 @@
     <Compile Include="ModelTest\PropertyTest.cs" />
     <Compile Include="ModelTest\UserLocationTest.cs" />
     <Compile Include="ModelTest\MasterMenuItemTest.cs" />
+    <Compile Include="ModelTest\MasterPageItemTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModelTest\" />

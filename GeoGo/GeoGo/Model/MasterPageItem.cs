@@ -11,5 +11,13 @@ namespace GeoGo.Model
 		public string Title { get; set;}
         public string Icon { get; set; }
         public Type targetType { get; set; }
+
+        public MasterPageItem(){}
+
+        public MasterPageItem(string title, string icon, Type type){
+            Title = title;
+            Icon = icon;
+            targetType = type;
+        }
 	}
 }

@@ -32,10 +32,10 @@ namespace GeoGo.UITests.ModelTest
             Assert.IsInstanceOf(typeof(Color), item.BackgroundColor);
         }
 
-        [Test()]
-        public void MustHavePage()
-        {
-            Assert.IsInstanceOf(typeof(Page), item.targetType);
-        }
+        //[Test()]
+        //public void MustHavePage()
+        //{
+        //    Assert.IsInstanceOf(typeof(Page), item.targetType);
+        //}
     }
 }
