@@ -7,16 +7,6 @@ namespace GeoGo.styles
     public static class UIColor_list
     {
             public static List<ColorItem> fullColorList = new List<ColorItem>() {
-                new ColorItem() { Color = Color.Accent, Name = "Accent" } ,
-                new ColorItem() { Color = Color.Accent, Name = "Accent" } ,
-                new ColorItem() { Color = Color.AliceBlue, Name = "AliceBlue" } ,
-                new ColorItem() { Color = Color.MintCream, Name = "MintCream" } ,
-                new ColorItem() { Color = Color.MistyRose, Name = "MistyRose" } ,
-                new ColorItem() { Color = Color.Moccasin, Name = "Moccasin" } ,
-                new ColorItem() { Color = Color.NavajoWhite, Name = "NavajoWhite" } ,
-                new ColorItem() { Color = Color.Navy, Name = "Navy" } ,
-                new ColorItem() { Color = Color.OldLace, Name = "OldLace" } ,
-
             };
 
         // A Function to generate Random UIColor back to the user

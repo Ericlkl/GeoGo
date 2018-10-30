@@ -1,11 +1,9 @@
 ﻿<Properties StartupConfiguration="{B19C892E-2628-4CA7-AD27-08D406A3B14B}|Unit Tests">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/Model/MasterPageItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.UITests/ModelTest/LocalDatabaseTest.cs">
     <Files>
-      <File FileName="GeoGo.UITests/ModelTest/UserLocationTest.cs" Line="21" Column="54" />
-      <File FileName="GeoGo/Model/UserLocation.cs" Line="1" Column="1" />
-      <File FileName="GeoGo.UITests/ModelTest/MasterPageItemTest.cs" Line="1" Column="1" />
-      <File FileName="GeoGo/Model/MasterPageItem.cs" Line="1" Column="1" />
+      <File FileName="GeoGo/Model/LocalDatabase.cs" Line="50" Column="35" />
+      <File FileName="GeoGo.UITests/ModelTest/LocalDatabaseTest.cs" Line="37" Column="12" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -16,10 +14,16 @@
                 <Node name="ModelTest" expanded="True">
                   <Node name="CoordinateTest" expanded="True" />
                   <Node name="GeoDataTest" expanded="True" />
+                  <Node name="LocalDatabaseTest" expanded="True" />
                   <Node name="MasterMenuItemTest" expanded="True" />
+                  <Node name="MasterPageItemTest" expanded="True" />
                   <Node name="PropertyTest" expanded="True" />
+                  <Node name="UserLocationTest" expanded="True" />
                 </Node>
-                <Node name="Tests" selected="True" />
+                <Node name="Tests" expanded="True">
+                  <Node name="Tests(Android)" expanded="True" />
+                  <Node name="Tests(iOS)" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -30,9 +34,7 @@
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo/ViewModel/DataListPage.xaml.cs" relfile="GeoGo/ViewModel/DataListPage.xaml.cs" line="45" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.GeoGo.UITests PreferredExecutionTarget="MonoDevelop.Default" />
