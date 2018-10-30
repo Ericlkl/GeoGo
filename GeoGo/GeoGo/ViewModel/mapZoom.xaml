@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="GeoGo.ViewModel.mapZoom">
+
+    <ContentPage.Content>
+        <Grid>
+            <maps:Map x:Name="myMap"
+                      MapType="Street"
+                      MyLocationButtonClicked="MyLocationButtonClicked"
+                      MapClicked="MapClicked"
+                      VerticalOptions="FillAndExpand" />
+            <StackLayout
+                VerticalOptions="End"
+                Margin="0,0,16,81"
+                >
+
+                <Button 
+                        x:Name="btn_locate"
+                        Image="ic_locate.png"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        Clicked="NavBtn_Clicked"
+                        WidthRequest="52"
+                        HeightRequest="52"
+                        CornerRadius="8"
+                        BackgroundColor="White"
+                        Opacity="0.9"/>
+                <Button 
+                        Image="icons_gps.png"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="End"
+                        Clicked="OncurrentLocationClicked" 
+                        WidthRequest="52"
+                        HeightRequest="52"                    
+                        CornerRadius="8"
+                        BackgroundColor="White"
+                        Opacity="0.9"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

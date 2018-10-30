@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/Controllers/MapPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapShapePage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/Controllers/InformationPage.xaml.cs" Line="55" Column="3" />
-      <File FileName="GeoGo/Controllers/InformationPage.xaml" Line="97" Column="1" />
-      <File FileName="GeoGo/Controllers/InsertDataPage.xaml.cs" Line="219" Column="1" />
-      <File FileName="GeoGo/Controllers/mapZoom.xaml.cs" Line="134" Column="57" />
-      <File FileName="GeoGo/Controllers/MapPage.xaml" Line="66" Column="1" />
-      <File FileName="GeoGo/Controllers/MapPage.xaml.cs" Line="142" Column="9" />
+      <File FileName="GeoGo/ViewModel/MapShapePage.xaml" Line="19" Column="1" />
+      <File FileName="GeoGo/ViewModel/MapShapePage.xaml.cs" Line="108" Column="14" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml" Line="74" Column="1" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="32" Column="37" />
+      <File FileName="GeoGo/ViewModel/DataListPage.xaml.cs" Line="14" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
