@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{B19C892E-2628-4CA7-AD27-08D406A3B14B}|Unit Tests">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.UITests/ModelTest/LocalDatabaseTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.UITests/ModelTest/UserLocationTest.cs">
     <Files>
       <File FileName="GeoGo/Model/LocalDatabase.cs" Line="50" Column="35" />
-      <File FileName="GeoGo.UITests/ModelTest/LocalDatabaseTest.cs" Line="37" Column="12" />
+      <File FileName="GeoGo.UITests/ModelTest/LocalDatabaseTest.cs" Line="13" Column="6" />
+      <File FileName="GeoGo/styles/UIColor_list.cs" Line="148" Column="17" />
+      <File FileName="GeoGo.UITests/ModelTest/UIColor_list_Test.cs" Line="14" Column="15" />
+      <File FileName="GeoGo.UITests/ModelTest/UserLocationTest.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">

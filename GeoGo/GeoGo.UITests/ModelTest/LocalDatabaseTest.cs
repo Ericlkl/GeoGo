@@ -11,7 +11,6 @@ namespace GeoGo.UITests.ModelTest
 
     public class LocalDatabaseTest
     {
-    
 
         [SetUp]
         public void BeforeEachTest(){
@@ -42,5 +41,7 @@ namespace GeoGo.UITests.ModelTest
             LocalDatabase.CleanAllDataInTable();
             Assert.AreEqual(LocalDatabase.GetAllGeoDataSet().Count, 0);
         }
+
+
     }
 }

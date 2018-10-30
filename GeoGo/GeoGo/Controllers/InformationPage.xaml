@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Description"
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:local="clr-namespace:GeoGo"
+             x:Class="GeoGo.ViewModel.InformationPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                
+                <Grid HeightRequest="252">
+                    <Frame x:Name="customNav"
+                            
+                           Padding="0"
+                           BackgroundColor="#8592AD">
+                        
+                        <Image Source="ic_camera.jpg" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                                     
+
+                </Grid>
+                <StackLayout Padding="16,0,16,0" Margin="0" x:Name="DescriptionStack">
+
+                    <Label Text="Description" x:Name="namelbl" FontSize="20" TextColor="#454F63" Margin="0,0,0,0"/>
+                    <Label x:Name="typelbl" Text="2m, approved"  VerticalOptions="End" FontSize="12" TextColor="#80343C65" Margin="0,0,0,2"/>
+                    <Label  x:Name="Deslbl"
+                            Text="Description for the Object..."
+                            FontSize="14" 
+                            TextColor="#80454F63" 
+                            Margin="0,0,0,8"
+                            LineBreakMode="WordWrap" 
+                            MaxLines="10"/>
+                    
+                     <StackLayout x:Name="Propdetaillbl"  Margin="0,0,0,16" />
+                    
+                    <StackLayout
+                        VerticalOptions="End"
+                        Orientation="Horizontal">
+
+                        <Label Text="Update author: Jeffrey"  x:Name="providerlbl" FontSize="12" TextColor="#68454F63" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="Last update: 22/8/2018" x:Name="timelbl" FontSize="12" TextColor="#68454F63" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
+                        
+                    </StackLayout>
+
+                    
+
+
+                </StackLayout>
+               
+             
+                <Grid Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button  Clicked="AddPropBtn_Clicked"  BackgroundColor="White"  Image="icon_add.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center" BorderRadius="12" />
+
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Clicked="NavBtn_Clicked"  BackgroundColor="White"  Image="ic_locate.png" HeightRequest="52" WidthRequest="52" VerticalOptions="Center"  BorderRadius="12" />
+
+                    </StackLayout>
+                    
+                </Grid>
+
+                <Frame CornerRadius="12"  
+                   
+                   VerticalOptions="Start" HeightRequest="252" Margin="16,0,16,0"
+                   HasShadow="True"
+                       Padding="0"
+                   >
+                    <Grid Padding="0" Margin="0">
+                        <maps:Map x:Name="myMap"
+                          MapType="Street"
+                          MyLocationEnabled="true"
+                          MyLocationButtonClicked="MyLocationButtonClicked"
+                          HeightRequest="252"
+                          
+                          />
+                        <Frame Padding="0" Margin="0" 
+                               x:Name="mapZoom"
+                               BackgroundColor="Transparent"
+                               Opacity="0.1">
+
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <StackLayout HeightRequest="32">
+                    
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

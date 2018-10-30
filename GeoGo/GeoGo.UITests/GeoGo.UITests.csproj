@@ -57,9 +57,11 @@
     <Compile Include="ModelTest\MasterMenuItemTest.cs" />
     <Compile Include="ModelTest\MasterPageItemTest.cs" />
     <Compile Include="ModelTest\LocalDatabaseTest.cs" />
+    <Compile Include="ModelTest\UIColor_list_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModelTest\" />
+    <Folder Include="ControllerTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
