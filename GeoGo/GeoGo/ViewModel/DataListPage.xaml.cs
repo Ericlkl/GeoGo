@@ -16,9 +16,6 @@ namespace GeoGo
         public DataListPage()
         {
             InitializeComponent();
-            
-
-
         }
 
         // activate when the user clicked the
@@ -47,12 +44,6 @@ namespace GeoGo
             listView.ItemsSource = items;
 
         }
-        
-
-        void SendListBtn_Clicked(object sender, System.EventArgs e)
-        {
-
-        }
 
         //Just a Beta function for development
         async void CleanBtn_Clicked(object sender, System.EventArgs e)
@@ -61,10 +52,6 @@ namespace GeoGo
             if (deleteDecision == "Confirm")
                 LocalDatabase.CleanAllDataInTable();
             OnAppearing();
-        }
-        async void NavBtn_Clicked(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

@@ -41,7 +41,12 @@
                                        />
                                 </StackLayout>
 
-                                <Button Clicked="NavBtn_Clicked" BackgroundColor="#00F7F7FA"  Image="ic_locate.png" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
+                                <Button 
+                                        BackgroundColor="#00F7F7FA"  
+                                        Image="ic_locate.png" 
+                                        HeightRequest="52" 
+                                        WidthRequest="48" 
+                                        VerticalOptions="Center" />
 
                             </StackLayout>
                         </ViewCell>
