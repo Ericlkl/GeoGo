@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{B19C892E-2628-4CA7-AD27-08D406A3B14B}|Unit Tests">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/Model/Property.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MasterPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo.UITests/ModelTest/GeoDataTest.cs" Line="1" Column="1" />
-      <File FileName="GeoGo.UITests/ModelTest/CoordinateTest.cs" Line="10" Column="1" />
-      <File FileName="GeoGo/Model/Property.cs" Line="1" Column="1" />
+      <File FileName="GeoGo.UITests/ModelTest/UserLocationTest.cs" Line="21" Column="54" />
+      <File FileName="GeoGo/Model/UserLocation.cs" Line="1" Column="1" />
+      <File FileName="GeoGo/Model/MasterMenuItem.cs" Line="16" Column="103" />
+      <File FileName="GeoGo.UITests/ModelTest/MasterMenuItemTest.cs" Line="15" Column="82" />
+      <File FileName="GeoGo/ViewModel/MasterPage.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -15,8 +17,9 @@
                 <Node name="ModelTest" expanded="True">
                   <Node name="CoordinateTest" expanded="True" />
                   <Node name="GeoDataTest" expanded="True" />
-                  <Node name="PropertyTest" expanded="True" selected="True" />
+                  <Node name="PropertyTest" expanded="True" />
                 </Node>
+                <Node name="Tests" selected="True" />
               </Node>
             </Node>
           </Node>
