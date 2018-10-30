@@ -15,9 +15,16 @@ namespace GeoGo
         public MapPage()
         {
             InitializeComponent();
+            UISetUp();
+            RedirectMapToCurrentLocation();
+
+        }
+
+        void UISetUp(){
+
             myMap.UiSettings.ZoomControlsEnabled = false;
             myMap.UiSettings.CompassEnabled = false;
-            RedirectMapToCurrentLocation();
+
             if (Device.RuntimePlatform == Device.iOS)
             {
                 customNav.Margin = new Thickness(16, 36, 16, 0);
@@ -26,7 +33,7 @@ namespace GeoGo
             {
                 customNav.Margin = new Thickness(16, 16, 16, 0);
             }
-            
+
         }
 
         protected override void OnAppearing()
@@ -122,24 +129,20 @@ namespace GeoGo
 
         }
 
-               
-        private void OnMenuClicked(object sender, EventArgs e)
-        {
-            (Application.Current.MainPage as MasterDetail ).IsPresented = true;
-        }
-        
         private void OnAddClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new InsertDataPage());
         }
-        private void OnDrawFilterClicked(object sender, EventArgs e)
+
+        private void OncurrentLocationClicked(object sender, EventArgs e)
+        {
+            RedirectMapToCurrentLocation();
+        }
+
+        private void OnMenuClicked(object sender, EventArgs e)
         {
             (Application.Current.MainPage as MasterDetail).IsPresented = true;
         }
 
-        async private void OncurrentLocationClicked(object sender, EventArgs e)
-        {
-            RedirectMapToCurrentLocation();
-        }
     }
 }

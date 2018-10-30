@@ -37,15 +37,15 @@ namespace GeoGo.ViewModel
             myMap.UiSettings.CompassEnabled = false;
             myMap.UiSettings.MyLocationButtonEnabled = true;
             btn_locate.IsVisible = false;
-            var resetToolbar = new ToolbarItem
-            {
-                Name = "Reset",
-                Command = new Command(() => CleanPinBtnClicked()),
-            };
+            //var resetToolbar = new ToolbarItem
+            //{
+            //    Name = "Reset",
+            //    Command = new Command(() => CleanPinBtnClicked()),
+            //};
 
             InsertDataPageInstance = a;
-            this.ToolbarItems.Add(resetToolbar);
-            PositionsList = InsertDataPageInstance.PositionsList;
+            //this.ToolbarItems.Add(resetToolbar);
+            //PositionsList = InsertDataPageInstance.PositionsList;
             drawAllShape();
             RedirectMapToCurrentLocation();
             
@@ -53,7 +53,7 @@ namespace GeoGo.ViewModel
 
         private void ConfirmBtn_Clicked()
         {
-            InsertDataPageInstance.SetPostionslist(PositionsList);            
+            //InsertDataPageInstance.SetPostionslist(PositionsList);            
         }
 
         public mapZoom(GeoData data)
@@ -130,8 +130,8 @@ namespace GeoGo.ViewModel
                 PositionsList.Add(new Position(lat, lng));
 
                 //InsertDataPageInstance.drawShape(lat, lng);
-                InsertDataPageInstance.PositionsList = PositionsList;
-                InsertDataPageInstance.drawAllShape();
+                //InsertDataPageInstance.PositionsList = PositionsList;
+                //InsertDataPageInstance.drawAllShape();
                 //InsertDataPageInstance.SetPostionslist(PositionsList);
             }
 

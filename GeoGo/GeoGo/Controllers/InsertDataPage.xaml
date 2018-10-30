@@ -48,19 +48,15 @@
                     </x:Array>
                   </Picker.ItemsSource>
                 </Picker>
-
-
-
-
+                
                 <Grid Margin="0,0,0,4">
                     
                     <maps:Map x:Name="myMap"
                           MapType="Street"
                           MyLocationButtonClicked="MyLocationButtonClicked"
-                          IsShowingUser="true"
                           MapClicked="MapClicked"
                           HeightRequest="252"
-                          HasZoomEnabled="False"
+                          HasZoomEnabled="false"
                           />
 
                 </Grid>

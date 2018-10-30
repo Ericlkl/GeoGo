@@ -9,12 +9,12 @@ namespace GeoGo.ViewModel
     public partial class InsertDataPage : ContentPage
     {
 
-        public List<Position> PositionsList = new List<Position>();
+        public static List<Position> PositionsList = new List<Position>();
 
-        public void SetPostionslist(List<Position> a)
-        {
-            PositionsList = a;
-        }
+        //public void SetPostionslist(List<Position> a)
+        //{
+        //    PositionsList = a;
+        //}
 
         private Pin myPin;
         private Polyline myLine;
@@ -24,20 +24,21 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
+
             //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             //Providerlbl.Text = $"Provider : {User.nickname}";
             RedirectMapToCurrentLocation();
         }
 
-        public InsertDataPage(List<Position> PositionsLit)
-        {
-            PositionsList = PositionsLit;
-            InitializeComponent();
-            myMap.UiSettings.MyLocationButtonEnabled = true;
-            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
-            //Providerlbl.Text = $"Provider : {User.nickname}";
-            RedirectMapToCurrentLocation();
-        }
+        //public InsertDataPage(List<Position> PositionsLit)
+        //{
+        //    PositionsList = PositionsLit;
+        //    InitializeComponent();
+        //    myMap.UiSettings.MyLocationButtonEnabled = true;
+        //    //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
+        //    //Providerlbl.Text = $"Provider : {User.nickname}";
+        //    RedirectMapToCurrentLocation();
+        //}
 
         // Function for direct the map back to user location
         void RedirectMapToCurrentLocation()
@@ -84,6 +85,7 @@ namespace GeoGo.ViewModel
             myPin = null;
             myPolygon = null;
         }
+
         void MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
         {
            var lat = e.Point.Latitude;
@@ -97,10 +99,11 @@ namespace GeoGo.ViewModel
 
         public void drawAllShape()
         {
-            foreach (var i in PositionsList)
-            {
-                drawShape(i.Latitude, i.Longitude);
-            }
+            PositionsList.ForEach((obj) => drawShape(obj.Latitude, obj.Longitude));
+            //foreach (var i in PositionsList)
+            //{
+            //    drawShape(i.Latitude, i.Longitude);
+            //}
         }
 
         public void drawShape(double lat, double lon){
@@ -184,14 +187,6 @@ namespace GeoGo.ViewModel
                 return;
             }
 
-            // Will show bug in IOS version
-            //if (string.IsNullOrWhiteSpace(type_Entry.SelectedItem.ToString()))
-            //{
-                
-            //    DisplayAlert("Type Entry Field is empty !", "Please insert the type of the object", "Okay");
-            //    return;
-            //}
-
             if (string.IsNullOrWhiteSpace(description_Entry.Text))
             {
                 DisplayAlert("Description Entry Field is empty !", "Please insert the Description for the object", "Okay");
@@ -222,10 +217,6 @@ namespace GeoGo.ViewModel
             Navigation.PopAsync();
         }
 
-        async void OnMapZoomClicked()
-        {
-           await Navigation.PushAsync(new mapZoom(this));
-        }
     }
 
 }

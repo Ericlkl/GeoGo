@@ -1,38 +1,14 @@
-﻿<Properties StartupConfiguration="{B19C892E-2628-4CA7-AD27-08D406A3B14B}|Unit Tests">
+﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.UITests/ModelTest/UserLocationTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/Controllers/MapPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/Model/LocalDatabase.cs" Line="50" Column="35" />
-      <File FileName="GeoGo.UITests/ModelTest/LocalDatabaseTest.cs" Line="13" Column="6" />
-      <File FileName="GeoGo/styles/UIColor_list.cs" Line="148" Column="17" />
-      <File FileName="GeoGo.UITests/ModelTest/UIColor_list_Test.cs" Line="14" Column="15" />
-      <File FileName="GeoGo.UITests/ModelTest/UserLocationTest.cs" Line="1" Column="1" />
+      <File FileName="GeoGo/Controllers/InformationPage.xaml.cs" Line="55" Column="3" />
+      <File FileName="GeoGo/Controllers/InformationPage.xaml" Line="97" Column="1" />
+      <File FileName="GeoGo/Controllers/InsertDataPage.xaml.cs" Line="219" Column="1" />
+      <File FileName="GeoGo/Controllers/mapZoom.xaml.cs" Line="134" Column="57" />
+      <File FileName="GeoGo/Controllers/MapPage.xaml" Line="66" Column="1" />
+      <File FileName="GeoGo/Controllers/MapPage.xaml.cs" Line="142" Column="9" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="GeoGo" expanded="True">
-            <Node name="GeoGo.UITests" expanded="True">
-              <Node name="GeoGo" expanded="True">
-                <Node name="ModelTest" expanded="True">
-                  <Node name="CoordinateTest" expanded="True" />
-                  <Node name="GeoDataTest" expanded="True" />
-                  <Node name="LocalDatabaseTest" expanded="True" />
-                  <Node name="MasterMenuItemTest" expanded="True" />
-                  <Node name="MasterPageItemTest" expanded="True" />
-                  <Node name="PropertyTest" expanded="True" />
-                  <Node name="UserLocationTest" expanded="True" />
-                </Node>
-                <Node name="Tests" expanded="True">
-                  <Node name="Tests(Android)" expanded="True" />
-                  <Node name="Tests(iOS)" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

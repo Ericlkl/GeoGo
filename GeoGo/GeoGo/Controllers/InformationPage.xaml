@@ -42,10 +42,7 @@
                         <Label Text="Last update: 22/8/2018" x:Name="timelbl" FontSize="12" TextColor="#68454F63" HorizontalOptions ="End" HorizontalTextAlignment="End"/>
                         
                     </StackLayout>
-
                     
-
-
                 </StackLayout>
                
              
@@ -74,17 +71,9 @@
                     <Grid Padding="0" Margin="0">
                         <maps:Map x:Name="myMap"
                           MapType="Street"
-                          MyLocationEnabled="true"
                           MyLocationButtonClicked="MyLocationButtonClicked"
                           HeightRequest="252"
-                          
                           />
-                        <Frame Padding="0" Margin="0" 
-                               x:Name="mapZoom"
-                               BackgroundColor="Transparent"
-                               Opacity="0.1">
-
-                        </Frame>
                     </Grid>
                 </Frame>
                 <StackLayout HeightRequest="32">

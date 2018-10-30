@@ -14,19 +14,19 @@ namespace GeoGo.ViewModel
     {
         private static GeoData geodata;
         private StackLayout propertyStack = new StackLayout { };
-        public GeoData datag;
+        //public GeoData datag;
         //private StackLayout propertyStack = new StackLayout { };
 
         public InformationPage()
         {
             InitializeComponent();
-            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked())); 
+            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked())); 
         }
 
         public InformationPage(GeoData data)
         {
             InitializeComponent();
-            mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
+            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             geodata = LocalDatabase.GetGeoDataById(data.Id);
 
             // Map Set Up function
@@ -38,7 +38,7 @@ namespace GeoGo.ViewModel
 
             displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();
-            datag = data;
+            //datag = data;
         }
 
         protected override void OnAppearing()
@@ -52,6 +52,7 @@ namespace GeoGo.ViewModel
             //Update Content
             base.OnAppearing();
         }
+
         protected override void OnDisappearing()
         {
             Propdetaillbl.Children.Remove(propertyStack);
@@ -171,10 +172,10 @@ namespace GeoGo.ViewModel
             await Maps.OpenAsync(location, options);
         }
 
-        async void OnMapZoomClicked()
-        {
-            Navigation.PushAsync(new mapZoom(datag));
-        }
+        //async void OnMapZoomClicked()
+        //{
+        //    Navigation.PushAsync(new mapZoom(datag));
+        //}
 
     }
 }
