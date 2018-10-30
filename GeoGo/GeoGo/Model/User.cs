@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App;
 using GeoGo.Model;
+
 namespace GeoGo.Model
 {
     public static class User

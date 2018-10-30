@@ -3,7 +3,7 @@ using Xamarin.Essentials;
 
 namespace GeoGo.Model
 {
-    public static class UserLocation
+    public static class UserLocation 
     {
         public static double Latitude;
         public static double Longitude;

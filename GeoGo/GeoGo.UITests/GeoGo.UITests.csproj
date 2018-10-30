@@ -28,6 +28,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="nunit.framework" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NUnit" Version="2.6.4" />
@@ -40,10 +41,19 @@
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\GeoGo\GeoGo.csproj">
+      <Project>{A1CF59B0-DDAC-44B9-B25C-E8B516B9B00B}</Project>
+      <Name>GeoGo</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
+    <Compile Include="AuthenticationConfigTest.cs" />
+    <Compile Include="ModelTest\GeoDataTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

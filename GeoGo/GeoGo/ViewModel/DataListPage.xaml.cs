@@ -43,7 +43,8 @@ namespace GeoGo
         {
             base.OnAppearing();
             // Data Binding the listView Itemsource to the Geodata list from Local SQLite Database'
-            listView.ItemsSource = LocalDatabase.GetAllGeoDataSet();
+            var items = LocalDatabase.GetAllGeoDataSet();
+            listView.ItemsSource = items;
 
         }
         

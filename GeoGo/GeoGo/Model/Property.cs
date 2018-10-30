@@ -1,10 +1,11 @@
 ﻿using System;
+using App;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace GeoGo.Model
 {
-    public class Property
+    public class Property : ViewModelBase
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

@@ -1,17 +1,37 @@
-﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default">
+﻿<Properties StartupConfiguration="{B19C892E-2628-4CA7-AD27-08D406A3B14B}|Unit Tests">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.UITests/ModelTest/GeoDataTest.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="142" Column="16" />
-      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="34" Column="21" />
-      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="90" Column="48" />
+      <File FileName="GeoGo.UITests/ModelTest/GeoDataTest.cs" Line="60" Column="16" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="GeoGo/ViewModel/DataListPage.xaml.cs" Line="18" Column="35" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="GeoGo" expanded="True">
+            <Node name="GeoGo.UITests" expanded="True">
+              <Node name="GeoGo" expanded="True">
+                <Node name="ModelTest" expanded="True">
+                  <Node name="GeoDataTest" expanded="True">
+                    <Node name="CreateGeoDataObjectTest" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/eric/Desktop/Assignment/GeoGo/GeoGo/GeoGo/ViewModel/DataListPage.xaml.cs" relfile="GeoGo/ViewModel/DataListPage.xaml.cs" line="45" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.GeoGo.UITests PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>
