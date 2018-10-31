@@ -63,18 +63,22 @@
                 </Grid>
 
                 <Frame CornerRadius="12"  
-                   
-                   VerticalOptions="Start" HeightRequest="252" Margin="16,0,16,0"
-                   HasShadow="True"
-                       Padding="0"
-                   >
-                    <Grid Padding="0" Margin="0">
-                        <maps:Map x:Name="myMap"
-                          MapType="Street"
-                          MyLocationButtonClicked="MyLocationButtonClicked"
-                          HeightRequest="252"
-                          />
-                    </Grid>
+                       VerticalOptions="Start" 
+                       HeightRequest="252"
+                       Margin="16,0,16,0"
+                       HasShadow="True"
+                       Padding="0">
+                    
+                <Grid Padding="0" Margin="0">
+                        
+                    <maps:Map x:Name="myMap"
+                      MapType="Street"
+                              MapClicked="Handle_MapClicked"
+                      MyLocationButtonClicked="MyLocationButtonClicked"
+                      HeightRequest="252"
+                      />
+                        
+                </Grid>
                 </Frame>
                 <StackLayout HeightRequest="32">
                     

@@ -4,7 +4,6 @@ using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
 
 using GeoGo.ViewModel;
-using GeoGo.styles;
 using System.Collections.Generic;
 
 namespace GeoGo

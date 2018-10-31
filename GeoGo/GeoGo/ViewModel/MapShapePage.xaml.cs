@@ -12,6 +12,9 @@ namespace GeoGo.ViewModel
         private Pin myPin;
         private Polyline myLine;
         private Polygon myPolygon;
+
+        private GeoData geodata;
+
         public bool DrawShapeAble = false;
 
         public MapShapePage()
@@ -21,6 +24,19 @@ namespace GeoGo.ViewModel
             RedirectMapToLocation("User");
         }
 
+        // Initializer for Information page
+        public MapShapePage(GeoData data)
+        {
+            InitializeComponent();
+            geodata = data;
+            myMap.UiSettings.MyLocationButtonEnabled = true;
+            DrawShapeWithPin(data);
+
+            // Redirect the map the the object location
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(data.Coordinates[0].Latitude, data.Coordinates[0].Longitude), Distance.FromMiles(1)));
+        }
+
+        // Initializer for InsertDataPage
         public MapShapePage(bool canDrawShape){
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
@@ -31,8 +47,10 @@ namespace GeoGo.ViewModel
 
         protected override void OnAppearing()
         {
-            DisplayShapeOnMiniMap();
-            RedirectMapToLocation("Target");
+            if (DrawShapeAble == true) {
+                DisplayShapeOnMiniMap();
+                RedirectMapToLocation("Target");
+            }
             base.OnAppearing();
         }
 
@@ -56,6 +74,7 @@ namespace GeoGo.ViewModel
             }
         }
 
+        // Clean the Map
         void CleanMap(){
             myMap.Polylines.Clear();
             myMap.Polygons.Clear();
@@ -139,27 +158,59 @@ namespace GeoGo.ViewModel
         }
 
 
-        public void drawShapeWithPin(double lat, double lon)
+
+        /*
+         * 
+         * 
+         *  It is only for Information Page
+         * 
+         * 
+         */
+
+        public void DrawShapeWithPin(GeoData data)
         {
-            // If current there is no coordinate on the list
-            if (InsertDataPage.PositionsList.Count == 0)
+            if( data.Coordinates.Count == 1)
             {
-                DropPin(lat, lon);
+                DropPin(data.Coordinates[0].Latitude, data.Coordinates[0].Longitude);
+            } 
+
+            else if (data.Coordinates.Count == 2)
+            {
+                myLine = new Polyline();
+
+                data.Coordinates.ForEach((Coordinate coorIndex) => {
+                    DropPin(coorIndex.Latitude, coorIndex.Longitude);
+                    myLine.Positions.Add(new Position( coorIndex.Latitude, coorIndex.Longitude ));
+                });
+
+                myLine.IsClickable = true;
+                myLine.StrokeColor = Color.Green;
+                myLine.StrokeWidth = 5f;
+                myLine.Tag = "POLYLINE"; // Can set any object
+
+                myMap.Polylines.Add(myLine);
             }
 
-            // If currently there is just one coordinate on the list, which means one pin on the map
-            else if (InsertDataPage.PositionsList.Count == 1)
+            else if (data.Coordinates.Count > 2)
             {
-                myMap.Pins.Clear();
-                DrawLine(lat, lon);
-            }
+                myPolygon = null;
+                myPolygon = new Polygon();
 
-            // currently there is two or more coordinate on the list, which means one line or one polygon existed on the map
-            else
-            {
-                myMap.Polylines.Clear();
-                myMap.Polygons.Clear();
-                DrawPolygon(lat, lon);
+                data.Coordinates.ForEach((Coordinate coorIndex) => {
+                    DropPin(coorIndex.Latitude, coorIndex.Longitude);
+                    myPolygon.Positions.Add(new Position(coorIndex.Latitude, coorIndex.Longitude));
+                });
+
+                myPolygon.Positions.Add( new Position( data.Coordinates[0].Latitude, data.Coordinates[0].Longitude ) );
+
+                myPolygon.IsClickable = true;
+                myPolygon.StrokeColor = Color.Green;
+                myPolygon.StrokeWidth = 3f;
+                myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
+                myPolygon.Tag = "POLYGON"; // Can set any object
+
+                myMap.Polygons.Add(myPolygon);
+
             }
         }
 

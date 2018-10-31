@@ -145,6 +145,11 @@ namespace GeoGo.ViewModel
         }
 
 
+        void Handle_MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
+        {
+            Navigation.PushAsync( new MapShapePage(geodata) );
+        }
+
         void AddPropBtn_Clicked(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new InsertPropertyPage(geodata));
