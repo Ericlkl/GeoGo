@@ -69,6 +69,14 @@
                         FontSize="15"
                         TextColor="#FFFFFF"
                         Margin="0,0,0,4"/>
+                
+                <Button Text="Clean Coordinate"
+                        Clicked="CleanPinBtnClicked"
+                        BorderRadius="12"
+                        FontSize="15"
+                        BackgroundColor="Silver"
+                        TextColor="#FFFFFF"
+                         Margin="0,0,0,4" />
             </StackLayout>
         </ScrollView>
 

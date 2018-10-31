@@ -20,26 +20,26 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = false;
-            RedirectMapToCurrentLocation(true);
+            RedirectMapToCurrentLocation("User");
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            RedirectMapToCurrentLocation(false);
+            RedirectMapToCurrentLocation("Target");
             displayShapeOnMiniMap();
         }
 
         // Function for direct the map back to user location
-        void RedirectMapToCurrentLocation(bool toUserLocation)
+        void RedirectMapToCurrentLocation(string toWhere)
         {
             // Update Current Location
             UserLocation.UpdateMyCoordinate();
 
-            if (PositionsList.Count == 0 || toUserLocation){
+            if (PositionsList.Count == 0 || toWhere == "User"){
                 // Redirect the map to user current location
                 myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
-            } else {
+            } else if (PositionsList.Count != 0 && toWhere == "Target") {
                 // Redirect the map the the object location
                 myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position( PositionsList[0].Latitude , PositionsList[0].Longitude), Distance.FromMiles(1)));
             }
@@ -48,7 +48,7 @@ namespace GeoGo.ViewModel
         // Redirect Button clicked
         void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
         {
-            RedirectMapToCurrentLocation(true);
+            RedirectMapToCurrentLocation("User");
         }
 
         private void CleanPinBtnClicked(object sender, System.EventArgs e)
