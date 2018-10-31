@@ -207,8 +207,6 @@ namespace GeoGo.ViewModel
             //Display msg to the user
             DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
 
-            PositionsList.Clear();
-
             //Go Back to Previous Page
             Navigation.PopAsync();
         }

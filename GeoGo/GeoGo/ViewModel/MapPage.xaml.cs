@@ -39,6 +39,7 @@ namespace GeoGo
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            InsertDataPage.PositionsList.Clear();
             RedirectMapToCurrentLocation();
             DisplayAllTheDataFromDatabase();
         }

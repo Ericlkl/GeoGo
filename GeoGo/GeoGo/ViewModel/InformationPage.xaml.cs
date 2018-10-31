@@ -28,7 +28,7 @@ namespace GeoGo.ViewModel
             // Map Set Up function
             myMap.UiSettings.ZoomControlsEnabled = false;
             myMap.UiSettings.CompassEnabled = false;
-            myMap.UiSettings.MyLocationButtonEnabled = true;
+            myMap.UiSettings.MyLocationButtonEnabled = false;
 
             displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();

@@ -17,15 +17,15 @@ namespace GeoGo.ViewModel
         public MapShapePage()
         {
             InitializeComponent();
+            myMap.UiSettings.MyLocationButtonEnabled = true;
+            RedirectMapToLocation("User");
         }
 
         public MapShapePage(bool canDrawShape){
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
             RedirectMapToLocation("User");
-
             ToolbarItems.Add(new ToolbarItem("CleanShape", "", CleanShape ));
-
             DrawShapeAble = canDrawShape;
         }
 
@@ -115,6 +115,31 @@ namespace GeoGo.ViewModel
         }
 
         public void drawShape(double lat, double lon)
+        {
+            // If current there is no coordinate on the list
+            if (InsertDataPage.PositionsList.Count == 0)
+            {
+                DropPin(lat, lon);
+            }
+
+            // If currently there is just one coordinate on the list, which means one pin on the map
+            else if (InsertDataPage.PositionsList.Count == 1)
+            {
+                myMap.Pins.Clear();
+                DrawLine(lat, lon);
+            }
+
+            // currently there is two or more coordinate on the list, which means one line or one polygon existed on the map
+            else
+            {
+                myMap.Polylines.Clear();
+                myMap.Polygons.Clear();
+                DrawPolygon(lat, lon);
+            }
+        }
+
+
+        public void drawShapeWithPin(double lat, double lon)
         {
             // If current there is no coordinate on the list
             if (InsertDataPage.PositionsList.Count == 0)
