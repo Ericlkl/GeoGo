@@ -11,7 +11,6 @@
                 
                 <Grid HeightRequest="252">
                     <Frame x:Name="customNav"
-                            
                            Padding="0"
                            BackgroundColor="#8592AD">
                         
@@ -22,7 +21,13 @@
                 </Grid>
                 <StackLayout Padding="16,0,16,0" Margin="0" x:Name="DescriptionStack">
 
-                    <Label Text="Description" x:Name="namelbl" FontSize="20" TextColor="#454F63" Margin="0,0,0,0"/>
+                    <Label Text="Description" 
+                           x:Name="namelbl" 
+                           FontSize="20" 
+                           TextColor="#454F63" 
+                           Margin="0,0,0,0"/>
+                    
+                    
                     <Label x:Name="typelbl" Text="2m, approved"  VerticalOptions="End" FontSize="12" TextColor="#80343C65" Margin="0,0,0,2"/>
                     <Label  x:Name="Deslbl"
                             Text="Description for the Object..."
