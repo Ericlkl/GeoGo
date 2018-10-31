@@ -19,7 +19,7 @@ namespace GeoGo.ViewModel
         public InsertDataPage()
         {
             InitializeComponent();
-            myMap.UiSettings.MyLocationButtonEnabled = true;
+            myMap.UiSettings.MyLocationButtonEnabled = false;
 
             //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             //Providerlbl.Text = $"Provider : {User.nickname}";
@@ -95,7 +95,30 @@ namespace GeoGo.ViewModel
 
         public void displayShapeOnMiniMap()
         {
-            PositionsList.ForEach((obj) => drawShape(obj.Latitude, obj.Longitude));
+
+            if (InsertDataPage.PositionsList.Count == 1)
+            {
+                DropPin(InsertDataPage.PositionsList[0].Latitude, InsertDataPage.PositionsList[0].Longitude);
+            }
+            else if (InsertDataPage.PositionsList.Count == 2)
+            {
+                CleanMap();
+                DrawLine(InsertDataPage.PositionsList[1].Latitude, InsertDataPage.PositionsList[1].Longitude);
+            }
+            else if (InsertDataPage.PositionsList.Count >= 3)
+            {
+                CleanMap();
+                DrawPolygon(InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Latitude, InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Longitude);
+            } else {
+                CleanMap();
+            }
+        }
+
+        void CleanMap()
+        {
+            myMap.Polylines.Clear();
+            myMap.Polygons.Clear();
+            myMap.Pins.Clear();
         }
 
         public void drawShape(double lat, double lon){

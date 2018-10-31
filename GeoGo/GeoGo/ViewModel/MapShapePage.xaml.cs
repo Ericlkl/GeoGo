@@ -21,8 +21,44 @@ namespace GeoGo.ViewModel
 
         public MapShapePage(bool canDrawShape){
             InitializeComponent();
+            myMap.UiSettings.MyLocationButtonEnabled = true;
             RedirectMapToCurrentLocation();
+
+            ToolbarItems.Add(new ToolbarItem("CleanShape", "", CleanShape ));
+
             DrawShapeAble = canDrawShape;
+        }
+
+        protected override void OnAppearing()
+        {
+            DisplayShapeOnMiniMap();
+            base.OnAppearing();
+        }
+
+        public void DisplayShapeOnMiniMap()
+        {
+            if (InsertDataPage.PositionsList.Count == 1)
+            {
+                DropPin(InsertDataPage.PositionsList[0].Latitude, InsertDataPage.PositionsList[0].Longitude);
+            }
+            else if (InsertDataPage.PositionsList.Count == 2)
+            {
+                CleanMap();
+                DrawLine(InsertDataPage.PositionsList[1].Latitude, InsertDataPage.PositionsList[1].Longitude);
+            }
+            else if (InsertDataPage.PositionsList.Count >= 3)
+            {
+                CleanMap();
+                DrawPolygon(InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Latitude, InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Longitude);
+            } else {
+                CleanMap();
+            }
+        }
+
+        void CleanMap(){
+            myMap.Polylines.Clear();
+            myMap.Polygons.Clear();
+            myMap.Pins.Clear();
         }
 
         // Function for direct the map back to user location
@@ -40,24 +76,7 @@ namespace GeoGo.ViewModel
             RedirectMapToCurrentLocation();
         }
 
-        public void CleanPinBtnClicked2()
-        {
-            // Clean out everything on the map
-            myMap.Pins.Clear();
-            myMap.Polygons.Clear();
-            myMap.Polylines.Clear();
-
-            // Clean out all the Position data
-            InsertDataPage.PositionsList.Clear();
-
-            // Clean Map Object
-            myLine = null;
-            myPin = null;
-            myPolygon = null;
-        }
-
-        private void CleanPinBtnClicked(object sender, System.EventArgs e)
-        {
+        void CleanShape(){
             // Clean out everything on the map
             myMap.Pins.Clear();
             myMap.Polygons.Clear();
@@ -77,11 +96,8 @@ namespace GeoGo.ViewModel
             if (DrawShapeAble){
                 var lat = e.Point.Latitude;
                 var lng = e.Point.Longitude;
-                DisplayAlert("Success", "Pass1", "Okay");
 
                 drawShape(lat, lng);
-
-                DisplayAlert("Success", "PassFinal", "Okay");
 
                 //Save new record to PositionList temporary
                 InsertDataPage.PositionsList.Add(new Position(lat, lng));

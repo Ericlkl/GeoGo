@@ -6,6 +6,8 @@
              NavigationPage.HasNavigationBar="true"
              x:Class="GeoGo.ViewModel.MapShapePage">
     
+    
+    
     <ContentPage.Content>
         <maps:Map x:Name="myMap"
           MapType="Street"

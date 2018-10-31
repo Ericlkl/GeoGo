@@ -18,13 +18,11 @@ namespace GeoGo.ViewModel
         public InformationPage()
         {
             InitializeComponent();
-            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked())); 
         }
 
         public InformationPage(GeoData data)
         {
             InitializeComponent();
-            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
             geodata = LocalDatabase.GetGeoDataById(data.Id);
 
             // Map Set Up function
@@ -36,7 +34,6 @@ namespace GeoGo.ViewModel
 
             displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();
-            //datag = data;
         }
 
         protected override void OnAppearing()
@@ -76,8 +73,6 @@ namespace GeoGo.ViewModel
         //Function for Drop pin on the map 
         void DropPin(double lat, double lon)
         {
-            var position = new Position(lat, lon); // Latitude, Longitude
-
             var pin = new Pin()
             {
                 Label = "",
