@@ -30,8 +30,6 @@ namespace GeoGo.ViewModel
             myMap.UiSettings.CompassEnabled = false;
             myMap.UiSettings.MyLocationButtonEnabled = true;
 
-
-
             displayBasicGeodataInformation();
             RedirectMapToCurrentLocation();
         }

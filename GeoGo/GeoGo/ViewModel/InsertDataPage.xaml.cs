@@ -20,49 +20,35 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = false;
-
-            //mapZoom.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnMapZoomClicked()));
-            //Providerlbl.Text = $"Provider : {User.nickname}";
-            RedirectMapToCurrentLocation();
+            RedirectMapToCurrentLocation(true);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            RedirectMapToCurrentLocation(false);
             displayShapeOnMiniMap();
         }
 
-
-
         // Function for direct the map back to user location
-        void RedirectMapToCurrentLocation()
+        void RedirectMapToCurrentLocation(bool toUserLocation)
         {
             // Update Current Location
             UserLocation.UpdateMyCoordinate();
-            // Redirect the map to user current location
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+
+            if (PositionsList.Count == 0 || toUserLocation){
+                // Redirect the map to user current location
+                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+            } else {
+                // Redirect the map the the object location
+                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position( PositionsList[0].Latitude , PositionsList[0].Longitude), Distance.FromMiles(1)));
+            }
         }
 
         // Redirect Button clicked
         void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
         {
-            RedirectMapToCurrentLocation();
-        }
-
-        public void CleanPinBtnClicked2()
-        {
-            // Clean out everything on the map
-            myMap.Pins.Clear();
-            myMap.Polygons.Clear();
-            myMap.Polylines.Clear();
-
-            // Clean out all the Position data
-            PositionsList.Clear();
-
-            // Clean Map Object
-            myLine= null;
-            myPin = null;
-            myPolygon = null;
+            RedirectMapToCurrentLocation(true);
         }
 
         private void CleanPinBtnClicked(object sender, System.EventArgs e)
@@ -83,32 +69,25 @@ namespace GeoGo.ViewModel
 
         void MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
         {
-            //var lat = e.Point.Latitude;
-            //var lng = e.Point.Longitude;
-
-            //drawShape(lat, lng);
-
-            ////Save new record to PositionList temporary
-            //PositionsList.Add(new Position(lat, lng));
             Navigation.PushAsync(new MapShapePage(true));
         }
 
         public void displayShapeOnMiniMap()
         {
 
-            if (InsertDataPage.PositionsList.Count == 1)
+            if (PositionsList.Count == 1)
             {
-                DropPin(InsertDataPage.PositionsList[0].Latitude, InsertDataPage.PositionsList[0].Longitude);
+                DropPin(PositionsList[0].Latitude, PositionsList[0].Longitude);
             }
-            else if (InsertDataPage.PositionsList.Count == 2)
+            else if (PositionsList.Count == 2)
             {
                 CleanMap();
-                DrawLine(InsertDataPage.PositionsList[1].Latitude, InsertDataPage.PositionsList[1].Longitude);
+                DrawLine(PositionsList[1].Latitude, PositionsList[1].Longitude);
             }
-            else if (InsertDataPage.PositionsList.Count >= 3)
+            else if (PositionsList.Count >= 3)
             {
                 CleanMap();
-                DrawPolygon(InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Latitude, InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Longitude);
+                DrawPolygon(PositionsList[PositionsList.Count - 1].Latitude, PositionsList[PositionsList.Count - 1].Longitude);
             } else {
                 CleanMap();
             }
@@ -227,6 +206,8 @@ namespace GeoGo.ViewModel
 
             //Display msg to the user
             DisplayAlert($"{msg}", $"GeoData Insert {msg}", "Okay");
+
+            PositionsList.Clear();
 
             //Go Back to Previous Page
             Navigation.PopAsync();

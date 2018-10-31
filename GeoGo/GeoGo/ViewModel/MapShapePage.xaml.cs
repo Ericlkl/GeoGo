@@ -22,7 +22,7 @@ namespace GeoGo.ViewModel
         public MapShapePage(bool canDrawShape){
             InitializeComponent();
             myMap.UiSettings.MyLocationButtonEnabled = true;
-            RedirectMapToCurrentLocation();
+            RedirectMapToLocation("User");
 
             ToolbarItems.Add(new ToolbarItem("CleanShape", "", CleanShape ));
 
@@ -32,6 +32,7 @@ namespace GeoGo.ViewModel
         protected override void OnAppearing()
         {
             DisplayShapeOnMiniMap();
+            RedirectMapToLocation("Target");
             base.OnAppearing();
         }
 
@@ -62,18 +63,27 @@ namespace GeoGo.ViewModel
         }
 
         // Function for direct the map back to user location
-        void RedirectMapToCurrentLocation()
+        void RedirectMapToLocation(string toWhere)
         {
             // Update Current Location
             UserLocation.UpdateMyCoordinate();
-            // Redirect the map to user current location
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+
+            if (InsertDataPage.PositionsList.Count == 0 || toWhere == "User")
+            {
+                // Redirect the map to user current location
+                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
+            }
+            else if (InsertDataPage.PositionsList.Count != 0 && toWhere == "Target")
+            {
+                // Redirect the map the the object location
+                myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(InsertDataPage.PositionsList[0].Latitude, InsertDataPage.PositionsList[0].Longitude), Distance.FromMiles(1)));
+            }
         }
 
         // Redirect Button clicked
         void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
         {
-            RedirectMapToCurrentLocation();
+            RedirectMapToLocation("User");
         }
 
         void CleanShape(){

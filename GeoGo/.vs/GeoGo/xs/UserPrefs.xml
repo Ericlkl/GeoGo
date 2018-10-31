@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default">
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/InsertDataPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapShapePage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/MapShapePage.xaml" Line="9" Column="5" />
-      <File FileName="GeoGo/ViewModel/MapShapePage.xaml.cs" Line="58" Column="1" />
-      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="110" Column="1" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="39" Column="1" />
+      <File FileName="GeoGo/ViewModel/MapShapePage.xaml.cs" Line="86" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

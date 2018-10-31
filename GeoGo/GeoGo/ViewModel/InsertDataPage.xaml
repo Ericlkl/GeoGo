@@ -17,7 +17,9 @@
                            Padding="0"
                            BackgroundColor="#8592AD"
                    >
-                        <Image Source="ic_camera.jpg" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Image Source="ic_camera.jpg" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
                     </Frame>
                 </Grid>
                 <Entry Keyboard="Text" 
@@ -54,6 +56,7 @@
                     <maps:Map x:Name="myMap"
                           MapType="Street"
                           MapClicked="MapClicked"
+                          MapLongClicked="MapClicked"
                           HeightRequest="252"
                           HasZoomEnabled="false"
                           />
