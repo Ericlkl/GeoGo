@@ -47,9 +47,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
-    <Compile Include="AuthenticationConfigTest.cs" />
     <Compile Include="ModelTest\GeoDataTest.cs" />
     <Compile Include="ModelTest\CoordinateTest.cs" />
     <Compile Include="ModelTest\PropertyTest.cs" />

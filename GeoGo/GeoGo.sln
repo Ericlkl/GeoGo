@@ -6,9 +6,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoGo.Android", "GeoGo.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoGo.iOS", "GeoGo.iOS\GeoGo.iOS.csproj", "{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoGo.UITests", "GeoGo.UITests\GeoGo.UITests.csproj", "{B19C892E-2628-4CA7-AD27-08D406A3B14B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoGo.Tests", "GeoGo.UITests\GeoGo.Tests.csproj", "{B19C892E-2628-4CA7-AD27-08D406A3B14B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoGo", "GeoGo\GeoGo.csproj", "{A1CF59B0-DDAC-44B9-B25C-E8B516B9B00B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoGo", "GeoGo\GeoGo.csproj", "{A1CF59B0-DDAC-44B9-B25C-E8B516B9B00B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,7 +3,7 @@ using GeoGo.Model;
 using System;
 using Xamarin.Forms;
 
-namespace GeoGo.UITests.ModelTest
+namespace GeoGo.Tests.ModelTest
 {
     [TestFixture()]
     public class MasterMenuItemTest

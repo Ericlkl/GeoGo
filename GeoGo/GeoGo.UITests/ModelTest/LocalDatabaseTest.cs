@@ -1,12 +1,8 @@
 ﻿using NUnit.Framework;
-using System;
-using GeoGo.ViewModel;
 using GeoGo.Model;
 using System.Collections.Generic;
-using Xamarin.UITest;
-using System.IO;
 
-namespace GeoGo.UITests.ModelTest
+namespace GeoGo.Tests.ModelTest
 {
 
     public class LocalDatabaseTest

@@ -1,6 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using GeoGo.Model;
 using GeoGo.styles;
 using Xamarin.Forms;
 

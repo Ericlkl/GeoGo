@@ -1,9 +1,8 @@
 ﻿using NUnit.Framework;
-using System;
 using GeoGo.Model;
 using Xamarin.Forms;
 
-namespace GeoGo.UITests.ModelTest
+namespace GeoGo.Tests.ModelTest
 {
     [TestFixture()]
     public class MasterPageItemTest

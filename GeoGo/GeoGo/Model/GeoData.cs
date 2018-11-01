@@ -48,6 +48,7 @@ namespace GeoGo.Model
             Provider = provider;
             Description = description;
             LastUpdate = DateTime.Now.ToString();
+            Properties = new List<Property> { };
             TypeOfImage = Types.GetIconByType(Type);
             System.Diagnostics.Debug.WriteLine(TypeOfImage);
         }

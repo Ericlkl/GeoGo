@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
 using GeoGo.Model;
 
 namespace GeoGo.UITests.ModelTest

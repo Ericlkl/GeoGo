@@ -1,9 +1,8 @@
 ﻿using GeoGo.Model;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 
-namespace GeoGo.UITests.ModelTest
+namespace GeoGo.Tests.ModelTest
 {
     [TestFixture()]
     public class GeoDataTest
