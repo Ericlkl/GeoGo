@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GeoGo.Model;
@@ -16,14 +11,15 @@ namespace GeoGo.ViewModel
 		public MasterDetail ()
 		{
 			InitializeComponent ();
-            masterpage.ListView.ItemSelected += OnItemSelected;
+            masterpage.ListView.ItemSelected += onPageSelected;
 
 		}
 
-        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        void onPageSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MasterMenuItem;
-            if(item != null)
+            var selectedPage = e.SelectedItem as MasterMenuItem;
+            // if user selected a page on side menu
+            if(selectedPage != null)
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.targetType))
                 {
@@ -32,7 +28,9 @@ namespace GeoGo.ViewModel
 
                 };
 
+                // Deselect the selected item
                 masterpage.ListView.SelectedItem = null;
+                // turn off the side menu
                 IsPresented = false;
             }
 
