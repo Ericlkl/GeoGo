@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Essentials;
@@ -24,11 +23,11 @@ namespace GeoGo.ViewModel
             InitializeComponent();
             geodata = LocalDatabase.GetGeoDataById(data.Id);
             RedirectMapToTargetLocation();
-            UISetUp();
-            displayBasicGeodataInformation();
+            MapSetUp();
+            DisplayBasicGeodataInformation();
         }
 
-        void UISetUp()
+        void MapSetUp()
         {
             // Map Set Up function
             myMap.UiSettings.ZoomControlsEnabled = false;
@@ -55,6 +54,7 @@ namespace GeoGo.ViewModel
             base.OnAppearing();
         }
 
+        // It runs when the user leave the page
         protected override void OnDisappearing()
         {
             // Clean out the Properites Stack when the user leave this page
@@ -106,6 +106,7 @@ namespace GeoGo.ViewModel
 
         }
 
+        // funcvtion for drawing Polygon on the map
         void DrawPolygon(List<Coordinate> coorList)
         {
 
@@ -127,7 +128,8 @@ namespace GeoGo.ViewModel
 
         }
 
-        void displayBasicGeodataInformation()
+        // Update the GeoData to all the information field (DescriptionStack, Map)
+        void DisplayBasicGeodataInformation()
         {
             namelbl.Text = $"{geodata.Name}";
             providerlbl.Text = $"Update author: {geodata.Provider}";
@@ -150,14 +152,17 @@ namespace GeoGo.ViewModel
 
         }
 
-
+        // When user clicked the map
         void Handle_MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
         {
+            // Pass the Geodata to MapShapePage , and then it will shows the target on a bigger map page
             Navigation.PushAsync( new MapShapePage(geodata) );
         }
 
+        // When user clicked on the Add Properties button
         void AddPropBtn_Clicked(object sender, System.EventArgs e)
         {
+            // go to insert Property page
             Navigation.PushAsync(new InsertPropertyPage(geodata));
         }
 
@@ -166,10 +171,16 @@ namespace GeoGo.ViewModel
         //    Navigation.PushAsync(new InsertPropertyPage(geodata));
         //}
 
+        // When user clicked the Nav Button, it will shows the direction to the target in google map / apple map app
         async void NavBtn_Clicked(object sender, System.EventArgs e)
         {
             var location = new Location(geodata.Coordinates[0].Latitude, geodata.Coordinates[0].Longitude);
-            var options = new MapsLaunchOptions { Name = geodata.Name, MapDirectionsMode = MapDirectionsMode.Walking };
+
+            var options = new MapsLaunchOptions
+            { 
+                Name = geodata.Name, 
+                MapDirectionsMode = MapDirectionsMode.Walking 
+            };
 
             await Maps.OpenAsync(location, options);
         }

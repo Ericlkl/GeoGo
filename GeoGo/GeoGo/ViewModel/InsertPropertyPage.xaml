@@ -8,10 +8,16 @@
         <StackLayout VerticalOptions="Center" 
                      HorizontalOptions="Center">
             <Label Text="Property Name : "/>
-            <Entry x:Name="pname_Entry" Placeholder="e.g. Height"/>
+            <Entry x:Name="pname_Entry" 
+                   Placeholder="e.g. Height"/>
+            
             <Label Text="Property Value : " />
-            <Entry x:Name="pvalue_Entry" Placeholder=" e.g. 50" WidthRequest="300" />
-            <Button Text="Save" Clicked="SaveBtn_Clicked"/>
+            <Entry x:Name="pvalue_Entry" 
+                   Placeholder=" e.g. 50"
+                   WidthRequest="300" />
+            
+            <Button Text="Save" 
+                    Clicked="SaveBtn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
