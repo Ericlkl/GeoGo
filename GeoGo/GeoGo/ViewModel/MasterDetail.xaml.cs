@@ -21,7 +21,7 @@ namespace GeoGo.ViewModel
             // if user selected a page on side menu
             if(selectedPage != null)
             {
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.targetType))
+                Detail = new NavigationPage((Page)Activator.CreateInstance(selectedPage.targetType))
                 {
                     BarBackgroundColor = Color.FromHex("#454F63"),
                     BarTextColor = Color.FromHex("#ffffff"),
