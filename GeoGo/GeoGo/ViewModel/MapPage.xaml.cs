@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using GeoGo.Model;
-
 using GeoGo.ViewModel;
 using System.Collections.Generic;
 
@@ -55,7 +54,7 @@ namespace GeoGo
         //Function for Drop pin on the map 
         void DropPin(double lat, double lon, string lblName)
         {
-
+            // Drop Pin
             myMap.Pins.Add(
                 new Pin()
                 {
@@ -71,16 +70,14 @@ namespace GeoGo
         void DrawLine(List<Coordinate> coorList )
         {
 
-            Polyline myLine = new Polyline();
+            Polyline myLine = new Polyline {
+                IsClickable = true,
+                StrokeColor = Color.Blue,
+                StrokeWidth = 5f,
+                Tag = "POLYLINE"
+            };
 
             coorList.ForEach((Coordinate obj) => myLine.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
-            myLine.IsClickable = true;
-
-            // Change to anyColor you like, if you think it is not good
-            myLine.StrokeColor = Color.Blue;
-
-            myLine.StrokeWidth = 5f;
-            myLine.Tag = "POLYLINE"; // Can set any object
 
             myMap.Polylines.Add(myLine);
 
@@ -89,15 +86,16 @@ namespace GeoGo
         void DrawPolygon(List<Coordinate> coorList)
         {
         
-            Polygon myPolygon = new Polygon();
+            Polygon myPolygon = new Polygon 
+            {
+                IsClickable = true,
+                StrokeColor = Color.Blue,
+                StrokeWidth = 3f,
+                FillColor = Color.FromRgba(255, 0, 0, 64),
+                Tag = "POLYGON"
+            };
             coorList.ForEach((Coordinate obj) => myPolygon.Positions.Add( new Position(obj.Latitude, obj.Longitude) ));
 
-            myPolygon.IsClickable = true;
-            // Change to anyColor you like, if you think it is not good
-            myPolygon.StrokeColor = Color.Blue;
-            myPolygon.StrokeWidth = 3f;
-            myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
-            myPolygon.Tag = "POLYGON"; // Can set any object
             myMap.Polygons.Add(myPolygon);
 
         }
