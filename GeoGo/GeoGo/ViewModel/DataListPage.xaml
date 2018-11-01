@@ -8,6 +8,7 @@
              >
 
     <ContentPage.ToolbarItems>
+        <!--    Clean List button on the Navigation bar    -->
         <ToolbarItem Text="Clean List"
                      Clicked="CleanBtn_Clicked"
                      />
@@ -15,13 +16,21 @@
     
     <ContentPage.Content>
         <StackLayout>
-
+            <!-- Main List view on the datalist page-->
             <ListView x:Name="listView" ItemTapped="ListviewItem_Tapped" RowHeight="73">
                 <ListView.ItemTemplate>
                     <DataTemplate >
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="16,0">
-                                <Button  BackgroundColor="#00F7F7FA"  Image="{Binding TypeOfImage}" HeightRequest="52" WidthRequest="48" VerticalOptions="Center" />
+                        <!--    Cell Specification    -->
+                            
+                            <StackLayout Orientation="Horizontal" 
+                                         Padding="16,0">
+                                
+                                <Button  BackgroundColor="#00F7F7FA"  
+                                         Image="{Binding TypeOfImage}" 
+                                         HeightRequest="52" 
+                                         WidthRequest="48"
+                                         VerticalOptions="Center"/>
 
                                 <StackLayout VerticalOptions="Center"
                                          HorizontalOptions="StartAndExpand"

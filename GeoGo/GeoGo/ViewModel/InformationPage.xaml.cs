@@ -13,7 +13,6 @@ namespace GeoGo.ViewModel
     public partial class InformationPage : ContentPage
     {
         private static GeoData geodata;
-        private StackLayout propertyStack = new StackLayout { };
 
         public InformationPage()
         {
@@ -24,56 +23,59 @@ namespace GeoGo.ViewModel
         {
             InitializeComponent();
             geodata = LocalDatabase.GetGeoDataById(data.Id);
+            RedirectMapToTargetLocation();
+            UISetUp();
+            displayBasicGeodataInformation();
+        }
 
+        void UISetUp()
+        {
             // Map Set Up function
             myMap.UiSettings.ZoomControlsEnabled = false;
             myMap.UiSettings.CompassEnabled = false;
             myMap.UiSettings.MyLocationButtonEnabled = false;
-
-            displayBasicGeodataInformation();
-            RedirectMapToCurrentLocation();
         }
 
+        // It will runs when user come to this page
         protected override void OnAppearing()
         {
-            //Loop Over Properties for this Geodata , and print all the properties as Label
-            geodata.Properties.ForEach((Property prop) =>
-                propertyStack.Children.Add(new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} " ,FontSize=12, TextColor = Color.FromHex("#68454F63") })
-            );
+            RedirectMapToTargetLocation();
 
-            Propdetaillbl.Children.Add(propertyStack);
+            //Loop Over Properties for this Geodata , and print all the properties as Label
+            geodata.Properties.ForEach((Property prop) => {
+
+                //Create a label to display per propertiy information
+                var propertylbl = new Label { Text = $"{prop.PropertyName} : {prop.PropertyValue} ", FontSize = 12, TextColor = Color.FromHex("#68454F63") };
+
+                // Put the property label into PropStack
+                PropStack.Children.Add(propertylbl);
+            });
+
             //Update Content
             base.OnAppearing();
         }
 
         protected override void OnDisappearing()
         {
-            Propdetaillbl.Children.Remove(propertyStack);
-            propertyStack = new StackLayout { };
+            // Clean out the Properites Stack when the user leave this page
+            PropStack.Children.Clear();
             base.OnDisappearing();
         }
 
-
-        void MyLocationButtonClicked(object sender, Xamarin.Forms.GoogleMaps.MyLocationButtonClickedEventArgs e)
-        {
-            RedirectMapToCurrentLocation();
-        }
-
-        // Function for direct the map back to user location
-        void RedirectMapToCurrentLocation()
-        {
-            // Update Current Location
-            UserLocation.UpdateMyCoordinate();
-            // Redirect the map to user current location
-            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(Latitude, Longitude), Distance.FromMiles(1)));
+        // Function to redirect the map to target location
+        void RedirectMapToTargetLocation(){
+            // Rediect the map to the target location
+            var targetLocation = new Position(geodata.Coordinates[0].Latitude, geodata.Coordinates[0].Longitude);
+            myMap.MoveToRegion(MapSpan.FromCenterAndRadius(targetLocation, Distance.FromMiles(1)));
         }
 
         //Function for Drop pin on the map 
-        void DropPin(double lat, double lon)
+        void DropPin(string targetName, double lat, double lon)
         {
+            // Pin SetUp
             var pin = new Pin()
             {
-                Label = "",
+                Label = $"{targetName}",
                 Address = String.Format("latitude : {0:F3}, longitude : {1:F3}",
                          lat, lon),
                 Type = PinType.Generic,
@@ -84,18 +86,22 @@ namespace GeoGo.ViewModel
 
         }
 
+        //Function for Draw Line on the map 
         void DrawLine(List<Coordinate> coorList)
         {
+            // PolyLine SetUp
+            Polyline myLine = new Polyline() 
+            { 
+                    IsClickable = true, 
+                    StrokeColor = Color.Accent,
+                    StrokeWidth = 5f, 
+                    Tag = "PolyLine" 
+            };
 
-            Polyline myLine = new Polyline();
+            // Loop Through the Coordinate list, to add new postion to the line
+            coorList.ForEach( (Coordinate obj) => myLine.Positions.Add(new Position(obj.Latitude, obj.Longitude) ) );
 
-            coorList.ForEach((Coordinate obj) => myLine.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
-            myLine.IsClickable = true;
-            myLine.StrokeColor = Color.Accent;
-
-            myLine.StrokeWidth = 5f;
-            myLine.Tag = "POLYLINE"; // Can set any object
-
+            // Draw Polyline on the map
             myMap.Polylines.Add(myLine);
 
         }
@@ -103,21 +109,23 @@ namespace GeoGo.ViewModel
         void DrawPolygon(List<Coordinate> coorList)
         {
 
-            Polygon myPolygon = new Polygon();
+            // Polygon SetUp
+            Polygon myPolygon = new Polygon()
+            {
+                IsClickable = true,
+                StrokeColor = Color.Accent,
+                StrokeWidth = 3f,
+                FillColor = Color.FromRgba(255, 0, 0, 64),
+                Tag = "POLYGON"
+            };
+
+            // Loop Through the Coordinate list, to add new postion to the polygon
             coorList.ForEach((Coordinate obj) => myPolygon.Positions.Add(new Position(obj.Latitude, obj.Longitude)));
 
-            myPolygon.IsClickable = true;
-            myPolygon.StrokeColor = Color.Accent;
-            myPolygon.StrokeWidth = 3f;
-            myPolygon.FillColor = Color.FromRgba(255, 0, 0, 64);
-            myPolygon.Tag = "POLYGON"; // Can set any object
+            // Draw Polygon on the map
             myMap.Polygons.Add(myPolygon);
 
         }
-
-
-        double Latitude;
-        double Longitude;
 
         void displayBasicGeodataInformation()
         {
@@ -128,9 +136,7 @@ namespace GeoGo.ViewModel
             typelbl.Text = $"Type of Data: {geodata.Type}";
 
             geodata.Coordinates.ForEach((Coordinate coor) => {
-                Latitude = coor.Latitude;
-                Longitude = coor.Longitude;
-                DropPin(Latitude, Longitude);
+                DropPin(geodata.Name, coor.Latitude, coor.Longitude);
             });
 
             if (geodata.GeometryShape == "Line")
@@ -155,10 +161,10 @@ namespace GeoGo.ViewModel
             Navigation.PushAsync(new InsertPropertyPage(geodata));
         }
 
-        void EmailBtn_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new InsertPropertyPage(geodata));
-        }
+        //void EmailBtn_Clicked(object sender, System.EventArgs e)
+        //{
+        //    Navigation.PushAsync(new InsertPropertyPage(geodata));
+        //}
 
         async void NavBtn_Clicked(object sender, System.EventArgs e)
         {

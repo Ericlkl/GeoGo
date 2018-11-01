@@ -3,10 +3,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/InformationPage.xaml">
     <Files>
       <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="6" Column="23" />
-      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="150" Column="59" />
-      <File FileName="GeoGo/ViewModel/MapShapePage.xaml.cs" Line="46" Column="1" />
-      <File FileName="GeoGo/ViewModel/MapShapePage.xaml" Line="21" Column="1" />
-      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="28" Column="48" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="69" Column="21" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="141" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

@@ -22,7 +22,7 @@ namespace GeoGo.ViewModel
             RedirectMapToLocation("User");
         }
 
-        // Initializer for Information page
+        // Initializer for Information page to use this page display shape on map
         public MapShapePage(GeoData data)
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace GeoGo.ViewModel
             myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(data.Coordinates[0].Latitude, data.Coordinates[0].Longitude), Distance.FromMiles(1)));
         }
 
-        // Initializer for InsertDataPage
+        // Initializer for InsertDataPage to use this page display shape on map
         public MapShapePage(bool canDrawShape){
             InitializeComponent();
             UISetUp();
