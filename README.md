@@ -12,7 +12,15 @@ GeoGO is built by muti-platform application supporting Android and Ios, this app
 
 *  [Visual Studio Tools for Xamarin](https://visualstudio.microsoft.com/xamarin/)
 
+## Trouble shooting
+* When you first clone the project and try to use it on the emulator. you might face a error that no embedded resources found for xamarin. you will need to clean the project and rebuild it.
 
+For mac Visual Studio Community
+1. On the Topbar click 'Build'
+2. Then click 'Clean All'
+3. Quit Visual Studio Community
+4. Open this Project again and Click 'Build All'
+5. Run it on the emulator
 
 ## Platform Support
 
@@ -36,5 +44,5 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **Jeffrey Lau** - *Developer* - [JeffreyLauDev](https://github.com/abc007007007)
 * **Eric Lee** - *Developer* - [Ericlkl](https://github.com/Ericlkl/GeoGo)
+* **Jeffrey Lau** - *Developer* - [JeffreyLauDev](https://github.com/abc007007007)
