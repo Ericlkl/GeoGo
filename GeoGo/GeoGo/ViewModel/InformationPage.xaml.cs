@@ -166,10 +166,10 @@ namespace GeoGo.ViewModel
             Navigation.PushAsync(new InsertPropertyPage(geodata));
         }
 
-        //void EmailBtn_Clicked(object sender, System.EventArgs e)
-        //{
-        //    Navigation.PushAsync(new InsertPropertyPage(geodata));
-        //}
+        void EmailBtn_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new EmailPage(geodata));
+        }
 
         // When user clicked the Nav Button, it will shows the direction to the target in google map / apple map app
         async void NavBtn_Clicked(object sender, System.EventArgs e)

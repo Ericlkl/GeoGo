@@ -98,7 +98,22 @@
                                  BorderRadius="12" />
 
                     </StackLayout>
+                    
                     <StackLayout Grid.Column="1" 
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="Center">
+                        
+                        <Button Clicked="EmailBtn_Clicked"  
+                                BackgroundColor="White"  
+                                Image="ic_email.png"
+                                HeightRequest="52" 
+                                WidthRequest="52" 
+                                VerticalOptions="Center"
+                                BorderRadius="12" />
+
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Column="2" 
                                  Orientation="Horizontal"
                                  HorizontalOptions="Center">
                         

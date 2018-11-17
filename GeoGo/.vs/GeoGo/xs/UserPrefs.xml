@@ -1,25 +1,14 @@
-﻿<Properties StartupConfiguration="{B19C892E-2628-4CA7-AD27-08D406A3B14B}|Unit Tests">
+﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default">
   <MonoDevelop.Ide.ItemProperties.GeoGo.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.96B7E8D5-A05E-4E4A-8BD5-11F4CF576194" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.UITests/ModelTest/GeoDataTest.cs">
+  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD6811E8-7D67-4609-A919-83DF683D53DD" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.iOS/Main.cs">
     <Files>
-      <File FileName="GeoGo.UITests/ModelTest/GeoDataTest.cs" Line="2" Column="23" />
+      <File FileName="GeoGo/ViewModel/EmailPage.xaml" Line="9" Column="44" />
+      <File FileName="GeoGo/ViewModel/EmailPage.xaml.cs" Line="29" Column="10" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="170" Column="10" />
+      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="108" Column="48" />
+      <File FileName="GeoGo.iOS/Main.cs" Line="17" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="GeoGo" expanded="True">
-            <Node name="GeoGo.Tests" expanded="True">
-              <Node name="GeoGo" expanded="True">
-                <Node name="Tests" expanded="True">
-                  <Node name="GeoDataTest" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

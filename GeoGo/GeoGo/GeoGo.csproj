@@ -22,6 +22,9 @@
     <EmbeddedResource Remove="Controllers\mapZoom.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GeoData.json" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="ViewModel\InsertPropertyPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -39,5 +42,8 @@
     <Compile Remove="styles\UIColorList.cs" />
     <Compile Remove="styles\GetSystemColorList.cs" />
     <Compile Remove="Controllers\mapZoom.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="GeoData.json" />
   </ItemGroup>
 </Project>
