@@ -14,15 +14,13 @@
     <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.0.4" />
     <PackageReference Include="Xamarin.Essentials" Version="0.10.0-preview" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Controllers\mapZoom.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="GeoData.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="ViewModel\InsertPropertyPage.xaml">
@@ -44,6 +42,8 @@
     <Compile Remove="Controllers\mapZoom.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="GeoData.json" />
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

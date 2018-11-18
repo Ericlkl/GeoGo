@@ -54,5 +54,7 @@
 	</array>
 	<key></key>
 	<string></string>
+	<key>Custom Property</key>
+	<string></string>
 </dict>
 </plist>

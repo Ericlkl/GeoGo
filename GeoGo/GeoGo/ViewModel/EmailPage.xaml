@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GeoGo"
              x:Class="GeoGo.ViewModel.EmailPage">
     
     <ContentPage.Content>
@@ -9,20 +10,13 @@
             <Entry Placeholder="e.g. abc@gmail.com"
                    x:Name="receiver_entry"/>
             
-            <Label Text="Cc : "/>
-            <Entry Placeholder=""
-                   x:Name="Cc_Entry"/>
-            
             <Label Text="Subject : "/>
-            <Entry Placeholder=""
-                   x:Name="Subject_Entry"/>
+            <Entry x:Name="Subject_Entry"/>
             
             <Label Text="Attachment : xxx.json"/>
             
             <Label Text="Body : "/>
             
-            
-
             <StackLayout BackgroundColor="White">
                   <StackLayout BackgroundColor="Black"
                                Padding="0.3">

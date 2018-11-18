@@ -1,13 +1,10 @@
-﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default">
+﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.GeoGo.Tests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD6811E8-7D67-4609-A919-83DF683D53DD" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.iOS/Main.cs">
+  <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD6811E8-7D67-4609-A919-83DF683D53DD" automaticSigning="False" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/EmailPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/EmailPage.xaml" Line="11" Column="13" />
-      <File FileName="GeoGo/ViewModel/EmailPage.xaml.cs" Line="49" Column="18" />
-      <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="170" Column="10" />
-      <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="108" Column="48" />
-      <File FileName="GeoGo.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="GeoGo/ViewModel/EmailPage.xaml.cs" Line="11" Column="18" />
+      <File FileName="GeoGo/ViewModel/EmailPage.xaml" Line="38" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

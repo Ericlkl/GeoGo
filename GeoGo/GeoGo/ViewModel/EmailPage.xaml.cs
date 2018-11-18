@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Xamarin.Essentials;
+using Plugin.Messaging;
 
 using GeoGo.Model;
 using Newtonsoft.Json;
 
 using Xamarin.Forms;
+using Foundation;
+
 
 namespace GeoGo.ViewModel
 {
@@ -28,26 +30,32 @@ namespace GeoGo.ViewModel
 
         void SendBtn_Clicked(object sender, System.EventArgs e)
         {
-            //Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GeoData.json");
 
-            ////var assembly = IntrospectionExtensions.GetTypeInfo(this.GetType()).Assembly;
-            ////Stream stream = assembly.GetManifestResourceStream("GeoData.json");
+            var geoJson = new 
+            {
+                type = "Feature",
+                geometry = new {
+                    type = targetData.GeometryShape,
+                    coordinate = targetData.Coordinates
+                },
+                properties = new {
+                    featureName = targetData.Name,
+                    provider = targetData.Provider,
+                    description = targetData.Description,
+                    lastUpdate = targetData.LastUpdate,
+                    attributes = targetData.Properties
+                }
+            };
 
-            //using (var writer = new System.IO.StreamWriter(stream))
-            //{
-            //    var json = JsonConvert.SerializeObject(targetData);
-            //    DisplayAlert("Message", json, "Okay");
-            //    writer.WriteLine(json);
-            //}
+            var jsonString = JsonConvert.SerializeObject(geoJson);
 
-            var json = JsonConvert.SerializeObject(targetData);
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string filename = Path.Combine(path, "GeoData.txt");
+            string filename = Path.Combine(path, "GeoData.json");
 
             // Write , the second parameter determine overwrite the file or not
             using (var streamWriter = new StreamWriter(filename, false))
             {
-                streamWriter.Write(json);
+                streamWriter.Write(jsonString);
             }
             // Read 
             using (var streamReader = new StreamReader(filename))
@@ -57,6 +65,26 @@ namespace GeoGo.ViewModel
                 DisplayAlert("Message", content, "Okay");
             }
 
+            var emailMessager = CrossMessaging.Current.EmailMessenger;
+
+            if(emailMessager.CanSendEmailAttachments)
+            {
+                //File file = new File(filename);
+                NSUrl file = new NSUrl(filename, false);
+                var email = new EmailMessageBuilder()
+                    .To(receiver_entry.Text)
+                    .Subject(Subject_Entry.Text)
+                    .Body(body_Editor.Text)
+                    .WithAttachment(file)
+                    .Build();
+
+
+                emailMessager.SendEmail(email);
+                DisplayAlert("Msg", "Success", "Okay");
+            }
+            else {
+                DisplayAlert("Msg", "Fail to send a msg", "Okay");
+            }
         }
 
     }
