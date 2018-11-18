@@ -4,13 +4,38 @@
              x:Class="GeoGo.ViewModel.EmailPage">
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label> Name </Label>
-            <Button Clicked="Handle_Clicked"
-                    Text="Send!"/>
+        <StackLayout Margin="20">
+            <Label Text="To : "/>
+            <Entry Placeholder="e.g. abc@gmail.com"
+                   x:Name="receiver_entry"/>
             
-            <Button Clicked="Handle_Clicked_1"
-                    Text="Read"/>
+            <Label Text="Cc : "/>
+            <Entry Placeholder=""
+                   x:Name="Cc_Entry"/>
+            
+            <Label Text="Subject : "/>
+            <Entry Placeholder=""
+                   x:Name="Subject_Entry"/>
+            
+            <Label Text="Attachment : xxx.json"/>
+            
+            <Label Text="Body : "/>
+            
+            
+
+            <StackLayout BackgroundColor="White">
+                  <StackLayout BackgroundColor="Black"
+                               Padding="0.3">
+                    
+                      <Editor x:Name="body_Editor"
+                              HeightRequest="300"/>
+                  </StackLayout>
+            </StackLayout>
+            
+            <Button Clicked="SendBtn_Clicked"
+                    BorderColor="Black"
+                    BorderWidth="0.3"
+                    Text="Send!"/>
             
         </StackLayout>
         

@@ -26,7 +26,7 @@ namespace GeoGo.ViewModel
             InitializeComponent();
         }
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        void SendBtn_Clicked(object sender, System.EventArgs e)
         {
             //Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GeoData.json");
 
@@ -59,17 +59,5 @@ namespace GeoGo.ViewModel
 
         }
 
-        void Handle_Clicked_1(object sender, System.EventArgs e)
-        {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string filename = Path.Combine(path, "GeoData.txt");
-
-            using (var streamReader = new StreamReader(filename))
-            {
-                string content = streamReader.ReadToEnd();
-                System.Diagnostics.Debug.WriteLine(content);
-                DisplayAlert("Message", content, "Okay");
-            }
-        }
     }
 }
