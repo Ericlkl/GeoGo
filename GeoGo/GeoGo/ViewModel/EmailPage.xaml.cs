@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Xamarin.Essentials;
 
 using GeoGo.Model;
 using Newtonsoft.Json;
@@ -27,14 +28,47 @@ namespace GeoGo.ViewModel
 
         void Handle_Clicked(object sender, System.EventArgs e)
         {
-            var assembly = IntrospectionExtensions.GetTypeInfo(this.GetType()).Assembly;
-            Stream stream = assembly.GetManifestResourceStream("GeoData.json");
+            //Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "GeoData.json");
 
-            using (var writer = new System.IO.StreamWriter(stream))
+            ////var assembly = IntrospectionExtensions.GetTypeInfo(this.GetType()).Assembly;
+            ////Stream stream = assembly.GetManifestResourceStream("GeoData.json");
+
+            //using (var writer = new System.IO.StreamWriter(stream))
+            //{
+            //    var json = JsonConvert.SerializeObject(targetData);
+            //    DisplayAlert("Message", json, "Okay");
+            //    writer.WriteLine(json);
+            //}
+
+            var json = JsonConvert.SerializeObject(targetData);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string filename = Path.Combine(path, "GeoData.txt");
+
+            // Write , the second parameter determine overwrite the file or not
+            using (var streamWriter = new StreamWriter(filename, false))
             {
-                var json = JsonConvert.SerializeObject(targetData);
-                DisplayAlert("Message", json, "Okay");
-                writer.WriteLine(json);
+                streamWriter.Write(json);
+            }
+            // Read 
+            using (var streamReader = new StreamReader(filename))
+            {
+                string content = streamReader.ReadToEnd();
+                System.Diagnostics.Debug.WriteLine(content);
+                DisplayAlert("Message", content, "Okay");
+            }
+
+        }
+
+        void Handle_Clicked_1(object sender, System.EventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string filename = Path.Combine(path, "GeoData.txt");
+
+            using (var streamReader = new StreamReader(filename))
+            {
+                string content = streamReader.ReadToEnd();
+                System.Diagnostics.Debug.WriteLine(content);
+                DisplayAlert("Message", content, "Okay");
             }
         }
     }

@@ -167,6 +167,7 @@
     <BundleResource Include="Resources\bg_login.png" />
     <BundleResource Include="Resources\bg_login%402x.png" />
     <BundleResource Include="Resources\bg_login%403x.png" />
+    <BundleResource Include="Resources\GeoData.json" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_cloud%403x.png" />

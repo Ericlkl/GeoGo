@@ -3,8 +3,8 @@
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD6811E8-7D67-4609-A919-83DF683D53DD" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo.iOS/Main.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/EmailPage.xaml" Line="9" Column="44" />
-      <File FileName="GeoGo/ViewModel/EmailPage.xaml.cs" Line="29" Column="10" />
+      <File FileName="GeoGo/ViewModel/EmailPage.xaml" Line="11" Column="13" />
+      <File FileName="GeoGo/ViewModel/EmailPage.xaml.cs" Line="49" Column="18" />
       <File FileName="GeoGo/ViewModel/InformationPage.xaml.cs" Line="170" Column="10" />
       <File FileName="GeoGo/ViewModel/InformationPage.xaml" Line="108" Column="48" />
       <File FileName="GeoGo.iOS/Main.cs" Line="17" Column="1" />
