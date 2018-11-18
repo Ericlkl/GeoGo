@@ -58,6 +58,46 @@ namespace GeoGo.ViewModel
 
 
         void UISetUp(){
+            myMap.UiSettings.MyLocationButtonEnabled = true;
+
+        }
+
+        protected override void OnAppearing()
+        {
+            // If the drawShapeAble is true, it means it is from insertDataPage
+            if (DrawShapeAble == true) {
+                DrawShape();
+                RedirectMapToLocation("Target");
+            }
+            base.OnAppearing();
+        }
+
+        // Clean the shape on the map that user can create a new shape, but no clean the shape data
+        void CleanMap(){
+            myMap.Polylines.Clear();
+            myMap.Polygons.Clear();
+            myMap.Pins.Clear();
+        }
+
+        // Clean the shape on the map and clean the position List and global Variable
+        // It allows user to draw a new shape on the map
+        void CleanPositionList()
+        {
+            // Clean out everything on the map
+            CleanMap();
+
+            // Clean out all the Position data
+            InsertDataPage.PositionsList.Clear();
+            CleanMapObject();
+            UISetUp();
+        }
+
+        void CleanMapObject(){
+            // Clean Map Object
+            myLine = null;
+            myPin = null;
+            myPolygon = null;
+
             // Set up Line object
             myLine = new Polyline
             {
@@ -78,67 +118,6 @@ namespace GeoGo.ViewModel
                 Tag = "Polygon"
             };
 
-            myMap.UiSettings.MyLocationButtonEnabled = true;
-
-        }
-
-        protected override void OnAppearing()
-        {
-            // If the drawShapeAble is true, it means it is from insertDataPage
-            if (DrawShapeAble == true) {
-                DisplayShapeOnMiniMap();
-                RedirectMapToLocation("Target");
-            }
-            base.OnAppearing();
-        }
-
-        // a function to draw the shape on the map, depends on how many coordinate do we have to decide the shape
-        public void DisplayShapeOnMiniMap()
-        {
-            // If PositionList contain only one coordinate it must be a pin
-            if (InsertDataPage.PositionsList.Count == 1)
-            {
-                DropPin(InsertDataPage.PositionsList[0].Latitude, InsertDataPage.PositionsList[0].Longitude);
-            }
-            // If PositionList contain only two coordinate it must be a line
-            else if (InsertDataPage.PositionsList.Count == 2)
-            {
-                CleanMap();
-                DrawLine(InsertDataPage.PositionsList[1].Latitude, InsertDataPage.PositionsList[1].Longitude);
-            }
-
-            // If PositionList contain more than two coordinate it must be a polygon
-            else if (InsertDataPage.PositionsList.Count >= 3)
-            {
-                CleanMap();
-                DrawPolygon(InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Latitude, InsertDataPage.PositionsList[InsertDataPage.PositionsList.Count - 1].Longitude);
-            } else {
-                CleanMap();
-            }
-        }
-
-        // Clean the shape on the map that user can create a new shape, but no clean the shape data
-        void CleanMap(){
-            myMap.Polylines.Clear();
-            myMap.Polygons.Clear();
-            myMap.Pins.Clear();
-        }
-
-        // Clean the shape on the map and clean the position List and global Variable
-        // It allows user to draw a new shape on the map
-        void CleanPositionList()
-        {
-            // Clean out everything on the map
-            CleanMap();
-
-            // Clean out all the Position data
-            InsertDataPage.PositionsList.Clear();
-
-            // Clean Map Object
-            myLine = null;
-            myPin = null;
-            myPolygon = null;
-            UISetUp();
         }
 
         // Function for direct the map back to user location
@@ -172,37 +151,84 @@ namespace GeoGo.ViewModel
                 var lat = e.Point.Latitude;
                 var lng = e.Point.Longitude;
 
-                // Draw the shape on the map
-                DrawShape(lat, lng);
-
                 //Save new record to PositionList temporary
                 InsertDataPage.PositionsList.Add(new Position(lat, lng));
+
+                // Draw the shape on the map
+                DrawShape();
+
             }
 
             // Nothing happen if DrawShapeAble didnot turn to true, it can make sure user can not draw shape when they enter from Information Page
         }
 
-        public void DrawShape(double lat, double lon)
+        public void DrawShape()
         {
+            CleanMap();
+            CleanMapObject();
+
             // If current there is no coordinate on the list
-            if (InsertDataPage.PositionsList.Count == 0)
+            if (String.Equals(shape_picker.SelectedItem.ToString(),"Point") || InsertDataPage.PositionsList.Count == 1 )
             {
-                DropPin(lat, lon);
+                DrawMultiPoint();
             }
 
             // If currently there is just one coordinate on the list, which means one pin on the map
-            else if (InsertDataPage.PositionsList.Count == 1)
+            else if ( String.Equals(shape_picker.SelectedItem.ToString(), "LineString") || InsertDataPage.PositionsList.Count == 2)
             {
-                CleanMap();
-                DrawLine(lat, lon);
+                DrawLine();
             }
 
             // currently there is two or more coordinate on the list, which means one line or one polygon existed on the map
-            else
+            else if (String.Equals(shape_picker.SelectedItem.ToString(), "Polygon") )
             {
-                CleanMap();
-                DrawPolygon(lat, lon);
+                DrawPolygon();
             }
+        }
+
+
+
+        //Function for Drop pin on the map 
+        void DrawMultiPoint()
+        {
+        
+            // loop through all the position which in the Position list to make the polygon
+            InsertDataPage.PositionsList.ForEach((Position pos) => {
+                // use latitude and longitute to make a pin variable
+                myPin = new Pin()
+                {
+                    Label = String.Format("latitude : {0:F3}, longitude : {1:F3}",
+                                          pos.Latitude, pos.Longitude),
+                    Type = PinType.Generic,
+                    Position = pos
+                };
+
+                // Put it on the map
+                myMap.Pins.Add(myPin);
+            });
+
+        }
+
+        // Function for drawing line
+        void DrawLine()
+        {
+            // Using the old pin and new lat and lon to make a line
+            InsertDataPage.PositionsList.ForEach((Position pos) => myLine.Positions.Add(pos));
+            // draw a line on the map
+            myMap.Polylines.Add(myLine);
+        }
+
+        // Function for drawing Polygon
+        void DrawPolygon()
+        {
+            // loop through all the position which in the Position list to make the polygon
+            InsertDataPage.PositionsList.ForEach((Position pos) => myPolygon.Positions.Add(pos));
+
+            // add the first position to link the origin point to make it as a Polygon
+            myPolygon.Positions.Add(InsertDataPage.PositionsList[0]);
+            // put the polygon on the map
+            myMap.Polygons.Add(myPolygon);
+
         }
 
         //Function for Drop pin on the map 
@@ -220,31 +246,6 @@ namespace GeoGo.ViewModel
             // Put it on the map
             myMap.Pins.Add(myPin);
         }
-
-        // Function for drawing line
-        void DrawLine(double lat, double lon)
-        {
-            // Using the old pin and new lat and lon to make a line
-            myLine.Positions.Add(InsertDataPage.PositionsList[0]);
-            myLine.Positions.Add(new Position(lat, lon));
-            // draw a line on the map
-            myMap.Polylines.Add(myLine);
-        }
-
-        // Function for drawing Polygon
-        void DrawPolygon(double lat, double lon)
-        {
-            // loop through all the position which in the Position list to make the polygon
-            InsertDataPage.PositionsList.ForEach((Position pos) => myPolygon.Positions.Add(pos));
-            // add the lat lon information to the polygon
-            myPolygon.Positions.Add(new Position(lat, lon));
-            // add the first position to link the origin point to make it as a Polygon
-            myPolygon.Positions.Add(InsertDataPage.PositionsList[0]);
-            // put the polygon on the map
-            myMap.Polygons.Add(myPolygon);
-
-        }
-
 
         // A function for InformationPage to display the data coordinate to a larger screen
         // it is only for user which enter this page from Information page

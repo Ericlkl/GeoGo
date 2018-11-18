@@ -1,10 +1,9 @@
-﻿<Properties StartupConfiguration="{FC1967E9-9120-40A1-A54B-4B3D8A03C236}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+﻿<Properties StartupConfiguration="{84EE6BAA-8C3C-4E42-9BB7-64A41B77213F}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.GeoGo.Tests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD6811E8-7D67-4609-A919-83DF683D53DD" automaticSigning="False" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/EmailPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/MapShapePage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/EmailPage.xaml.cs" Line="11" Column="18" />
-      <File FileName="GeoGo/ViewModel/EmailPage.xaml" Line="38" Column="1" />
+      <File FileName="GeoGo/ViewModel/MapShapePage.xaml.cs" Line="100" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

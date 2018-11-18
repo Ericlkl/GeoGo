@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using Plugin.Messaging;
 
 using GeoGo.Model;
 using Newtonsoft.Json;
 
 using Xamarin.Forms;
-using Foundation;
 
 
 namespace GeoGo.ViewModel
@@ -69,13 +66,11 @@ namespace GeoGo.ViewModel
 
             if(emailMessager.CanSendEmailAttachments)
             {
-                //File file = new File(filename);
-                NSUrl file = new NSUrl(filename, false);
                 var email = new EmailMessageBuilder()
                     .To(receiver_entry.Text)
                     .Subject(Subject_Entry.Text)
                     .Body(body_Editor.Text)
-                    .WithAttachment(file)
+                    //.WithAttachment(file)
                     .Build();
 
 

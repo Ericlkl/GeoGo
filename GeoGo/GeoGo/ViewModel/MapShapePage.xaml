@@ -7,14 +7,30 @@
              x:Class="GeoGo.ViewModel.MapShapePage">
     
     
-    
-    <ContentPage.Content>
-        <maps:Map x:Name="myMap"
+   <StackLayout>
+        
+   <Picker x:Name="shape_picker" Title="Geometry Shape:"
+                        FontSize="15"
+                        TextColor="#78849E">
+      <Picker.ItemsSource>
+        <x:Array Type="{x:Type x:String}">
+          <x:String>Point</x:String>
+          <x:String>LineString</x:String>
+          <x:String>Polygon</x:String>
+        </x:Array>
+      </Picker.ItemsSource>
+    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+    </Picker>
+        
+        
+    <maps:Map x:Name="myMap"
           MapType="Street"
           MapClicked="MapClicked"
           MyLocationEnabled="true"
           MyLocationButtonClicked="MyLocationButtonClicked"
           VerticalOptions="FillAndExpand"
          />
-    </ContentPage.Content>
+        
+    </StackLayout>
+
 </ContentPage>
