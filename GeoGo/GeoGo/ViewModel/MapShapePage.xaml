@@ -6,31 +6,51 @@
              NavigationPage.HasNavigationBar="true"
              x:Class="GeoGo.ViewModel.MapShapePage">
     
-    
-   <StackLayout>
+        <StackLayout>
+            <StackLayout>
+                    <Grid Margin="15,10,15,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                   <Label Text="Geometry Shape: "
+                          VerticalTextAlignment="Center"
+                          HorizontalTextAlignment="End"
+                          Grid.Row="0"
+                          Grid.Column="0"/>
+                    
+                    <Picker x:Name="shape_picker" 
+                           Title="Geometry Shape:"
+                           FontSize="15"
+                           SelectedIndexChanged="Selected_Geometry_Shape"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           TextColor="#78849E">
+
+                      <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                          <x:String>Point</x:String>
+                          <x:String>LineString</x:String>
+                          <x:String>Polygon</x:String>
+                        </x:Array>
+                      </Picker.ItemsSource>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+                </Grid>
+        </StackLayout>
         
-   <Picker x:Name="shape_picker" Title="Geometry Shape:"
-                        FontSize="15"
-                        TextColor="#78849E">
-      <Picker.ItemsSource>
-        <x:Array Type="{x:Type x:String}">
-          <x:String>Point</x:String>
-          <x:String>LineString</x:String>
-          <x:String>Polygon</x:String>
-        </x:Array>
-      </Picker.ItemsSource>
-    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-    </Picker>
+        <maps:Map x:Name="myMap"
+                  MapType="Street"
+                  MapClicked="MapClicked"
+                  MyLocationEnabled="true"
+                  MyLocationButtonClicked="MyLocationButtonClicked"
+                  VerticalOptions="FillAndExpand" />
         
-        
-    <maps:Map x:Name="myMap"
-          MapType="Street"
-          MapClicked="MapClicked"
-          MyLocationEnabled="true"
-          MyLocationButtonClicked="MyLocationButtonClicked"
-          VerticalOptions="FillAndExpand"
-         />
-        
-    </StackLayout>
+        </StackLayout>
 
 </ContentPage>

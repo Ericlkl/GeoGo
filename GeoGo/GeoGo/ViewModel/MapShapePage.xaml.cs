@@ -46,9 +46,6 @@ namespace GeoGo.ViewModel
             InitializeComponent();
             UISetUp();
 
-            // Redirect the map to user location
-            RedirectMapToLocation("User");
-
             // Add Clean Shape button on the navigation bar, when triger this function
             // it will clean the shape on the map, also clean out the list in InsertDataPage
             ToolbarItems.Add(new ToolbarItem("CleanShape", "", CleanPositionList));
@@ -56,20 +53,22 @@ namespace GeoGo.ViewModel
             DrawShapeAble = canDrawShape;
         }
 
-
-        void UISetUp(){
-            myMap.UiSettings.MyLocationButtonEnabled = true;
-
-        }
-
+        // When the page shows up
         protected override void OnAppearing()
         {
             // If the drawShapeAble is true, it means it is from insertDataPage
-            if (DrawShapeAble == true) {
+            if (DrawShapeAble == true)
+            {
                 DrawShape();
                 RedirectMapToLocation("Target");
             }
             base.OnAppearing();
+        }
+
+        void UISetUp(){
+            // Redirect the map to user location
+            RedirectMapToLocation("User");
+            myMap.UiSettings.MyLocationButtonEnabled = true;
         }
 
         // Clean the shape on the map that user can create a new shape, but no clean the shape data
@@ -77,22 +76,7 @@ namespace GeoGo.ViewModel
             myMap.Polylines.Clear();
             myMap.Polygons.Clear();
             myMap.Pins.Clear();
-        }
 
-        // Clean the shape on the map and clean the position List and global Variable
-        // It allows user to draw a new shape on the map
-        void CleanPositionList()
-        {
-            // Clean out everything on the map
-            CleanMap();
-
-            // Clean out all the Position data
-            InsertDataPage.PositionsList.Clear();
-            CleanMapObject();
-            UISetUp();
-        }
-
-        void CleanMapObject(){
             // Clean Map Object
             myLine = null;
             myPin = null;
@@ -117,7 +101,18 @@ namespace GeoGo.ViewModel
                 FillColor = Color.FromRgba(255, 0, 0, 64),
                 Tag = "Polygon"
             };
+        }
 
+        // Clean the shape on the map and clean the position List and global Variable
+        // It allows user to draw a new shape on the map
+        void CleanPositionList()
+        {
+            // Clean out everything on the map
+            CleanMap();
+
+            // Clean out all the Position data
+            InsertDataPage.PositionsList.Clear();
+            UISetUp();
         }
 
         // Function for direct the map back to user location
@@ -141,7 +136,6 @@ namespace GeoGo.ViewModel
             }
         }
 
-
         // When the user click on the map
         void MapClicked(object sender, Xamarin.Forms.GoogleMaps.MapClickedEventArgs e)
         {
@@ -162,10 +156,10 @@ namespace GeoGo.ViewModel
             // Nothing happen if DrawShapeAble didnot turn to true, it can make sure user can not draw shape when they enter from Information Page
         }
 
+        // A Function for InsertData Page drawing the shape on the map
         public void DrawShape()
         {
             CleanMap();
-            CleanMapObject();
 
             // If current there is no coordinate on the list
             if (String.Equals(shape_picker.SelectedItem.ToString(),"Point") || InsertDataPage.PositionsList.Count == 1 )
@@ -197,8 +191,7 @@ namespace GeoGo.ViewModel
                 // use latitude and longitute to make a pin variable
                 myPin = new Pin()
                 {
-                    Label = String.Format("latitude : {0:F3}, longitude : {1:F3}",
-                                          pos.Latitude, pos.Longitude),
+                    Label = String.Format("latitude : {0:F3}, longitude : {1:F3}", pos.Latitude, pos.Longitude),
                     Type = PinType.Generic,
                     Position = pos
                 };
@@ -289,6 +282,12 @@ namespace GeoGo.ViewModel
             }
         }
 
+        void Selected_Geometry_Shape(object sender, System.EventArgs e)
+        {
+            InsertDataPage.geometryShape = shape_picker.SelectedItem.ToString();
+            if (InsertDataPage.PositionsList.Count != 0)
+                DrawShape();
+        }
 
 
         // Redirect Button clicked

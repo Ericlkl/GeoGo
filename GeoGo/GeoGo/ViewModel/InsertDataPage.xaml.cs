@@ -10,6 +10,7 @@ namespace GeoGo.ViewModel
     {
         // A static PositionList Value which will be used by MapShape Page to draw the shape in a larger map
         public static List<Position> PositionsList = new List<Position>();
+        public static string geometryShape;
 
         // Global Variable for pin/line/polygon object to draw it on map
         private Pin myPin;
