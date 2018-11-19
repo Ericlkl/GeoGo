@@ -39,6 +39,13 @@
                            TextColor="#80343C65" 
                            Margin="0,0,0,2"/>
                     
+                 <Label x:Name="shapelbl" 
+                           Text="geometry shape :" 
+                           VerticalOptions="End" 
+                           FontSize="12" 
+                           TextColor="#80343C65" 
+                           Margin="0,0,0,2"/>
+                    
                     <Label  x:Name="Deslbl"
                             Text="Description for the Object..."
                             FontSize="14" 

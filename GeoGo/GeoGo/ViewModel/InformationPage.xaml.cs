@@ -136,6 +136,7 @@ namespace GeoGo.ViewModel
             Deslbl.Text = geodata.Description;
             timelbl.Text = $"Last Update : {geodata.LastUpdate}";
             typelbl.Text = $"Type of Data: {geodata.Type}";
+            shapelbl.Text = $"Geometry Type: {geodata.GeometryShape}";
 
             geodata.Coordinates.ForEach((Coordinate coor) => {
                 DropPin(geodata.Name, coor.Latitude, coor.Longitude);

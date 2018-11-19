@@ -69,6 +69,7 @@ namespace GeoGo.ViewModel
             // Redirect the map to user location
             RedirectMapToLocation("User");
             myMap.UiSettings.MyLocationButtonEnabled = true;
+
         }
 
         // Clean the shape on the map that user can create a new shape, but no clean the shape data
@@ -76,7 +77,10 @@ namespace GeoGo.ViewModel
             myMap.Polylines.Clear();
             myMap.Polygons.Clear();
             myMap.Pins.Clear();
+            ResetMapObjectValue();
+        }
 
+        void ResetMapObjectValue(){
             // Clean Map Object
             myLine = null;
             myPin = null;
@@ -174,32 +178,17 @@ namespace GeoGo.ViewModel
             }
 
             // currently there is two or more coordinate on the list, which means one line or one polygon existed on the map
-            else if (String.Equals(shape_picker.SelectedItem.ToString(), "Polygon") )
+            else if (String.Equals(shape_picker.SelectedItem.ToString(), "Polygon"))
             {
                 DrawPolygon();
             }
         }
 
-
-
-        //Function for Drop pin on the map 
+        //Function for Drop multiple pin on the map 
         void DrawMultiPoint()
         {
-        
             // loop through all the position which in the Position list to make the polygon
-            InsertDataPage.PositionsList.ForEach((Position pos) => {
-                // use latitude and longitute to make a pin variable
-                myPin = new Pin()
-                {
-                    Label = String.Format("latitude : {0:F3}, longitude : {1:F3}", pos.Latitude, pos.Longitude),
-                    Type = PinType.Generic,
-                    Position = pos
-                };
-
-                // Put it on the map
-                myMap.Pins.Add(myPin);
-            });
-
+            InsertDataPage.PositionsList.ForEach((Position pos) => DropPin(pos.Latitude, pos.Longitude) );
         }
 
         // Function for drawing line

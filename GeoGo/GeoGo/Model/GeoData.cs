@@ -39,14 +39,13 @@ namespace GeoGo.Model
         [MaxLength(20)]
         public string TypeOfImage { get; set; }
 
-
-
-        public GeoData(string name, string type, string provider, string description)
+        public GeoData(string name, string type, string provider, string description, string geoShape)
         {
             Name = name;
             Type = type;
             Provider = provider;
             Description = description;
+            GeometryShape = geoShape;
             LastUpdate = DateTime.Now.ToString();
             Properties = new List<Property> { };
             TypeOfImage = Types.GetIconByType(Type);
@@ -60,12 +59,8 @@ namespace GeoGo.Model
         public void InsertCoordinate(List<Coordinate> coordinates)
         {
             Coordinates = coordinates;
-            if (Coordinates.Count == 1)
-                GeometryShape = "Point";
-            else if (Coordinates.Count == 2)
-                GeometryShape = "Line";
-            else
-                GeometryShape = "Polygon";
+            if (Coordinates.Count > 1 && GeometryShape == "Point")
+                GeometryShape = "MultiPoint";
         }
 
         public void InsertProperty(Property prop)

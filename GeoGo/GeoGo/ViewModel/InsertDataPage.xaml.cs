@@ -209,11 +209,11 @@ namespace GeoGo.ViewModel
             PositionsList.ForEach((Position pos) => coorList.Add(new Coordinate( pos.Latitude, pos.Longitude)) );
 
             // If it is a polygon object we need to insert the first coordinate to the last Coodinate for this GeoData in order to make a shape
-            if (PositionsList.Count >= 3)
+            if (PositionsList.Count >= 3 && geometryShape == "Polygon")
                 coorList.Add(new Coordinate(PositionsList[0].Latitude, PositionsList[0].Longitude));
 
             // Create a new GeoData object to store it to database after
-            GeoData data = new GeoData(name_Entry.Text, type_Entry.SelectedItem.ToString(), User.nickname, description_Entry.Text);
+            GeoData data = new GeoData(name_Entry.Text, type_Entry.SelectedItem.ToString(), User.nickname, description_Entry.Text , geometryShape);
 
             // Insert the Geodata into SQLite database and recieve the message
             string msg = LocalDatabase.InsertNewGeodataToDB(coorList, data);
