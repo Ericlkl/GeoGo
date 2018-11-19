@@ -3,7 +3,11 @@
   <MonoDevelop.Ide.ItemProperties.GeoGo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.DD6811E8-7D67-4609-A919-83DF683D53DD" automaticSigning="False" />
   <MonoDevelop.Ide.Workbench ActiveDocument="GeoGo/ViewModel/InsertDataPage.xaml.cs">
     <Files>
-      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="217" Column="1" />
+      <File FileName="GeoGo/ViewModel/MapPage.xaml.cs" Line="50" Column="49" />
+      <File FileName="GeoGo/Model/GeoData.cs" Line="33" Column="20" />
+      <File FileName="GeoGo/ViewModel/MapShapePage.xaml.cs" Line="53" Column="60" />
+      <File FileName="GeoGo/ViewModel/MapShapePage.xaml" Line="41" Column="44" />
+      <File FileName="GeoGo/ViewModel/InsertDataPage.xaml.cs" Line="194" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.GeoGo.Android PreferredExecutionTarget="Android.my_device" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />

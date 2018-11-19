@@ -59,8 +59,15 @@ namespace GeoGo.Model
         public void InsertCoordinate(List<Coordinate> coordinates)
         {
             Coordinates = coordinates;
+            // InValidation Checker
             if (Coordinates.Count > 1 && GeometryShape == "Point")
                 GeometryShape = "MultiPoint";
+
+            if (Coordinates.Count == 1 && GeometryShape != "Point")
+                GeometryShape = "Point";
+
+            if (Coordinates.Count == 2 && GeometryShape == "Polygon")
+                GeometryShape = "LineString";
         }
 
         public void InsertProperty(Property prop)

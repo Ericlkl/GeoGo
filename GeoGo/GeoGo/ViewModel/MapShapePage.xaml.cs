@@ -46,6 +46,20 @@ namespace GeoGo.ViewModel
             InitializeComponent();
             UISetUp();
 
+            switch(InsertDataPage.geometryShape)
+            {
+                default:
+                    shape_picker.SelectedIndex = 0;
+                    InsertDataPage.geometryShape = "Point";
+                    break;
+                case "LineString":
+                    shape_picker.SelectedIndex = 1;
+                    break;
+                case "Polygon":
+                    shape_picker.SelectedIndex = 2;
+                    break;
+            }
+
             // Add Clean Shape button on the navigation bar, when triger this function
             // it will clean the shape on the map, also clean out the list in InsertDataPage
             ToolbarItems.Add(new ToolbarItem("CleanShape", "", CleanPositionList));
@@ -165,22 +179,25 @@ namespace GeoGo.ViewModel
         {
             CleanMap();
 
-            // If current there is no coordinate on the list
-            if (String.Equals(shape_picker.SelectedItem.ToString(),"Point") || InsertDataPage.PositionsList.Count == 1 )
+            if (InsertDataPage.PositionsList.Count > 0)
             {
-                DrawMultiPoint();
-            }
+                // If current there is no coordinate on the list
+                if (shape_picker.SelectedItem.ToString() == "Point" || InsertDataPage.PositionsList.Count == 1)
+                {
+                    DrawMultiPoint();
+                }
 
-            // If currently there is just one coordinate on the list, which means one pin on the map
-            else if ( String.Equals(shape_picker.SelectedItem.ToString(), "LineString") || InsertDataPage.PositionsList.Count == 2)
-            {
-                DrawLine();
-            }
+                // If currently there is just one coordinate on the list, which means one pin on the map
+                else if (shape_picker.SelectedItem.ToString() == "LineString" || InsertDataPage.PositionsList.Count == 2)
+                {
+                    DrawLine();
+                }
 
-            // currently there is two or more coordinate on the list, which means one line or one polygon existed on the map
-            else if (String.Equals(shape_picker.SelectedItem.ToString(), "Polygon"))
-            {
-                DrawPolygon();
+                // currently there is two or more coordinate on the list, which means one line or one polygon existed on the map
+                else if (shape_picker.SelectedItem.ToString() == "Polygon")
+                {
+                    DrawPolygon();
+                }
             }
         }
 

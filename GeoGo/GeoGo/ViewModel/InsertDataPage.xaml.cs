@@ -13,7 +13,6 @@ namespace GeoGo.ViewModel
         public static string geometryShape;
 
         // Global Variable for pin/line/polygon object to draw it on map
-        private Pin myPin;
         private Polyline myLine;
         private Polygon myPolygon;
 
@@ -45,10 +44,13 @@ namespace GeoGo.ViewModel
             // Update Current Location
             UserLocation.UpdateMyCoordinate();
 
-            if (PositionsList.Count == 0 || toWhere == "User"){
+            if (PositionsList.Count == 0 || toWhere == "User")
+            {
                 // Redirect the map to user current location
                 myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(UserLocation.Latitude, UserLocation.Longitude), Distance.FromMiles(1)));
-            } else if (PositionsList.Count != 0 && toWhere == "Target") {
+            } 
+            else if (PositionsList.Count != 0 && toWhere == "Target") 
+            {
                 // Redirect the map the the object location
                 myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position( PositionsList[0].Latitude , PositionsList[0].Longitude), Distance.FromMiles(1)));
             }
@@ -93,7 +95,6 @@ namespace GeoGo.ViewModel
                     DrawLine();
                 else if (geometryShape == "Polygon")
                     DrawPolygon();
-                
             }
         }
 
@@ -112,7 +113,6 @@ namespace GeoGo.ViewModel
         {
             // Clean Map Object
             myLine = null;
-            myPin = null;
             myPolygon = null;
 
             //init the line object

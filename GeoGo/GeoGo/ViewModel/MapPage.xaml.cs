@@ -47,6 +47,7 @@ namespace GeoGo
             base.OnAppearing();
             // Clean the PositionList in InsertDataPage, in order to provide better user experience
             InsertDataPage.PositionsList.Clear();
+            InsertDataPage.geometryShape = null;
             // Direct the map back to the user location
             RedirectMapToCurrentLocation();
             // Show all the geodata on map
@@ -63,23 +64,23 @@ namespace GeoGo
         }
 
         //Function for Drop pin on the map 
-        void DropPin(double lat, double lon, string lblName)
+        void DrawPoints(GeoData geoData)
         {
-            var pin = new Pin()
-            {
-                Type = PinType.Generic,
-                Label = lblName,
-                Address = String.Format("latitude : {0:F3}, longitude : {1:F3}", lat, lon),
-                Position = new Position(lat, lon)
-            };
-
-            // Drop Pin
-            myMap.Pins.Add(pin);
+            geoData.Coordinates.ForEach((Coordinate coordinate) =>
+                // Drop Pin
+                myMap.Pins.Add(new Pin()
+                {
+                    Type = PinType.Generic,
+                    Label = geoData.Name,
+                    Address = String.Format("latitude : {0:F3}, longitude : {1:F3}", coordinate.Latitude, coordinate.Longitude),
+                    Position = new Position(coordinate.Latitude, coordinate.Longitude)
+                })
+            );
 
         }
 
         // Function for drawing Line on the map
-        void DrawLine(List<Coordinate> coorList)
+        void DrawLine(GeoData geoData)
         {
             // Polyline object set up
             Polyline myLine = new Polyline {
@@ -90,7 +91,7 @@ namespace GeoGo
             };
 
             // Loop through the coordinate set for this GeoData object and put the coordinate to Polyline 
-            coorList.ForEach((Coordinate obj) => myLine.Positions.Add( new Position(obj.Latitude, obj.Longitude) ) );
+            geoData.Coordinates.ForEach((Coordinate obj) => myLine.Positions.Add( new Position(obj.Latitude, obj.Longitude) ) );
 
             // Draw the line on the map
             myMap.Polylines.Add(myLine);
@@ -98,7 +99,7 @@ namespace GeoGo
         }
 
         // function for drawing Polygon on the map
-        void DrawPolygon(List<Coordinate> coorList)
+        void DrawPolygon(GeoData geoData)
         {
             // Polygon object set up
             Polygon myPolygon = new Polygon 
@@ -111,7 +112,7 @@ namespace GeoGo
             };
 
             // Loop through the coordinate set for this GeoData object and put the coordinate to Polygon 
-            coorList.ForEach((Coordinate obj) => myPolygon.Positions.Add( new Position(obj.Latitude, obj.Longitude) ));
+            geoData.Coordinates.ForEach((Coordinate obj) => myPolygon.Positions.Add( new Position(obj.Latitude, obj.Longitude) ));
 
             // Draw the polygon on the map
             myMap.Polygons.Add(myPolygon);
@@ -122,22 +123,24 @@ namespace GeoGo
         void DisplayAllTheDataFromDatabase()
         {
             // Get All the Geodata from the database and loop it through one by one
-            LocalDatabase.GetAllGeoDataSet().ForEach((GeoData dataIndex) =>
+            LocalDatabase.GetAllGeoDataSet().ForEach((GeoData data) =>
             {
                 // A switch to detect this GeoData belongs to which type of Geometryshape and then draw it on map
-                switch(dataIndex.GeometryShape)
+                switch(data.GeometryShape)
                 {
                     case "Point":
-                        // Only one Coordinate Drop pin!
-                        DropPin(dataIndex.Coordinates[0].Latitude, dataIndex.Coordinates[0].Longitude, dataIndex.Name);
+                    case "MultiPoint":
+                        DrawPoints(data);
                         break;
-                    case "Line":
+
+                    case "LineString":
                         // Two Coordinate Object Draw Line
-                        DrawLine(dataIndex.Coordinates);
+                        DrawLine(data);
                         break;
+
                     case "Polygon":
                         // Three or more Coordinate Object Draw Polygon
-                        DrawPolygon(dataIndex.Coordinates);
+                        DrawPolygon(data);
                         break;
                 }
             });
