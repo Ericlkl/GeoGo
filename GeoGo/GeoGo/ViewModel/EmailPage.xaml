@@ -8,13 +8,23 @@
         <StackLayout Margin="20">
             <Label Text="To : "/>
             <Entry Placeholder="e.g. abc@gmail.com"
+                   Keyboard="Email"
                    x:Name="receiver_entry"/>
             
             <Label Text="Subject : "/>
             <Entry x:Name="Subject_Entry"/>
             
-            <Label Text="Attachment : xxx.json"/>
+            <Label Text="From : "/>
             
+            <Entry x:Name="sender_Entry" 
+                   Keyboard="Email"/>
+            
+            <Label Text="Password : "/>
+            <Entry x:Name="password_entry" 
+                   IsPassword="true"
+                   />
+            
+            <Label Text="Attachment : xxx.json"/>
             <Label Text="Body : "/>
             
             <StackLayout BackgroundColor="White">
