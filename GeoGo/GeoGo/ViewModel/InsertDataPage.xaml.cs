@@ -71,11 +71,6 @@ namespace GeoGo.ViewModel
 
             // Clean out all the Position data
             PositionsList.Clear();
-
-            // Clean Map Object
-            myLine = null;
-            myPin = null;
-            myPolygon = null;
         }
 
         // when the user clicked on the map, it will direct them to a larger map page to draw the shape
@@ -88,26 +83,17 @@ namespace GeoGo.ViewModel
         // A function to display the shape on this mini map
         public void DisplayShapeOnMiniMap()
         {
-            if (PositionsList.Count == 1)
+            CleanMap();
+
+            if (PositionsList.Count > 0)
             {
-                // If only one coordinate it will be a pin
-                DropPin(PositionsList[0].Latitude, PositionsList[0].Longitude);
-            }
-            else if (PositionsList.Count == 2)
-            {
-                // Clean the pin we just insert before, because this object will be a polygon or line
-                CleanMap();
-                // If only two coordinate it will be a line
-                DrawLine(PositionsList[1].Latitude, PositionsList[1].Longitude);
-            }
-            else if (PositionsList.Count >= 3)
-            {
-                // Clean the pin/line/polygon we just insert before, because this object must be a polygon
-                CleanMap();
-                DrawPolygon(PositionsList[PositionsList.Count - 1].Latitude, PositionsList[PositionsList.Count - 1].Longitude);
-            } else {
-                // Clean the pin/line/polygon
-                CleanMap();
+                if(geometryShape == "Point" || PositionsList.Count == 1)
+                    DrawPoint();
+                else if (geometryShape == "LineString" || PositionsList.Count == 2 )
+                    DrawLine();
+                else if (geometryShape == "Polygon")
+                    DrawPolygon();
+                
             }
         }
 
@@ -117,25 +103,17 @@ namespace GeoGo.ViewModel
             myMap.Polylines.Clear();
             myMap.Polygons.Clear();
             myMap.Pins.Clear();
+
+            ResetMapObjectValue();
+
         }
 
-        //Function for Drop pin on the map 
-        void DropPin(double lat, double lon)
+        void ResetMapObjectValue()
         {
-            // init the pin object
-            myPin = new Pin()
-            {
-                Label = String.Format("latitude : {0:F3}, longitude : {1:F3}",
-                         lat, lon),
-                Type = PinType.Generic,
-                Position = new Position(lat, lon)
-            };
-
-            // Drop this pin
-            myMap.Pins.Add(myPin);
-        }
-
-        void DrawLine(double lat, double lon){
+            // Clean Map Object
+            myLine = null;
+            myPin = null;
+            myPolygon = null;
 
             //init the line object
             myLine = new Polyline
@@ -146,21 +124,6 @@ namespace GeoGo.ViewModel
                 Tag = "POLYLINE"
             };
 
-            // add the old pin coordinate to line
-            myLine.Positions.Add(PositionsList[0]);
-            // add the new coordinate to line
-            myLine.Positions.Add(new Position(lat, lon));
-
-            //Draw line on the map
-            myMap.Polylines.Add(myLine);
-
-        }
-
-        void DrawPolygon(double lat, double lon)
-        {
-            // Clean the old data
-            myPolygon = null;
-
             //Initialize it to a new Polygon object
             myPolygon = new Polygon()
             {
@@ -170,13 +133,37 @@ namespace GeoGo.ViewModel
                 StrokeWidth = 3f,
                 Tag = "POLYGON"
             };
+        }
+
+        //Function for Drop pin on the map 
+        void DrawPoint()
+        {
+            PositionsList.ForEach( (Position position) =>
+                // Drop this pin
+                myMap.Pins.Add( new Pin()
+                {
+                    Label = String.Format("latitude : {0:F3}, longitude : {1:F3}", position.Latitude, position.Longitude),
+                    Type = PinType.Generic,
+                    Position = position
+                })
+            );
+        }
+
+        void DrawLine(){
+            // add the new coordinate to line
+            PositionsList.ForEach( (Position position) => myLine.Positions.Add(position) );
+
+            //Draw line on the map
+            myMap.Polylines.Add(myLine);
+
+        }
+
+        void DrawPolygon()
+        {
 
             // loop through the positionList to insert all the coordinate to the polygon
             PositionsList.ForEach((Position pos) => myPolygon.Positions.Add(pos));
             // insert the new coordinate to the polygon
-            myPolygon.Positions.Add( new Position(lat, lon));
-
-            // insert the first coordinate to link the last coordinate back to the start point
             myPolygon.Positions.Add(PositionsList[0]);
 
             // Draw polygon on the map
