@@ -13,17 +13,7 @@
             
             <Label Text="Subject : "/>
             <Entry x:Name="Subject_Entry"/>
-            
-            <Label Text="From : "/>
-            
-            <Entry x:Name="sender_Entry" 
-                   Keyboard="Email"/>
-            
-            <Label Text="Password : "/>
-            <Entry x:Name="password_entry" 
-                   IsPassword="true"
-                   />
-            
+           
             <Label Text="Attachment : xxx.json"/>
             <Label Text="Body : "/>
             
@@ -33,6 +23,7 @@
                     
                       <Editor x:Name="body_Editor"
                               HeightRequest="300"/>
+                    
                   </StackLayout>
             </StackLayout>
             

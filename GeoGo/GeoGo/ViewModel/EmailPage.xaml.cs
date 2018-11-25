@@ -4,8 +4,6 @@ using System.Net.Mail;
 using System.Net;
 using System.Net.Security;
 
-using Plugin.Messaging;
-
 using GeoGo.Model;
 using Newtonsoft.Json;
 
@@ -34,13 +32,22 @@ namespace GeoGo.ViewModel
         void SendBtn_Clicked(object sender, System.EventArgs e)
         {
 
-            var jsonString = GenerateGeoJsonString();
-            // Write , the second parameter determine overwrite the file or not
-            using (var streamWriter = new StreamWriter(filename, false))
-            {
-                streamWriter.Write(jsonString);
-            }
+            //var jsonString = GenerateGeoJsonString();
+            //// Write , the second parameter determine overwrite the file or not
+            //using (var streamWriter = new StreamWriter(filename, false))
+            //{
+            //    streamWriter.Write(jsonString);
+            //}
 
+            //var emailMessager = new EmailMessager(
+            //    receiver_entry.Text, 
+            //    body_Editor.Text, 
+            //    Subject_Entry.Text, 
+            //    filename);
+
+            //string message = emailMessager.SendEmail();
+
+            //DisplayAlert("Status", message, "Okay");
             SendEmail();
 
         }
@@ -76,7 +83,7 @@ namespace GeoGo.ViewModel
 
                 MailMessage mail = new MailMessage
                 {
-                    From = new MailAddress(sender_Entry.Text),
+                    From = new MailAddress("geogo.system@gmail.com"),
                     Subject = Subject_Entry.Text,
                     Body = body_Editor.Text,
                     IsBodyHtml = true
@@ -91,7 +98,7 @@ namespace GeoGo.ViewModel
                     Port = 587,
                     Host = "smtp.gmail.com",
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(sender_Entry.Text, password_entry.Text),
+                    Credentials = new NetworkCredential("geogo.system@gmail.com", "geo5system"),
                     EnableSsl = true
                 };
 
